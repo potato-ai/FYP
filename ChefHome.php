@@ -149,25 +149,25 @@ include "ChefHeader.php";
     }
 }
     
-    .card:nth-child(1){
-        animation:fadeIn .5s .5s backwards;
+.card:nth-child(1){
+        animation:fadeIn .5s 0.5s backwards;
     }
 
     .card:nth-child(2){
-        animation:fadeIn .5s 1s backwards;
+        animation:fadeIn .5s 0.5s backwards;
     }
 
     .card:nth-child(3){
-        animation:fadeIn .5s 1.5s backwards;
+        animation:fadeIn .5s 0.5s backwards;
     }
     .card:nth-child(4){
-        animation:fadeIn .5s 2s backwards;
+        animation:fadeIn .5s 0.5s backwards;
     }
     .card:nth-child(5){
-        animation:fadeIn .5s 2.5s backwards;
+        animation:fadeIn .5s 0.5s backwards;
     }
     .card:nth-child(6){
-        animation:fadeIn .5s 3s backwards;
+        animation:fadeIn .5s 0.5s backwards;
     }
 
     .card:hover{
