@@ -16,9 +16,9 @@ session_start();
 <nav class="navbar navbar-inverse navbar-static-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Restaurantholic</a>
+      <a class="navbar-brand" href="#"><p style="font-family: 'Times New Roman', Times, serif; font-size: 20px">Restaurantholic</p></a>
     </div>
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav" style="font-family: 'Times New Roman', Times, serif; font-size: 20px">
       <li class="active"><a href="#">Home</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Functions <span class="caret"></span></a>
         <ul class="dropdown-menu">
