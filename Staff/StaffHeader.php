@@ -19,18 +19,17 @@ session_start();
       <a class="navbar-brand" href="ChefHome.php"><p style="font-family: 'Times New Roman', Times, serif; font-size: 20px">Restaurantholic</p></a>
     </div>
     <ul class="nav navbar-nav" style="font-family: 'Times New Roman', Times, serif; font-size: 20px">
-      <li class="active"><a href="ChefHome.php">Home</a></li>
+      <li class="active"><a href="StaffHome.php">Home</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Functions <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Receive Order</a></li>
-          <li><a href="#">Menu Availability</a></li>
+          <li><a href="#">View Menu</a></li>
+          <li><a href="#">Table Order</a></li>
           <li><a href="#">Edit Profile</a></li>
         </ul>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
     </ul>
   </div>
 </nav>
