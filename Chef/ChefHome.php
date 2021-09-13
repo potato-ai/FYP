@@ -197,7 +197,7 @@ a{
                 <p class="about">
                     Receive Orders from the staffs
                 </p>
-                <a href="ChefOrders.php"><div class="btn">Receive Orders</div></a>
+                <a href="ChefOrder.php"><div class="btn">Receive Orders</div></a>
             </div>
 
             <div class="card">
