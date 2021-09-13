@@ -192,30 +192,30 @@ a{
     <section>
     <div class="card-wrapper">
             <div class="card">
-                <img src="image/receiveorder.jpg" alt="card backgroud" class="card-img">
-                <h1>Receive Orders</h1>
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Edit Menu</h1>
                 <p class="about">
-                    Receive Orders from the staffs
+                    Edit the Current Menu
                 </p>
-                <a href="ChefOrders.php"><div class="btn">Receive Orders</div></a>
+                <a href="#"><div class="btn">Edit Menu</div></a>
             </div>
 
             <div class="card">
-                <img src="image/menuavailability.jpg" alt="card backgroud" class="card-img">
-                <h1>Menu Availability</h1>
+                <img src="../image/TableOrder.jpg" alt="card backgroud" class="card-img">
+                <h1>Table Order</h1>
                 <p class="about">
-                    Check Menu Availability
+                    Places order for a table
                 </p>
-                <a href="DessertAvailability.php"><div class="btn">Menu Availability</div></a>
+                <a href="#"><div class="btn">Table Order</div></a>
             </div>
 
             <div class="card">
-                <img src="image/editprofilechef.jpg" alt="card backgroud" class="card-img">
-                <h1>Edit Profile</h1>
+                <img src="../image/tableManagement.jpg" alt="card backgroud" class="card-img">
+                <h1>Table Management</h1>
                 <p class="about">
-                    Edit personal details
+                    Edit the amount of table
                 </p>
-                <a href="ChefEditProfile.php"><div class="btn">Edit Profile</div></a>
+                <a href="#"><div class="btn">Table Management</div></a>
             </div>
 
 
@@ -228,39 +228,39 @@ a{
     <section>
         <div class="card-wrapper">
                 <div class="card">
-                    <img src="image/receiveorder.jpg" alt="card backgroud" class="card-img">
-                    <h1>Receive Orders</h1>
+                    <img src="../image/generateReport.jpg" alt="card backgroud" class="card-img">
+                    <h1>Generate Report</h1>
                     <p class="about">
-                        Receive Orders from the staffs
+                        Generate progress report
                     </p>
-                    <a href="ChefOrders.php"><div class="btn">Receive Orders</div></a>
+                    <a href="#"><div class="btn">Generate Report</div></a>
                 </div>
     
                 <div class="card">
-                    <img src="image/menuavailability.jpg" alt="card backgroud" class="card-img">
-                    <h1>Menu Availability</h1>
+                    <img src="../image/generateBill.jpg" alt="card backgroud" class="card-img">
+                    <h1>Generate Bill</h1>
                     <p class="about">
-                        Check Menu Availability
+                        Generate Order History
                     </p>
-                    <a href="DessertAvailability.php"><div class="btn">Menu Availability</div></a>
+                    <a href="#"><div class="btn">Generate Bill</div></a>
                 </div>
     
                 <div class="card">
-                    <img src="image/editprofilechef.jpg" alt="card backgroud" class="card-img">
-                    <h1>Edit Profile</h1>
+                    <img src="../image/manageUsers.jpg" alt="card backgroud" class="card-img">
+                    <h1>Manage Users</h1>
                     <p class="about">
-                        Edit personal details
+                        Manage Staffs Profile
                     </p>
-                    <a href="ChefEditProfile.php"><div class="btn">Edit Profile</div></a>
+                    <a href="#"><div class="btn">Manage Users</div></a>
                 </div>
 
                 <div class="card">
-                <img src="image/editprofilechef.jpg" alt="card backgroud" class="card-img">
+                <img src="../image/editprofilechef.jpg" alt="card backgroud" class="card-img">
                 <h1>Edit Profile</h1>
                 <p class="about">
                     Edit personal details
                 </p>
-                <a href="ChefEditProfile.php"><div class="btn">Edit Profile</div></a>
+                <a href="#"><div class="btn">Edit Profile</div></a>
             </div>
         </div>
     
