@@ -88,6 +88,25 @@ include "StaffHeader.php";
     padding-left: 1vw;
 }
 
+.container {  
+    width:20vw;
+    font-family: 'Oleo Script';
+    padding: 1rem 2.5rem;
+    background-color:#0B0742;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    text-transform:uppercase;
+    font-size: 1.4rem;
+    align-items: center;
+    align-content: center;
+}  
+
+button {  
+    background-color: lightblue;  
+    color: black;  
+
+}  
+
 .card .btn{
     padding: 1rem 2.5rem;
     background-color:#0B0742;
@@ -208,6 +227,11 @@ a{
                 <a href="Drinks.php"><div class="btn">View</div></a>
             </div>
     </div>
+    
+    <center>
+    <div class="container">
+    <a href="StaffHome.php"><div class="button" style="color:#fdc094">Return To The Previous Page</div></a>
+    </center>
 
 
     </section>
