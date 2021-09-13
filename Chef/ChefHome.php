@@ -213,7 +213,7 @@ a{
                 <img src="image/editprofilechef.jpg" alt="card backgroud" class="card-img">
                 <h1>Edit Profile</h1>
                 <p class="about">
-                    Edit personal details
+                    Edit Personal Details
                 </p>
                 <a href="ChefEditProfile.php"><div class="btn">Edit Profile</div></a>
             </div>
