@@ -192,7 +192,7 @@ a{
     <section>
     <div class="card-wrapper">
             <div class="card">
-                <img src="image/receiveorder.jpg" alt="card backgroud" class="card-img">
+                <img src="../image/ViewMenu.jpg" alt="card backgroud" class="card-img">
                 <h1>View Menu</h1>
                 <p class="about">
                     View the food that is available
@@ -201,21 +201,59 @@ a{
             </div>
 
             <div class="card">
-                <img src="image/menuavailability.jpg" alt="card backgroud" class="card-img">
+                <img src="../image/TableOrder.jpg" alt="card backgroud" class="card-img">
                 <h1>Table Order</h1>
                 <p class="about">
                     Places order for a table
                 </p>
-                <a href="DessertAvailability.php"><div class="btn">Table Order</div></a>
+                <a href="TableAvailable.php"><div class="btn">Table Order</div></a>
             </div>
 
             <div class="card">
-                <img src="image/editprofilechef.jpg" alt="card backgroud" class="card-img">
+                <img src="../image/editprofilechef.jpg" alt="card backgroud" class="card-img">
                 <h1>Edit Profile</h1>
                 <p class="about">
                     Edit personal details
                 </p>
-                <a href="ChefEditProfile.php"><div class="btn">Edit Profile</div></a>
+                <a href="StaffEditProfile.php"><div class="btn">Edit Profile</div></a>
+            </div>
+    </div>
+
+    </section>
+
+    <div class="text">
+        <span class="border">
+            Kitchen Progress Notification:
+        </span>
+</div>
+
+<section>
+    <div class="card-wrapper">
+            <div class="card">
+                <img src="../image/ViewMenu.jpg" alt="card backgroud" class="card-img">
+                <h1>View Menu</h1>
+                <p class="about">
+                    View the food that is available
+                </p>
+                <a href="StaffMenu.php"><div class="btn">View Orders</div></a>
+            </div>
+
+            <div class="card">
+                <img src="../image/TableOrder.jpg" alt="card backgroud" class="card-img">
+                <h1>Table Order</h1>
+                <p class="about">
+                    Places order for a table
+                </p>
+                <a href="TableAvailable.php"><div class="btn">Table Order</div></a>
+            </div>
+
+            <div class="card">
+                <img src="../image/editprofilechef.jpg" alt="card backgroud" class="card-img">
+                <h1>Edit Profile</h1>
+                <p class="about">
+                    Edit personal details
+                </p>
+                <a href="StaffEditProfile.php"><div class="btn">Edit Profile</div></a>
             </div>
     </div>
 
