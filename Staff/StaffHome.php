@@ -1,12 +1,13 @@
 <?php
-include "ChefHeader.php";
+include "StaffHeader.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chef's Service</title>
+    <title>Staff's Service</title>
     
     <style>
     body{
@@ -183,7 +184,7 @@ a{
 <div class="img1">
 <div class="text">
         <span class="border">
-            Chef's Services
+            Staff's Services
         </span>
 </div>
 </div>
@@ -192,20 +193,20 @@ a{
     <div class="card-wrapper">
             <div class="card">
                 <img src="image/receiveorder.jpg" alt="card backgroud" class="card-img">
-                <h1>Receive Orders</h1>
+                <h1>View Menu</h1>
                 <p class="about">
-                    Receive Orders from the staffs
+                    View the food that is available
                 </p>
-                <a href="ChefOrders.php"><div class="btn">Receive Orders</div></a>
+                <a href="StaffMenu.php"><div class="btn">View Orders</div></a>
             </div>
 
             <div class="card">
                 <img src="image/menuavailability.jpg" alt="card backgroud" class="card-img">
-                <h1>Menu Availability</h1>
+                <h1>Table Order</h1>
                 <p class="about">
-                    Check Menu Availability
+                    Places order for a table
                 </p>
-                <a href="DessertAvailability.php"><div class="btn">Menu Availability</div></a>
+                <a href="DessertAvailability.php"><div class="btn">Table Order</div></a>
             </div>
 
             <div class="card">
