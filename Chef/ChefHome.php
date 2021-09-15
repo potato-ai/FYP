@@ -206,7 +206,7 @@ a{
                 <p class="about">
                     Check Menu Availability
                 </p>
-                <a href="DessertAvailability.php"><div class="btn">Menu Availability</div></a>
+                <a href="MenuAvailability.php"><div class="btn">Menu Availability</div></a>
             </div>
 
             <div class="card">

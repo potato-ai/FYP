@@ -386,7 +386,6 @@ a{
 <body>
   
   <div class="img">
-  //HERE
   
     <div class="text">
         <span class="border">
@@ -400,14 +399,15 @@ a{
   <form action="UpdateAvailability.php" method="post">
       <?php
 
-      include "conn.php";
+      include "connectdb.php";
 
-      $sql = "SELECT Item_ID, Item_Name, Availability, Image_Path FROM items WHERE MainID = 1;";
+      $sql = "SELECT Item_ID, Item_Name, Availability, Image FROM item WHERE Main_ID = 1;";
       $result = mysqli_query($conn, $sql);
 
       if (mysqli_num_rows($result) <= 0) {
           echo "<script>alert('There are no desserts.');</script>";
-      } else {
+      } 
+      else {
         echo"
         <h1>Waffle</h1>
         <div class='menu'>
@@ -424,12 +424,11 @@ a{
               <img width='200vw' height='160vw' src="\SDPFinal\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
                   <h1><?php echo $item_name; ?></h1></br>
                     <label class="switch">
-                      <input type ="checkbox" name ="item_id[]" value="<?php echo $item_id.',';?>" <?php if($availability=="Available"){echo "checked";}?>>
+                      <input type ="checkbox" name ="item_id[]" value="<?php echo $item_id.',';?>" <?php if($availability == "Available"){echo "checked";}?>>
                       <span class = "slider round"></span>
                     </label>
           </br>
           </div>
- 
               
                   <?php
 
@@ -443,7 +442,9 @@ a{
           
                 if (mysqli_num_rows($result) <= 0) {
                     echo "<script>alert('There are no desserts.');</script>";
-                } else {
+            
+                } 
+                else {
                   echo"
                   <h1>Dessert</h1>
                   <div class='menu'>
@@ -479,7 +480,8 @@ a{
                     
                           if (mysqli_num_rows($result) <= 0) {
                               echo "<script>alert('There are no desserts.');</script>";
-                          } else {
+                          } 
+                          else {
                             echo"
                             <h1>Drinks</h1>
                             <div class='menu'>

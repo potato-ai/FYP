@@ -217,13 +217,13 @@ a{
 </div>
 
 <?php
-include "conn.php";
-$sql="SELECT Order_ID, Order_ItemID, Item_ID, Item_Name, Remarks, Ordered_Item_Status, Quantity from ordered_items where Ordered_Item_Status ='cooking'";
+include "connectdb.php";
+$sql="SELECT OrderItem_ID, Item_ID,  Order_ID, Item_Name, Comments, OrderedItem_Status, Quantity from order_item where OrderedItem_Status ='cooking'";
 $result=mysqli_query($conn,$sql);
 
     if(mysqli_num_rows($result)<=0){
         echo "<script>alert('There are no Orders.');</script>";
-        echo "<script>window.location.href='ChefService.php';</script>";
+        echo "<script>window.location.href='ChefHome.php';</script>";
     }
         
     else{
