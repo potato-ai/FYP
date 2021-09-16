@@ -22,8 +22,12 @@ session_start();
       <li class="active"><a href="ChefHome.php">Home</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Functions <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Receive Order</a></li>
-          <li><a href="#">Menu Availability</a></li>
+          <li><a href="#">Edit Menu</a></li>
+          <li><a href="#">Table Order</a></li>
+          <li><a href="#">Table Management</a></li>
+          <li><a href="#">Generate Report</a></li>
+          <li><a href="#">Generate Bill</a></li>
+          <li><a href="#">Manage Users</a></li>
           <li><a href="#">Edit Profile</a></li>
         </ul>
       </li>
