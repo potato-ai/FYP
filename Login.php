@@ -42,12 +42,24 @@ if(!empty($_POST['userEmail']) && !empty($_POST['userPassword'])){
     
     if(mysqli_num_rows($result) === 1){
         $row = mysqli_fetch_assoc($result);
-        if($row['Email'] === $useremail && $row['Password'] == $userpassword){
+        if($row['Email'] === $useremail && $row['Password'] == $userpassword && $row['Position'] == "Chef"){
                 $_SESSION['User_ID'] = $row['User_ID'];
                 header("Location: ChefHome.php");
                 exit();
             
         }
+        elseif($row['Email'] === $useremail && $row['Password'] == $userpassword && $row['Position'] == "Staff"){
+            $_SESSION['User_ID'] = $row['User_ID'];
+                header("Location: StaffHome.php");
+                exit();
+        }
+
+        elseif($row['Email'] === $useremail && $row['Password'] == $userpassword && $row['Position'] == "Manager"){
+            $_SESSION['User_ID'] = $row['User_ID'];
+                header("Location: ManagerHome.php");
+                exit();
+        }
+        
     }
     else{
         echo "<script>alert('Account does not exist')</script>";
