@@ -1,18 +1,19 @@
 <?php
-  include "ChefHeader.php";
+  include "StaffHeader.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu Availabilty</title>
+  <title>Main Course Availabilty</title>
   <style>
-  body h1{
-    font-family:'Oleo Script';
-    font-size: 500%;
-  }
-
+      body{
+    background-image: url();
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: #EDF6F9;
+}
 .dessert{
       width:80%;
       height:auto;
@@ -142,8 +143,8 @@ border-radius: 50%;
 }
 
 .text .border{
-    background-color:#120C6E;
-    color:#fff;
+    background-color:transparent;
+    color:black;
     padding:20px;
 }
 
@@ -152,8 +153,9 @@ border-radius: 50%;
 }
 
 .img{
-    
-    min-height: 65%;
+    background-image:url(../image/MainCourse.jpg);
+    min-height: 100%;
+    margin-top: -25px;
 }
 
 .img{
@@ -223,11 +225,7 @@ input[type = "button"]:active{
 }
     
 .bg{
-    background-color: lavenderblush;
-}
-
-body{
-    background-color: lavenderblush;
+    background-color: #EDF6F9;
 }
 
 a{
@@ -235,8 +233,8 @@ a{
 }
 
 .text{
-    position:absolute;
-    padding-top:10vh;
+    position:relative;
+    top:30%;
     width:100%;
     text-align:center;
     color:#000;
@@ -244,12 +242,14 @@ a{
     letter-spacing:8px;
     text-transform: uppercase;
     font-family: 'Oleo Script';
+    padding:50px;
+
 }
 
 .text .border{
-    background-color:#0B0742;
-    color:#fdc094;
-    padding:20px;    
+    background-color:#EDF6F9;
+    padding:20px;
+    
 }
 
 .text .border.trans{
@@ -288,7 +288,6 @@ a{
     font-size:2.5rem;
     color: #333;
     margin:1.5rem 0;
-    font-family:'Oleo Script';
 }
 
 .about{
@@ -386,7 +385,6 @@ a{
 <body>
   
   <div class="img">
-  
     <div class="text">
         <span class="border">
             MENU AVAILABILITY
@@ -394,23 +392,23 @@ a{
     </div>
 </div>
 
+
+
 <section class="bg">
   <center>
   <form action="UpdateAvailability.php" method="post">
       <?php
 
-      include "../FYP/connectdb.php";
+      include "connectdb.php";
 
-      $sql = "SELECT Item_ID, Item_Name, Availability, Image FROM item WHERE Main_ID = 1;";
+      $id = $_GET['id'];
+      $sql = "SELECT Item_ID, Item_Name, Availability, Image FROM item WHERE Main_ID = $id;";
       $result = mysqli_query($conn, $sql);
 
       if (mysqli_num_rows($result) <= 0) {
           echo "<script>alert('There are no desserts.');</script>";
-      } 
-      else {
-        echo"
-        <h1>Waffle</h1>
-        <div class='menu'>
+      } else {
+        echo"<div class='menu'>
         <section>
         <div class='card-wrapper'>";
    
@@ -418,17 +416,18 @@ a{
               $item_id = $rows['Item_ID'];
               $item_name = $rows['Item_Name'];
               $availability = $rows['Availability'];
-              $image = $rows['Image_Path'];
+              $image = $rows['Image'];
               ?>
             <div class='card'>
-              <img width='200vw' height='160vw' src="\SDPFinal\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
+              <img width='200vw' height='160vw' src="\FYP\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
                   <h1><?php echo $item_name; ?></h1></br>
                     <label class="switch">
-                      <input type ="checkbox" name ="item_id[]" value="<?php echo $item_id.',';?>" <?php if($availability == "Available"){echo "checked";}?>>
+                      <input type ="checkbox" name ="item_id[]" value="<?php echo $item_id.',';?>" <?php if($availability=="Available"){echo "checked";}?>>
                       <span class = "slider round"></span>
                     </label>
           </br>
           </div>
+ 
               
                   <?php
 
@@ -436,93 +435,16 @@ a{
                 echo"</div>
                 </section>
                 </div>"; }
-
-                $sql1 = "SELECT Item_ID, Item_Name, Availability, Image_Path FROM items WHERE MainID = 2;";
-                $result = mysqli_query($conn, $sql1);
-          
-                if (mysqli_num_rows($result) <= 0) {
-                    echo "<script>alert('There are no desserts.');</script>";
-            
-                } 
-                else {
-                  echo"
-                  <h1>Dessert</h1>
-                  <div class='menu'>
-                  <section>
-                  <div class='card-wrapper'>";
-             
-                    while ($rows = mysqli_fetch_array($result)) {
-                        $item_id = $rows['Item_ID'];
-                        $item_name = $rows['Item_Name'];
-                        $availability = $rows['Availability'];
-                        $image = $rows['Image_Path'];
-                        ?>
-                      <div class='card'>
-                        <img width='200vw' height='160vw' src="\SDPFinal\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
-                            <h1><?php echo $item_name; ?></h1></br>
-                              <label class="switch">
-                                <input type ="checkbox" name ="item_id[]" value="<?php echo $item_id.',';?>" <?php if($availability=="Available"){echo "checked";}?>>
-                                <span class = "slider round"></span>
-                              </label>
-                    </br>
-                    </div>
-           
-                        
-                            <?php
-          
-                          }
-                          echo"</div>
-                          </section>
-                          </div>"; }
-
-                          $sql2 = "SELECT Item_ID, Item_Name, Availability, Image_Path FROM items WHERE MainID = 3;";
-                          $result = mysqli_query($conn, $sql2);
-                    
-                          if (mysqli_num_rows($result) <= 0) {
-                              echo "<script>alert('There are no desserts.');</script>";
-                          } 
-                          else {
-                            echo"
-                            <h1>Drinks</h1>
-                            <div class='menu'>
-                            <section>
-                            <div class='card-wrapper'>";
-                       
-                              while ($rows = mysqli_fetch_array($result)) {
-                                  $item_id = $rows['Item_ID'];
-                                  $item_name = $rows['Item_Name'];
-                                  $availability = $rows['Availability'];
-                                  $image = $rows['Image_Path'];
-                                  ?>
-                                <div class='card'>
-                                  <img width='200vw' height='160vw' src="\SDPFinal\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
-                                      <h1><?php echo $item_name; ?></h1></br>
-                                        <label class="switch">
-                                          <input type ="checkbox" name ="item_id[]" value="<?php echo $item_id.',';?>" <?php if($availability=="Available"){echo "checked";}?>>
-                                          <span class = "slider round"></span>
-                                        </label>
-                              </br>
-                              </div>
-                     
-                                  
-                                      <?php
-                    
-                                    }
-                                    echo"</div>
-                                    </section>
-                                    </div>"; }
                 ?> 
 
 <table>
 
-    <tr rowspan="2">
-    <td><center><input type="submit" value="Save Changes"></a></center></td>
-    <td><center><a href="ChefService.php"><input type="button" value="Back" class="btn3"></a></center></td>
+    <tr>
+    <td><center><a href="ViewMenu.php"><input type="button" value="Back" class="btn3"></a></center></td>
     </tr>
     </table>
     </form>
     </center>
 </section>
 </body>
-
 </html>

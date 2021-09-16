@@ -11,7 +11,7 @@ if(!$conn){
     echo "Database is not connected ". "<br>";
 }
 else{
-    echo "Database is connected";
+    echo "";
 }
 
 ?>

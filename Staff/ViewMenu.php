@@ -54,6 +54,7 @@ include "StaffHeader.php";
 
 .card{
     width: 25vw;
+    height:20vw;
     background-color:#ebeef8;
     display: flex;
     flex-direction: column;
@@ -208,25 +209,32 @@ a{
 </div>
 
 <section>
-    <div class="card-wrapper">
-            <div class="card">
-                <img src="../image/MainCourse.jpg" alt="card backgroud" class="card-img">
-                <h1>Main Course / Entrées</h1>
-                <a href="MainCourse.php"><div class="btn">View</div></a>
-            </div>
 
-            <div class="card">
-                <img src="../image/Dessert.jpg" alt="card backgroud" class="card-img">
-                <h1>Dessert</h1>
-                <a href="Dessert.php"><div class="btn">View</div></a>
-            </div>
-
-            <div class="card">
-                <img src="../image/Drinks.jpg" alt="card backgroud" class="card-img">
-                <h1>Drinks</h1>
-                <a href="Drinks.php"><div class="btn">View</div></a>
-            </div>
-    </div>
+<?php
+		
+        include "connectdb.php";
+        $sql = "SELECT * FROM main_menu";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_num_rows($result);
+        if($row<=0)
+        {
+            echo "<script>alert('No Result!');</script>";
+        }
+        else
+        {
+            echo "<div class='card-wrapper'>";
+        }
+        while($rows = mysqli_fetch_array($result))
+			{
+                echo"
+                
+                        <div class='card'>
+                            <h1>".$rows['Menu_Name']."</h1>
+                            <a href='Menu.php?id=".$rows['Main_ID']."'><div class='btn'>View</div></a>
+                        </div>";
+            }
+            echo "</div>";
+        ?>
 
     <center>
     <div class="container">
