@@ -179,6 +179,25 @@ a{
     text-decoration:none;
 }
 
+.container {  
+    width:20vw;
+    font-family: 'Oleo Script';
+    padding: 1.5rem 2.5rem;
+    background-color:#0B0742;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    text-transform:uppercase;
+    font-size: 1.5rem;
+    align-items: center;
+    align-content: center;
+}  
+
+button {  
+    background-color: lightblue;  
+    color: black;  
+
+}  
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -454,6 +473,15 @@ input:checked + .slider:before {
     </div>
     </section>
 
+    <center>
+    <div class="container" style="margin-bottom: 15px; width:5vw;">
+    <a href="#"><div class="button" style="color:#fdc094">Save</div></a>
+    </center>
+
+    <center>
+    <div class="container" style="margin-bottom: 20px;">
+    <a href="EditMenu.php"><div class="button" style="color:#fdc094">Return To The Previous Page</div></a>
+    </center>
 
 </body>
 </html>

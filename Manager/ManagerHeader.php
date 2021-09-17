@@ -22,13 +22,13 @@ session_start();
       <li class="active"><a href="ManagerHome.php">Home</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Functions <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Edit Menu</a></li>
-          <li><a href="#">Table Order</a></li>
-          <li><a href="#">Table Management</a></li>
-          <li><a href="#">Generate Report</a></li>
-          <li><a href="#">Generate Bill</a></li>
-          <li><a href="#">Manage Users</a></li>
-          <li><a href="#">Edit Profile</a></li>
+          <li><a href="EditMenu.php">Edit Menu</a></li>
+          <li><a href="TableOrder.php">Table Order</a></li>
+          <li><a href="TableManagement.php">Table Management</a></li>
+          <li><a href="GenerateReport.php">Generate Report</a></li>
+          <li><a href="GenerateBill.php">Generate Bill</a></li>
+          <li><a href="ManageUsers.php">Manage Users</a></li>
+          <li><a href="EditProfile.php">Edit Profile</a></li>
         </ul>
       </li>
     </ul>
