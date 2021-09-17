@@ -225,7 +225,7 @@ a{
                 <p class="about">
                     Edit Personal Details
                 </p>
-                <a href="ChefEditProfile.php"><div class="btn">Edit Profile</div></a>
+                <a href="ChefProfile.php"><div class="btn">Edit Profile</div></a>
             </div>
     </div>
 

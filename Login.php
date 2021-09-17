@@ -42,19 +42,19 @@ if(!empty($_POST['userEmail']) && !empty($_POST['userPassword'])){
     
     if(mysqli_num_rows($result) === 1){
         $row = mysqli_fetch_assoc($result);
-        if($row['Email'] === $useremail && $row['Password'] == $userpassword && $row['Position'] == "Chef"){
+        if($row['Email'] === $useremail && $row['Password'] == $userpassword && $row['Position'] == "Chef" && $row['Position'] == "chef"){
                 $_SESSION['User_ID'] = $row['User_ID'];
                 header("Location: ChefHome.php");
                 exit();
             
         }
-        elseif($row['Email'] === $useremail && $row['Password'] == $userpassword && $row['Position'] == "Staff"){
+        elseif($row['Email'] === $useremail && $row['Password'] == $userpassword && $row['Position'] == "Staff" && $row['Position'] == "staff"){
             $_SESSION['User_ID'] = $row['User_ID'];
                 header("Location: StaffHome.php");
                 exit();
         }
 
-        elseif($row['Email'] === $useremail && $row['Password'] == $userpassword && $row['Position'] == "Manager"){
+        elseif($row['Email'] === $useremail && $row['Password'] == $userpassword && $row['Position'] == "Manager" $row['Position'] == "manager"){
             $_SESSION['User_ID'] = $row['User_ID'];
                 header("Location: ManagerHome.php");
                 exit();
@@ -62,7 +62,7 @@ if(!empty($_POST['userEmail']) && !empty($_POST['userPassword'])){
         
     }
     else{
-        echo "<script>alert('Account does not exist')</script>";
+        echo "<script>alert('Account does not exist or incorrect password')</script>";
         echo "<script>window.location.href = 'login.php'</script>";
     }
 
