@@ -38,7 +38,7 @@ if(isset($_SESSION['User_ID'])) {
         }
 
         if(empty($_POST['phonenumber'])){
-            $error['phonenumber'] = "Full Name is required";
+            $error['phonenumber'] = "Phone Number is required";
         }
         else{
             $phonenumber = $_POST['phonenumber'];
@@ -206,28 +206,29 @@ if(isset($_SESSION['User_ID'])) {
 				<div class="form-group">
 					<label for="fullName">Full Name</label>
 					<input type="text" class="form-control" id="fullName" name="fullname" placeholder="Enter full name" style="font-size: 12px;" value="<?php echo $row["Name"]?>">
-                    <div style="color: red; font-size: 20px;"><?php echo $error['fullname'] ?></div>
+                    <div style="color: red; font-size: 12px;"><?php echo $error['fullname'] ?></div>
 				</div>
 			</div>
+
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
-					<label for="eMail">Email</label>
+					<label for="email">Email</label>
 					<input type="email" class="form-control" id="eMail" name="email" placeholder="Enter email ID" style="font-size: 12px;" value="<?php echo $row["Email"]?>">
-                    <div style="color: red; font-size: 20px;"><?php echo $error['email'] ?></div>
+                    <div style="color: red; font-size: 12px;"><?php echo $error['email'] ?></div>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="phone">Phone</label>
 					<input type="text" class="form-control" id="phone" name="phonenumber" placeholder="Enter phone number" style="font-size: 12px;" value="<?php echo $row["PhoneNumber"]?>">
-                    <div style="color: red; font-size: 20px;"><?php echo $error['phonenumber'] ?></div>
+                    <div style="color: red; font-size: 12px;"><?php echo $error['phonenumber'] ?></div>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="password">Password</label>
 					<input type="password" class="form-control" id="password" name="password" placeholder="Password" style="font-size: 12px;" value="<?php echo $row["Password"]?>">
-                    <div style="color: red; font-size: 20px;"><?php echo $error['password'] ?></div>
+                    <div style="color: red; font-size: 12px;"><?php echo $error['password'] ?></div>
 				</div>
 			</div>
 		</div>
@@ -240,21 +241,21 @@ if(isset($_SESSION['User_ID'])) {
 				<div class="form-group">
 					<label for="sq1">SQ1</label>
 					<input type="name" class="form-control" id="sq1" name="sq1" placeholder="Enter Answer for Security Question 1" style="font-size: 12px;" value="<?php echo $row["SecurityQs1"]?>">
-                    <div style="color: red; font-size: 20px;"><?php echo $error['sq1'] ?></div>
+                    <div style="color: red; font-size: 12px;"><?php echo $error['sq1'] ?></div>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="sq2">SQ2</label>
 					<input type="name" class="form-control" id="sq2" name="sq2" placeholder="Enter Answer for Security Question 2" style="font-size: 12px;" value="<?php echo $row["SecurityQs2"]?>">
-                    <div style="color: red; font-size: 20px;"><?php echo $error['sq2'] ?></div>
+                    <div style="color: red; font-size: 12px;"><?php echo $error['sq2'] ?></div>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="sq3">SQ3</label>
 					<input type="text" class="form-control" id="sq3" name="sq3" placeholder="Enter Answer for Security Question 3" style="font-size: 12px;" value="<?php echo $row["SecurityQs3"]?>">
-                    <div style="color: red; font-size: 20px;"><?php echo $error['sq3'] ?></div>
+                    <div style="color: red; font-size: 12px;"><?php echo $error['sq3'] ?></div>
 				</div>
 			</div>
 		</div>
