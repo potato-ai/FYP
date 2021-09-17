@@ -189,43 +189,93 @@ a{
         </span>
 </div>
 </div>
+<section class="section section-light">
+<form action="EditMenu.php" method="post" class="search">
+			<input type="text" name="search_key" placeholder="Enter Name Keyword!"/>
+			<input type="submit" value="Search"/>
+			<br />
+		</form>
 
+<?php
 
-<div class="container">
-  <h2>Bootstrap Table Example</h2>
-  <table class="table -----------">  // try by adding different table class at this place => ("-----------")
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Age</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Ram</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Shyam</td>
-        <td>12</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Ramesh</td>
-        <td>13</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>Suresh</td>
-        <td>11</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+                    include "connectdb.php";
+                    
+                    $search_key = isset($_POST['search_key'])?
+			$_POST['search_key']:'';
+	
+			$sql = "SELECT * FROM item WHERE Item_Name LIKE '%".
+			$search_key. "%'";
+			$result=mysqli_query($conn, $sql);
+	
+			if(mysqli_num_rows($result) <= 0)
+			{
+			echo "<script>alert('No Result!');</script>";
+			}
+			else
+			{
+			}
+                            echo "<table class='table table-bordered table-striped'>";
+                                echo "<thead>";
+                                    echo "<tr>";
+                                        echo "<th>ID</th>";
+                                        echo "<th>Item Name</th>";
+                                        echo "<th>Price</th>";
+                                        echo "<th>Availability</th>";
+                                        echo "<th>Image</th>";
+                                        echo "<th>Edit</th>";
+                                    echo "</tr>";
+                                echo "</thead>";
+                                echo "<tbody>";
+                                while($row = mysqli_fetch_array($result)){
+                                    echo "<tr>";
+                                        echo "<td>" . $row['Item_ID'] . "</td>";
+                                        echo "<td>" . $row['Item_Name'] . "</td>";
+                                        echo "<td>" . $row['Price'] . "</td>";
+                                        echo "<td>" . $row['Availability'] . "</td>";
+                                        echo "<td id='photo'>
+            <div class='image-preview' id='imagePreview'>
+            <img src = '".$row['Image']."' width='100vw' height='80vw' alt = 'Image Preview' class='image-preview__image'/>
+            <span class='image-preview__default-text'></span>
+            </div></td>";
+			echo "<td><a href='EditFood.php?id=".$row['Item_ID']."'<button>Edit</button></a></td>";
+			echo "</tr>";
+			}
+			echo "</table>";
+			echo "</center>";
+		?>
+		<br/>
+		<a href='AddFood.php'><button class="insert">Add New Food</button></a><a href="Selection.php"><input type="button"value="Back to Previous Page" /></a>
+</section>
+<script>
+const photo = document.getElementById("photo");
+const previewContainer = document.getElementById("imagePreview");
+const previewImage =  previewContainer.querySelector(".image-preview__image");
+const previewDefaultText =  previewContainer.querySelector(".image-preview__default-text");
 
+photo.addEventListener("change", function(){
+    const file =  this.files[0];
+
+    if(file){
+        const reader = new FileReader();
+
+        previewDefaultText.style.display="none";
+        previewImage.style.display = "block";
+
+        reader.addEventListener("load", function(){
+           // console.log(this);
+            previewImage.setAttribute("src", this.result);
+
+        });
+        reader.readAsDataURL(file);
+    }else{
+        previewDefaultText.style.display="null";
+        previewImage.style.display = "null";
+        previewImage.setAttribute("src", "");
+    }
+
+});
+
+</script>	
 
 </body>
 </html>
