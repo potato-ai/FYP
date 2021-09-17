@@ -244,11 +244,6 @@ input:checked + .slider:before {
 
 
 
-
-
-
-
-
 </style>
 </head>
 <body>
@@ -260,12 +255,204 @@ input:checked + .slider:before {
 </div>
 </div>
 
-<label class="switch">
+<!-- <label class="switch">
   <input type="checkbox">
   <span class="slider round"></span>
-</label>
+</label> -->
 
 
+<div class="img1">
+<div class="text">
+        <span class="border">
+            Main Cousine
+        </span>
+</div>
+</div>
+<section>
+    <div class="card-wrapper">
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+
+ 
+
+    </div>
+    </section>
+    
+
+<div class="img1">
+<div class="text">
+        <span class="border">
+            Dessert
+        </span>
+</div>
+</div>
+
+    <section>
+    <div class="card-wrapper">
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+
+ 
+
+    </div>
+    </section>
+
+
+    <div class="img1">
+<div class="text">
+        <span class="border">
+            Drinks
+        </span>
+</div>
+</div>
+
+    <section>
+    <div class="card-wrapper">
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="card">
+                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Chicken Rice</h1>
+                <label class="switch" style="margin-bottom: 15px;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+
+ 
+
+    </div>
+    </section>
 
 
 </body>
