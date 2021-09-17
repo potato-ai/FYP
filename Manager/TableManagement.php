@@ -189,6 +189,7 @@ a{
   margin-left: 10%;
   display: flex;
   flex-direction: row;
+  font-size: 15px;
 }
 
 .circle{
