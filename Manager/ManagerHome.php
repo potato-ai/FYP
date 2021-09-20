@@ -197,7 +197,7 @@ a{
                 <p class="about">
                     Edit the Current Menu
                 </p>
-                <a href="#"><div class="btn">Edit Menu</div></a>
+                <a href="EditMenu.php"><div class="btn">Edit Menu</div></a>
             </div>
 
             <div class="card">
@@ -206,7 +206,7 @@ a{
                 <p class="about">
                     Places order for a table
                 </p>
-                <a href="#"><div class="btn">Table Order</div></a>
+                <a href="TableOrder.php"><div class="btn">Table Order</div></a>
             </div>
 
             <div class="card">
@@ -215,7 +215,7 @@ a{
                 <p class="about">
                     Edit the amount of table
                 </p>
-                <a href="#"><div class="btn">Table Management</div></a>
+                <a href="TableManagement.php"><div class="btn">Table Management</div></a>
             </div>
 
 
@@ -233,7 +233,7 @@ a{
                     <p class="about">
                         Generate progress report
                     </p>
-                    <a href="#"><div class="btn">Generate Report</div></a>
+                    <a href="GenerateReportMenu.php"><div class="btn">Generate Report</div></a>
                 </div>
     
                 <div class="card">
@@ -242,7 +242,7 @@ a{
                     <p class="about">
                         Generate Order History
                     </p>
-                    <a href="#"><div class="btn">Generate Bill</div></a>
+                    <a href="GenerateBill.php"><div class="btn">Generate Bill</div></a>
                 </div>
     
                 <div class="card">
@@ -251,7 +251,7 @@ a{
                     <p class="about">
                         Manage Staffs Profile
                     </p>
-                    <a href="#"><div class="btn">Manage Users</div></a>
+                    <a href="ManageUsers.php"><div class="btn">Manage Users</div></a>
                 </div>
 
                 <div class="card">
@@ -260,7 +260,7 @@ a{
                 <p class="about">
                     Edit personal details
                 </p>
-                <a href="#"><div class="btn">Edit Profile</div></a>
+                <a href="EditProfile.php"><div class="btn">Edit Profile</div></a>
             </div>
         </div>
     

@@ -25,7 +25,7 @@ session_start();
           <li><a href="EditMenu.php">Edit Menu</a></li>
           <li><a href="TableOrder.php">Table Order</a></li>
           <li><a href="TableManagement.php">Table Management</a></li>
-          <li><a href="GenerateReport.php">Generate Report</a></li>
+          <li><a href="GenerateReportMenu.php">Generate Report</a></li>
           <li><a href="GenerateBill.php">Generate Bill</a></li>
           <li><a href="ManageUsers.php">Manage Users</a></li>
           <li><a href="EditProfile.php">Edit Profile</a></li>

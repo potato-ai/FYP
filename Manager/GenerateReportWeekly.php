@@ -184,35 +184,7 @@ a{
 <div class="img1">
 <div class="text">
         <span class="border">
-            Edit Menu
+            Weekly Report
         </span>
 </div>
 </div>
-
-
-<section>
-    <div class="card-wrapper">
-            <div class="card">
-                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
-                <h1>Edit Menu Details</h1>
-                <p class="about">
-                    Edit the Current Menu
-                </p>
-                <a href="EditMenuDetails.php"><div class="btn">Edit Menu Details</div></a>
-            </div>
-
-            <div class="card">
-                <img src="../image/TableOrder.jpg" alt="card backgroud" class="card-img">
-                <h1>Edit Menu Availability</h1>
-                <p class="about">
-                Check Menu Availability
-                </p>
-                <a href="EditMenuAvailability.php"><div class="btn">Edit Availability</div></a>
-            </div>
-    </div>
-</section>
-
-
-
-</body>
-</html>

@@ -184,7 +184,7 @@ a{
 <div class="img1">
 <div class="text">
         <span class="border">
-            Edit Menu
+            Generate Report
         </span>
 </div>
 </div>
@@ -193,26 +193,42 @@ a{
 <section>
     <div class="card-wrapper">
             <div class="card">
-                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
-                <h1>Edit Menu Details</h1>
-                <p class="about">
-                    Edit the Current Menu
-                </p>
-                <a href="EditMenuDetails.php"><div class="btn">Edit Menu Details</div></a>
+            <br><br><br>
+                <h1>Daily Report</h1><br>
+                <a href="GenerateReportDaily.php"><div class="btn">Generate</div></a>
+                <br>
             </div>
 
             <div class="card">
-                <img src="../image/TableOrder.jpg" alt="card backgroud" class="card-img">
-                <h1>Edit Menu Availability</h1>
-                <p class="about">
-                Check Menu Availability
-                </p>
-                <a href="EditMenuAvailability.php"><div class="btn">Edit Availability</div></a>
+            <br><br><br>
+                <h1>Weekly Report</h1><br>
+                <a href="GenerateReportWeekly.php"><div class="btn">Generate</div></a>
+                <br>
+            </div>
+
+            <div class="card">
+            <br><br><br>
+                <h1>Monthly Report</h1><br>
+                <a href="GenerateReportMonthly.php"><div class="btn">Generate</div></a>
+                <br>
             </div>
     </div>
-</section>
+    </section>
+<section>
+    <div class="card-wrapper">
+            <div class="card">
+            <br><br><br>
+                <h1>Yearly Report</h1><br>
+                <a href="GenerateReportYearly.php"><div class="btn">Generate</div></a>
+                <br>
+            </div>
 
+            <div class="card">
+            <br><br><br>
+                <h1>Food Report</h1><br>
+                <a href="GenerateFoodReport.php"><div class="btn">Generate</div></a>
+                <br>
+            </div>
 
-
-</body>
-</html>
+    </div>
+    </section>
