@@ -8,39 +8,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu Availabilty</title>
   <style>
+
+
   body h1{
     font-family:'Oleo Script';
-    font-size: 500%;
+    font-size: 300%;
+    margin-top:10%;
   }
-
-.dessert{
-      width:80%;
-      height:auto;
-      align-items:center;
-      text-align: center;
-      border-collapse: collapse;
-}
-
-.dessert td, .dessert th{
-    padding: 8px;
-}
-
-.dessert  tr{
-    background-color: #dedede;
-}
-          
-.dessert  tr:hover {
-	background-color: #FDC094;
-	transition:0.25s;
-}
-          
-.dessert th {
-	padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #FF9190;
-    color: white;
-}
 
     .switch{
   position: relative;
@@ -103,14 +77,14 @@ border-radius: 50%;
 }
 
 .categories{
-    padding-top:3vh ;
+    padding-top:3vh;
 }
 
 .btn3{
     width:5vw;
     font-family: 'Oleo Script';
     padding: 1rem 2.5rem;
-    background-color:#0B0742;
+    background-color:#ffffff;
     border-radius: 2rem;
     margin: 1rem 0;
     text-transform:uppercase;
@@ -222,13 +196,7 @@ input[type = "button"]:active{
     box-shadow: none;
 }
     
-.bg{
-    background-color: lavenderblush;
-}
 
-body{
-    background-color: lavenderblush;
-}
 
 a{
     text-decoration: none;
@@ -236,7 +204,7 @@ a{
 
 .text{
     position:absolute;
-    padding-top:10vh;
+    padding-top:5vh;
     width:100%;
     text-align:center;
     color:#000;
@@ -247,14 +215,16 @@ a{
 }
 
 .text .border{
-    background-color:#0B0742;
-    color:#fdc094;
-    padding:20px;    
+    background-color: #EDF6F9;;
+    color:#000000;
+    padding:20px;
+
 }
 
 .text .border.trans{
     background-color:  transparent;
 }
+
 
 .card-wrapper{
     display:flex;
@@ -344,7 +314,7 @@ a{
 }
     
     .card:nth-child(1){
-        animation:fadeIn .5s .5s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
 
     .card:nth-child(2){
@@ -352,28 +322,28 @@ a{
     }
 
     .card:nth-child(3){
-        animation:fadeIn .5s 1.5s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
     .card:nth-child(4){
-        animation:fadeIn .5s 2s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
     .card:nth-child(5){
-        animation:fadeIn .5s 2.5s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
     .card:nth-child(6){
-        animation:fadeIn .5s 3s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
     .card:nth-child(7){
-        animation:fadeIn .5s 3.5s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
     .card:nth-child(8){
-        animation:fadeIn .5s 4s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
     .card:nth-child(9){
-        animation:fadeIn .5s 4.5s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
     .card:nth-child(10){
-        animation:fadeIn .5s 5s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
 
     .card:hover{
@@ -383,7 +353,7 @@ a{
 
   </style>
 </head>
-<body>
+<body style="background-color:#EDF6F9;">
   
   <div class="img">
   
@@ -394,22 +364,22 @@ a{
     </div>
 </div>
 
-<section class="bg">
+<section class="bg" style="background-color:#EDF6F9;">
   <center>
   <form action="UpdateAvailability.php" method="post">
       <?php
 
-      include "../FYP/connectdb.php";
+      include "connectdb.php";
 
       $sql = "SELECT Item_ID, Item_Name, Availability, Image FROM item WHERE Main_ID = 1;";
       $result = mysqli_query($conn, $sql);
 
       if (mysqli_num_rows($result) <= 0) {
-          echo "<script>alert('There are no desserts.');</script>";
+          echo "<script>alert('There are no food.');</script>";
       } 
       else {
         echo"
-        <h1>Waffle</h1>
+        <h1>Main Course</h1>
         <div class='menu'>
         <section>
         <div class='card-wrapper'>";
@@ -418,92 +388,17 @@ a{
               $item_id = $rows['Item_ID'];
               $item_name = $rows['Item_Name'];
               $availability = $rows['Availability'];
-              $image = $rows['Image_Path'];
+              $image = $rows['Image'];
               ?>
             <div class='card'>
-              <img width='200vw' height='160vw' src="\SDPFinal\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
+              <img width='200vw' height='160vw' src="\FYP\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
                   <h1><?php echo $item_name; ?></h1></br>
                     <label class="switch">
                       <input type ="checkbox" name ="item_id[]" value="<?php echo $item_id.',';?>" <?php if($availability == "Available"){echo "checked";}?>>
                       <span class = "slider round"></span>
                     </label>
           </br>
-          </div>
-              
-                  <?php
-
-                }
-                echo"</div>
-                </section>
-                </div>"; }
-
-                $sql1 = "SELECT Item_ID, Item_Name, Availability, Image_Path FROM items WHERE MainID = 2;";
-                $result = mysqli_query($conn, $sql1);
-          
-                if (mysqli_num_rows($result) <= 0) {
-                    echo "<script>alert('There are no desserts.');</script>";
-            
-                } 
-                else {
-                  echo"
-                  <h1>Dessert</h1>
-                  <div class='menu'>
-                  <section>
-                  <div class='card-wrapper'>";
-             
-                    while ($rows = mysqli_fetch_array($result)) {
-                        $item_id = $rows['Item_ID'];
-                        $item_name = $rows['Item_Name'];
-                        $availability = $rows['Availability'];
-                        $image = $rows['Image_Path'];
-                        ?>
-                      <div class='card'>
-                        <img width='200vw' height='160vw' src="\SDPFinal\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
-                            <h1><?php echo $item_name; ?></h1></br>
-                              <label class="switch">
-                                <input type ="checkbox" name ="item_id[]" value="<?php echo $item_id.',';?>" <?php if($availability=="Available"){echo "checked";}?>>
-                                <span class = "slider round"></span>
-                              </label>
-                    </br>
-                    </div>
-           
-                        
-                            <?php
-          
-                          }
-                          echo"</div>
-                          </section>
-                          </div>"; }
-
-                          $sql2 = "SELECT Item_ID, Item_Name, Availability, Image_Path FROM items WHERE MainID = 3;";
-                          $result = mysqli_query($conn, $sql2);
-                    
-                          if (mysqli_num_rows($result) <= 0) {
-                              echo "<script>alert('There are no desserts.');</script>";
-                          } 
-                          else {
-                            echo"
-                            <h1>Drinks</h1>
-                            <div class='menu'>
-                            <section>
-                            <div class='card-wrapper'>";
-                       
-                              while ($rows = mysqli_fetch_array($result)) {
-                                  $item_id = $rows['Item_ID'];
-                                  $item_name = $rows['Item_Name'];
-                                  $availability = $rows['Availability'];
-                                  $image = $rows['Image_Path'];
-                                  ?>
-                                <div class='card'>
-                                  <img width='200vw' height='160vw' src="\SDPFinal\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
-                                      <h1><?php echo $item_name; ?></h1></br>
-                                        <label class="switch">
-                                          <input type ="checkbox" name ="item_id[]" value="<?php echo $item_id.',';?>" <?php if($availability=="Available"){echo "checked";}?>>
-                                          <span class = "slider round"></span>
-                                        </label>
-                              </br>
-                              </div>
-                     
+          </div>                    
                                   
                                       <?php
                     
@@ -514,10 +409,9 @@ a{
                 ?> 
 
 <table>
-
     <tr rowspan="2">
-    <td><center><input type="submit" value="Save Changes"></a></center></td>
-    <td><center><a href="ChefService.php"><input type="button" value="Back" class="btn3"></a></center></td>
+    <td><center><input type="submit" value="Save Changes" class="saveBtn"></a></center></td>
+    <td><center><a href="ChefHome.php"><input type="button" value="Back" class="btn3"></a></center></td>
     </tr>
     </table>
     </form>
