@@ -7,6 +7,7 @@ include "ManagerHeader.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Manager's Service</title>
     
     <style>
@@ -23,6 +24,40 @@ include "ManagerHeader.php";
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.Search input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+form.Search button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: black;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.Search button:hover {
+  background: grey;
+}
+
+form.Search::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .text{
@@ -366,10 +401,10 @@ table {
 </div>
 </div>
 <section class="section section-light">
-<form action="EditMenuDetails.php" method="post" class="search">
+<form action="EditMenuDetails.php" method="post" class="Search" style="margin:auto;margin-bottom:15px;max-width:300px">
 			<input type="text" name="search_key" placeholder="Enter Name Keyword!"/>
-			<input type="submit" value="Search"/>
-			<br />
+            <button type="submit"><i class="fa fa-search"></i></button>
+<br/>
 		</form>
         <section>
 
