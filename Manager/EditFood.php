@@ -264,7 +264,7 @@ a{
 <form method="post" action="UpdateFood.php">
 <div class="wrapper">
 <div class="left">
-        <?php echo"<img src = '".$rows['Image']."' width='150' alt = 'Image Preview'/>";?>
+        <?php echo"<img src = '".$rows['Image']."' width='200' alt = 'Image Preview'/>";?>
     </div>
     <div class="right">
         <div class="info">
