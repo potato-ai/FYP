@@ -388,7 +388,7 @@ button {
 <input type="date" name="date" id="date">
 
 <button type="submit" onclick="searchDate()" class="button container" style="color:#fdc094; margin-bottom: 15px; width:9vw; text-align:center;">Generate</button>
-<a href="#"><button class="button container" style="color:#fdc094; margin-bottom: 15px; width:7vw; text-align:center;">Back</button></a>
+<a href="GenerateReportMenu.php"><button class="button container" style="color:#fdc094; margin-bottom: 15px; width:7vw; text-align:center;">Back</button></a>
 </form>
 
 <section>
@@ -402,10 +402,20 @@ button {
 <?php
 
             include "connectdb.php";
-                    
+
+
             if(!empty($_POST["date"])){
                 $date=$_POST["date"];
-                echo "<center><h3>$date</h3></center>";
+
+
+//extract day month year form combined date
+$time=strtotime($date);
+$day=date("l",$time);
+$month=date("m",$time);
+$monthFull=date("F",$time);
+$year=date("Y",$time);
+
+                echo "<center><h3>$date $day</h3></center>";
                 
 
 
