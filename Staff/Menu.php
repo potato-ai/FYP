@@ -384,7 +384,6 @@ a{
 </head>
 <body>
   
-  <div class="img">
     <div class="text">
         <span class="border">
             MENU AVAILABILITY
@@ -421,10 +420,8 @@ a{
             <div class='card'>
               <img width='200vw' height='160vw' src="\FYP\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
                   <h1><?php echo $item_name; ?></h1></br>
-                    <label class="switch">
-                      <input type ="checkbox" name ="item_id[]" value="<?php echo $item_id.',';?>" <?php if($availability=="Available"){echo "checked";}?>>
-                      <span class = "slider round"></span>
-                    </label>
+                      <h1><?php echo $availability?></h1>
+
           </br>
           </div>
  

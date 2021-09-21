@@ -352,6 +352,7 @@ table {
 .table > colgroup + thead > tr:first-child > td,
 .table > thead:first-child > tr:first-child > td {
   border-top: 0;
+
 }
 .table > tbody + tbody {
   border-top: 2px solid #ddd;

@@ -197,7 +197,7 @@ a{
                 <p class="about">
                     View the food that is available
                 </p>
-                <a href="ViewMenu.php"><div class="btn">View Orders</div></a>
+                <a href="ViewMenu.php"><div class="btn">View Menu</div></a>
             </div>
 
             <div class="card">
@@ -235,7 +235,7 @@ a{
                 <p class="about">
                     View the food that is available
                 </p>
-                <a href="StaffMenu.php"><div class="btn">View Orders</div></a>
+                <a href="StaffMenu.php"><div class="btn">View Menu</div></a>
             </div>
 
             <div class="card">
