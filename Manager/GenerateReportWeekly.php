@@ -178,6 +178,180 @@ include "ManagerHeader.php";
 a{
     text-decoration:none;
 }
+
+
+.wrapper{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .page-header h2{
+            margin-top: 0;
+        }
+        table tr td:last-child a{
+            margin-right: 15px;
+        }
+        .btn {
+            color:white;
+            background-color: #686767;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            padding: .5rem 1rem;
+            transition: all .3s;
+            float: right
+        }
+
+        .btn:hover{
+            background-color: rgba(158, 158, 158, 0.87);
+            transition: all .3s;
+        }
+        .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container-fluid > .navbar-header,
+.container-fluid > .navbar-collapse {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.container-fluid{
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 6px;
+}
+
+.container-fluid:before,
+.container-fluid:after{
+    display: table;
+    content: " ";
+}
+
+.container-fluid:after{
+    clear: both;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.row:before,
+.row:after{
+    display: table;
+    content: " ";
+}
+
+.row:after{
+    clear: both;
+}
+
+.col-md-12{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    border-collapse: collapse !important;
+    background-color: transparent;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.table td,
+.table th {
+  background-color: #fff !important;
+  text-align: center;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+.table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+.table .table {
+  background-color: #fff;
+}
+
+.table-bordered {
+    border: 1px solid #ddd;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #ddd !important;
+}
+
+.table-bordered {
+    border: 1px solid #ddd;
+}
+
+  .table-bordered > thead > tr > th,
+  .table-bordered > tbody > tr > th,
+  .table-bordered > tfoot > tr > th,
+  .table-bordered > thead > tr > td,
+  .table-bordered > tbody > tr > td,
+  .table-bordered > tfoot > tr > td {
+    border: 1px solid #ddd;
+}
+  .table-bordered > thead > tr > th,
+  .table-bordered > thead > tr > td {
+    border-bottom-width: 2px;
+}
+  .table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+
+.container {  
+    width:20vw;
+    font-family: 'Oleo Script';
+    padding: 1.5rem 2.5rem;
+    background-color:#0B0742;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    text-transform:uppercase;
+    font-size: 1.5rem;
+    align-items: center;
+    align-content: center;
+}  
+
+button {  
+    background-color: lightblue;  
+    color: black;  
+
+} 
+
 </style>
 </head>
 <body>
@@ -188,3 +362,173 @@ a{
         </span>
 </div>
 </div>
+
+
+
+<script>
+    function searchDate(){
+        var x = document.getElementById("date").value;
+        if (x === ""){
+            alert("Please Insert A Date");
+        }else{
+            var date = new Date();
+            var month = date.getUTCMonth() + 1;
+            var day = date.getUTCDate();
+            var year = date.getUTCFullYear();
+        }
+    }
+</script>
+
+
+<section style="text-align: center;">
+<form action="GenerateReportWeekly.php" method="POST">
+
+<div>
+<label for="date">Date Of Report</label><br>
+<input type="date" name="date" id="date">
+
+<button type="submit" onclick="searchDate()" class="button container" style="color:#fdc094; margin-bottom: 15px; width:9vw; text-align:center;">Generate</button>
+<a href="#"><button class="button container" style="color:#fdc094; margin-bottom: 15px; width:7vw; text-align:center;">Back</button></a>
+</form>
+
+<section>
+
+<div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+
+
+<?php
+
+            include "connectdb.php";
+                    
+            if(!empty($_POST["date"])){
+                $date=$_POST["date"];
+                echo "<center><h3>$date</h3></center>";
+                
+
+
+
+
+            $sql ="SELECT item.Item_Name, SUM(report_usage.Quantity)AS Total_Quantity, SUM(report_usage.Amount) AS Total_Amount, report_usage.Date FROM item LEFT JOIN report_usage ON report_usage.Item_ID = item.Item_ID AND report_usage.Date ='".$date."' GROUP BY item.Item_ID ORDER BY SUM(report_usage.Quantity) DESC, SUM(report_usage.Amount) DESC;";
+			$result=mysqli_query($conn, $sql);
+	
+
+			if(mysqli_num_rows($result) <= 0)
+			{
+			echo "<script>alert('No Result!');</script>";
+			}
+			else
+			{
+			}
+                        echo "<table class='table table-bordered table-striped'>";
+                                echo "<thead>";
+                                    echo "<tr>";
+                                        echo "<th>Item Name</th>";
+                                        echo "<th>Quantity</th>";
+                                        echo "<th>Total Amount</th>";
+                                    echo "</tr>";
+                                echo "</thead>";
+                                echo "<tbody>";
+                                while($row = mysqli_fetch_array($result)){
+                                    if($row['Total_Amount'] === NULL){
+                                        $row['Total_Amount'] =  number_format(0.00,2);
+                                    }
+                                        else{
+                                            $row['Total_Amount'] =  number_format($row['Total_Amount'],2); 
+                                        }
+                                        
+                                        if($row['Total_Quantity'] === NULL){
+                                            $row['Total_Quantity'] = 0; 
+                                            }
+                                         
+                                    echo "<tr>";
+                                        echo "<td>" . $row['Item_Name'] . "</td>";
+                                        echo "<td>" . $row['Total_Quantity'] . "</td>";
+                                        echo "<td>" . $row['Total_Amount'] . "</td>";
+			echo "</tr>";
+			}
+			echo "</table>";
+
+        }
+?>
+
+</section>
+
+
+<section>
+
+<div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+
+
+<?php
+
+    include "connectdb.php";
+                    
+    if(!empty($_POST["date"])){
+        $date=$_POST["date"];
+        
+
+//extract day month year form combined date
+$time=strtotime($date);
+$day=date("j",$time);
+$month=date("m",$time);
+$monthFull=date("F",$time);
+$year=date("Y",$time);
+
+
+$sql = "SELECT SUM(Quantity) AS Total_Quantity, SUM(Amount) AS Total_Amount, DAYNAME(Date) AS Day, MONTHNAME(Date) AS Month, YEAR(Date) AS Year FROM report_usage WHERE MONTH(Date)='".$month."' AND YEAR(Date) = '".$year."' GROUP BY DAYNAME(Date);";
+$result=mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result) > 0)
+    {
+
+        echo "<center><h3>Weekly Report Summary in $monthFull $year</h3></center>";
+
+        echo "<table class='table table-bordered table-striped'>";
+        echo "<thead>";
+            echo "<tr>";
+                echo "<th>Day</th>";
+                echo "<th>Total Quantity</th>";
+                echo "<th>Total Amount</th>";
+            echo "</tr>";
+        echo "</thead>";
+        echo "<tbody>";
+        while($row = mysqli_fetch_array($result)){
+            if($row['Total_Amount'] === NULL){
+                $row['Total_Amount'] =  number_format(0.00,2);
+            }
+                else{
+                    $row['Total_Amount'] =  number_format($row['Total_Amount'],2); 
+                }
+                
+                if($row['Total_Quantity'] === NULL){
+                    $row['Total_Quantity'] = 0; 
+                    }
+                 
+            echo "<tr>";
+                echo "<td>" . $row['Day'] . "</td>";
+                echo "<td>" . $row['Total_Quantity'] . "</td>";
+                echo "<td>" . $row['Total_Amount'] . "</td>";
+echo "</tr>";
+}
+echo "</table>";
+
+    }
+    else
+    {
+    }
+    echo "<script>alert('No Result For Weekly Summary');</script>";
+
+}
+
+?>
+
+</section>
+
+</body>
+</html>
