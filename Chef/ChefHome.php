@@ -8,6 +8,7 @@ if(isset($_SESSION['User_ID'])) {
         $row = mysqli_fetch_assoc($result);
         $row['Name'];
         
+        
     }
 
 ?>

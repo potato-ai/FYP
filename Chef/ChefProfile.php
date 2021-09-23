@@ -182,7 +182,6 @@ if(isset($_SESSION['User_ID'])) {
 	<div class="card-body">
 		<div class="account-settings">
 			<div class="user-profile">
-				
 				<h3 class="user-name"><?php echo $row["Name"]?></h3>
 				<h5 class="sub-user">Email: <?php echo $row["Email"]?></h5>
                 <h5 class="sub-user">Phone Number: <?php echo $row["PhoneNumber"]?></h5>
