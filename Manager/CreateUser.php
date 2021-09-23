@@ -134,21 +134,21 @@ if(!empty($_POST['userEmail']) && !empty($_POST['userPassword'])){
                 </div>
                 <div class="col-lg-7 px-5 pt-5">
 
-                    <h1 class="fw-bold py-3">Welcome</h1>
-                    <h4>Sign in to your account</h4>
+                    <h1 class="fw-bold py-3">Hello Newbie</h1>
+                    <h4>Sign up new account</h4>
 
-                    <form action="Login.php" method="POST">
+                    <form action="CreateUser.php" method="POST">
 
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <input type="email" class="form-control my-3 p-3" name = "userEmail" placeholder="Email Address">
-                                <div style="color: red; font-size: 20px;"><?php echo $error['userEmail'] ?></div>
+                                <input type="email" class="form-control my-3 p-3" name = "userEmail" placeholder="Email Address" required>
+                                
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <input type="password" class="form-control my-3 p-3" name = "userPassword" placeholder="Password">
-                                <div style="color: red; font-size: 20px;"><?php echo $error['userPassword'] ?></div>
+                                <input type="password" class="form-control my-3 p-3" name = "userPassword" placeholder="Password" required>
+                                
                             </div>
                         </div>
                         <div class="form-row">
