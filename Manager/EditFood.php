@@ -202,8 +202,6 @@ width:300px;
 min-height:100px;
 border: 2px solid #dddddd;
 margin-top:15px;
-
-/*Default text*/
 display:flex;
 align-items:center;
 justify-content: center;

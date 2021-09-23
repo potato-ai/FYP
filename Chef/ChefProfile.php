@@ -75,10 +75,9 @@ if(isset($_SESSION['User_ID'])) {
             $sq3 = $_POST['sq3'];
         }
 
-        if(!array_filter($error)){
-            echo "<script>alert('Your details are updated!')</script>";
     
-            $sql1 = "UPDATE user SET Name = '$fullname', Email = '$email', PhoneNumber = '$phonenumber',  Password = '$password', SecurityQs1 = '$sq1', SecurityQs2 = 'sq2', SecurityQs3 = 'sq3' WHERE User_ID = '{$_SESSION['User_ID']}'";
+    
+            $sql1 = "UPDATE user SET Name = '$fullname', Email = '$email', PhoneNumber = '$phonenumber',  Password = '$password', SecurityQs1 = '$sq1', SecurityQs2 = '$sq2', SecurityQs3 = '$sq3' WHERE User_ID = '{$_SESSION['User_ID']}'";
             $results = mysqli_query($conn,$sql1);
                 if ($results){
                     header("Location: ChefProfile.php");
@@ -86,7 +85,7 @@ if(isset($_SESSION['User_ID'])) {
                     //error
                     echo "Query error: ". mysqli_error($conn);// showing the database connection error
                 }
-            }
+            
     }//close update if
 
     if(isset($_POST['cancel'])){
@@ -183,7 +182,6 @@ if(isset($_SESSION['User_ID'])) {
 	<div class="card-body">
 		<div class="account-settings">
 			<div class="user-profile">
-				
 				<h3 class="user-name"><?php echo $row["Name"]?></h3>
 				<h5 class="sub-user">Email: <?php echo $row["Email"]?></h5>
                 <h5 class="sub-user">Phone Number: <?php echo $row["PhoneNumber"]?></h5>
@@ -205,30 +203,30 @@ if(isset($_SESSION['User_ID'])) {
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="fullName">Full Name</label>
-					<input type="text" class="form-control" id="fullName" name="fullname" placeholder="Enter full name" style="font-size: 12px;" value="<?php echo $row["Name"]?>">
-                    <div style="color: red; font-size: 12px;"><?php echo $error['fullname'] ?></div>
+					<input type="text" class="form-control" id="fullName" name="fullname" placeholder="Enter full name" style="font-size: 12px;" value="<?php echo $row["Name"]?>" required>
+                    
 				</div>
 			</div>
 
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" class="form-control" id="eMail" name="email" placeholder="Enter email ID" style="font-size: 12px;" value="<?php echo $row["Email"]?>">
-                    <div style="color: red; font-size: 12px;"><?php echo $error['email'] ?></div>
+					<input type="email" class="form-control" id="eMail" name="email" placeholder="Enter email ID" style="font-size: 12px;" pattern="^[a-zA-Z0-9]+@(gmail|imail|outlook|hotmail|yahoo)\.com$" title="userName@gmail/imail/outlook/hotmail/yahoo.com" value="<?php echo $row["Email"]?>" required>
+                    
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="phone">Phone</label>
-					<input type="text" class="form-control" id="phone" name="phonenumber" placeholder="Enter phone number" style="font-size: 12px;" value="<?php echo $row["PhoneNumber"]?>">
-                    <div style="color: red; font-size: 12px;"><?php echo $error['phonenumber'] ?></div>
+					<input type="text" class="form-control" id="phone" name="phonenumber" placeholder="Enter phone number" style="font-size: 12px;" pattern="(01)[0-9]{8,9}$" title="Example: 0123456789/01234567890" value="<?php echo $row["PhoneNumber"]?>" required>
+                    
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="password">Password</label>
-					<input type="password" class="form-control" id="password" name="password" placeholder="Password" style="font-size: 12px;" value="<?php echo $row["Password"]?>">
-                    <div style="color: red; font-size: 12px;"><?php echo $error['password'] ?></div>
+					<input type="password" class="form-control" id="password" name="password" placeholder="Password" style="font-size: 12px;" value="<?php echo $row["Password"]?>" required>
+                    
 				</div>
 			</div>
 		</div>
@@ -239,23 +237,23 @@ if(isset($_SESSION['User_ID'])) {
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
-					<label for="sq1">SQ1</label>
-					<input type="name" class="form-control" id="sq1" name="sq1" placeholder="Enter Answer for Security Question 1" style="font-size: 12px;" value="<?php echo $row["SecurityQs1"]?>">
-                    <div style="color: red; font-size: 12px;"><?php echo $error['sq1'] ?></div>
+					<label for="sq1">Favourite color</label>
+					<input type="text" class="form-control" id="sq1" name="sq1" placeholder="Enter Answer for Security Question 1" style="font-size: 12px;" value="<?php echo $row["SecurityQs1"]?>" required>
+                    
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
-					<label for="sq2">SQ2</label>
-					<input type="name" class="form-control" id="sq2" name="sq2" placeholder="Enter Answer for Security Question 2" style="font-size: 12px;" value="<?php echo $row["SecurityQs2"]?>">
-                    <div style="color: red; font-size: 12px;"><?php echo $error['sq2'] ?></div>
+					<label for="sq2">Favourite food</label>
+					<input type="text" class="form-control" id="sq2" name="sq2" placeholder="Enter Answer for Security Question 2" style="font-size: 12px;" value="<?php echo $row["SecurityQs2"]?>" required>
+                    
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
-					<label for="sq3">SQ3</label>
-					<input type="text" class="form-control" id="sq3" name="sq3" placeholder="Enter Answer for Security Question 3" style="font-size: 12px;" value="<?php echo $row["SecurityQs3"]?>">
-                    <div style="color: red; font-size: 12px;"><?php echo $error['sq3'] ?></div>
+					<label for="sq3">Favourite activity</label>
+					<input type="text" class="form-control" id="sq3" name="sq3" placeholder="Enter Answer for Security Question 3" style="font-size: 12px;" value="<?php echo $row["SecurityQs3"]?>" required>
+                    
 				</div>
 			</div>
 		</div>
