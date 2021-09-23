@@ -206,7 +206,7 @@ a{
 	font-weight:1000;
 }
 
-.button{
+/* .button{
     margin-left: 25px;
     margin-top: 80px;
     background-color: #4CAF50;
@@ -221,7 +221,26 @@ a{
 
     height: 50px;
     width: 100px;
-}
+} */
+
+.container {  
+    width:20vw;
+    font-family: 'Oleo Script';
+    padding: 1.5rem 2.5rem;
+    background-color:#0B0742;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    text-transform:uppercase;
+    font-size: 1.5rem;
+    align-items: center;
+    align-content: center;
+}  
+
+button {  
+    background-color: lightblue;  
+    color: black;  
+
+} 
 
 .button1{
     margin-left: 25px;
@@ -239,6 +258,31 @@ a{
     height: 50px;
     width: 100px;
 }
+
+
+
+/* table 2 test  */
+
+span.blue {
+  background: #3366CC;
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.6em;
+  margin-right: 15px;
+  text-align: center;
+  width: 1.6em; 
+  
+}
+
+.blue{
+    font-size: 100px;
+    margin:10px;
+    
+}
 </style>
 </head>
 <body>
@@ -251,7 +295,7 @@ a{
 </div>
 </div>
 
-
+<!-- 
   <div class="table">
     <div class="circle">1</div>
     <div class="circle">2</div>
@@ -270,9 +314,78 @@ a{
     <div class="circle">8</div>
     
   </div>
+ -->
 
 
-  <!-- PHP GOES HERE!!!!! -->
+ <center><h1><span class="blue">1</span><span class="blue">2</span><span class="blue">3</span><span class="blue">4</span></h1><center>
+     <br>
+ <center><h1><span class="blue">5</span><span class="blue">6</span><span class="blue">7</span><span class="blue">8</span></h1><center>
+     <br>
+
+
+<?php 
+
+include "connectdb.php";
+
+				$sql = "SELECT * FROM tables WHERE Table_ID = '9' AND Table_ID = '10' AND Table_ID = '11' AND Table_ID = '12' AND Display = 'shown' ";
+				$show = mysqli_query($conn,$sql);
+				
+				if (mysqli_num_rows($show) > 0)
+				{
+				// echo "<center><h1><span class='blue'>9</span><span class='blue'>10</span><span class='blue'>11</span><span class='blue'>12</span></h1><center>";
+				echo "<h1>test</h1>";
+				}
+				else{
+
+                }
+							
+?>
+
+
+
+<table >
+		<tr>
+			<td><h1><span class="blue">5</span><span class="blue">6</span><span class="blue">7</span><span class="blue">8</span></h1></td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>6</td>
+			<td>7</td>
+			<td>8</td>
+		</tr>
+
+
+
+
+<!-- NEEED TO CHANGE LATER -->
+<?php
+			$sql = "SELECT * FROM tables WHERE Display = 'shown'";
+			$show = mysqli_query($conn,$sql);
+			
+			if (mysqli_num_rows($show) == 12)
+			{
+			echo "<button disabled class='button container' style='color:black; margin-bottom: 15px; width:5vw; text-align:center; background-color: lightgray;'>Add</button>";
+			}
+			else
+			echo "<button class='button container' style='color:#fdc094; margin-bottom: 15px; width:5vw; text-align:center;'>Add</button>";
+
+		?>
+<?php
+			// $sql = "SELECT * FROM tables WHERE Display = 'hidden'";
+			// $show = mysqli_query($conn,$sql);
+			
+			// if (mysqli_num_rows($show) == 4)
+			// {
+			// echo "<button disabled class='button container' style='color:black; margin-bottom: 15px; width:5vw; text-align:center; background-color: lightgray;'>Add</button>";
+			// }
+			// else
+			// echo "<button class='button container' style='color:#fdc094; margin-bottom: 15px; width:5vw; text-align:center;'>Add</button>";
+
+		?>
+
 
 
 
