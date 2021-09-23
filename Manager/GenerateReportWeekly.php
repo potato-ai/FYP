@@ -427,7 +427,7 @@ $year=date("Y",$time);
 
 			if(mysqli_num_rows($result) <= 0)
 			{
-			echo "<script>alert('No Result!');</script>";
+			echo "<script>alert('No Result Found');</script>";
 			}
 			else
 			{
