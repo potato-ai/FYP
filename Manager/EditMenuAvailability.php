@@ -484,7 +484,7 @@ a{
 <table>
     <tr rowspan="2">
     <td><center><input type="submit" value="Save Changes" class="saveBtn"></a></center></td>
-    <td><center><a href="ChefHome.php"><input type="button" value="Back" class="btn3"></a></center></td>
+    <td><center><a href="EditMenu.php"><input type="button" value="Back" class="btn3"></a></center></td>
     </tr>
     </table>
     </form>

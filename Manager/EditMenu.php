@@ -178,6 +178,30 @@ include "ManagerHeader.php";
 a{
     text-decoration:none;
 }
+
+
+.btn3{
+    width:15vw;
+    font-family: 'Oleo Script';
+    padding: 1rem 2.5rem;
+    background-color:#0B0742;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    text-transform:uppercase;
+    font-size: 1.4rem;
+    align-items: center;
+    align-content: center;
+}
+
+.btn3:hover{
+    transform: translateY(-2px);
+    box-shadow:.5rem .5rem 2rem rgba(0,0,0,.2)
+}
+
+.btn3:active{
+    transform:translateY(0);
+    box-shadow: none;
+}
 </style>
 </head>
 <body>
@@ -211,6 +235,7 @@ a{
             </div>
     </div>
 </section>
+<center><a href="ManagerHome.php"><input type="button" value="Back" class="btn3" style="color:#fdc094"></a></center>
 
 
 

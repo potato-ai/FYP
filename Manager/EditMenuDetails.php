@@ -390,24 +390,28 @@ table {
     background-color: #f9f9f9;
 }
 
-.container {  
-    width:20vw;
+.btn3{
+    width:15vw;
     font-family: 'Oleo Script';
-    padding: 1.5rem 2.5rem;
+    padding: 1rem 2.5rem;
     background-color:#0B0742;
     border-radius: 2rem;
     margin: 1rem 0;
     text-transform:uppercase;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     align-items: center;
     align-content: center;
-}  
+}
 
-button {  
-    background-color: lightblue;  
-    color: black;  
+.btn3:hover{
+    transform: translateY(-2px);
+    box-shadow:.5rem .5rem 2rem rgba(0,0,0,.2)
+}
 
-}  
+.btn3:active{
+    transform:translateY(0);
+    box-shadow: none;
+}
 
 </style>
 </head>
@@ -482,7 +486,7 @@ button {
         </section>
 		<br/>
         <center>
-		<a href='AddFood.php'><button class="container" style="color:#fdc094">Add New Food</button></a><a href="EditMenu.php"><input type="button" class="container" style="color:#fdc094" value="Back to Previous Page" /></a>
+		<a href='AddFood.php'><button class="btn3" style="color:#fdc094">Add New Food</button></a><a href="EditMenu.php"><input type="button" class="btn3" style="color:#fdc094" value="Back to Previous Page" /></a>
         </center>
     </section>
 <script>
