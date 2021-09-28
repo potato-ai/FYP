@@ -47,9 +47,7 @@ if(isset($_SESSION['User_ID'])) {
 
 .text .border{
     background-color:#EDF6F9;
-    color:#00000;
     padding:20px;
-    
 }
 
 .text .border.trans{

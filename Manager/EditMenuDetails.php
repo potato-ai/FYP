@@ -390,6 +390,25 @@ table {
     background-color: #f9f9f9;
 }
 
+.container {  
+    width:20vw;
+    font-family: 'Oleo Script';
+    padding: 1.5rem 2.5rem;
+    background-color:#0B0742;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    text-transform:uppercase;
+    font-size: 1.5rem;
+    align-items: center;
+    align-content: center;
+}  
+
+button {  
+    background-color: lightblue;  
+    color: black;  
+
+}  
+
 </style>
 </head>
 
@@ -413,7 +432,7 @@ table {
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-
+                    
 <?php
 
             include "connectdb.php";
@@ -421,8 +440,8 @@ table {
             $search_key = isset($_POST['search_key'])?
 			$_POST['search_key']:'';
 	
-			$sql = "SELECT * FROM item WHERE Item_Name LIKE '%".
-			$search_key. "%'";
+			$sql = "SELECT * FROM item WHERE Item_Name LIKE '$search_key%'";
+
 			$result=mysqli_query($conn, $sql);
 	
 			if(mysqli_num_rows($result) <= 0)
@@ -462,8 +481,10 @@ table {
 		?>
         </section>
 		<br/>
-		<a href='AddFood.php'><button class="insert">Add New Food</button></a><a href="Selection.php"><input type="button"value="Back to Previous Page" /></a>
-</section>
+        <center>
+		<a href='AddFood.php'><button class="container" style="color:#fdc094">Add New Food</button></a><a href="EditMenu.php"><input type="button" class="container" style="color:#fdc094" value="Back to Previous Page" /></a>
+        </center>
+    </section>
 <script>
 const photo = document.getElementById("photo");
 const previewContainer = document.getElementById("imagePreview");

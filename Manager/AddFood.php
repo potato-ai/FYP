@@ -65,7 +65,7 @@ form.Search::after {
     top:30%;
     width:100%;
     text-align:center;
-    color:#000;
+    color:black;
     font-size:27px;
     letter-spacing:8px;
     text-transform: uppercase;
@@ -295,7 +295,7 @@ a{
         .wrapper .right .projects_data .data p{
           font-size: 13px;
           margin-bottom: 10px;
-          color: #919aa3;
+          color: black;
         }
 
 @keyframes fadeIn{
