@@ -45,19 +45,19 @@ if(!empty($_POST['userEmail']) && !empty($_POST['userPassword'])){
         $row = mysqli_fetch_assoc($result);
         if($row['Email'] === $useremail && $row['Password'] == $userpassword && $row['Position'] == "Chef" || $row['Position'] == "chef"){
                 $_SESSION['User_ID'] = $row['User_ID'];
-                header("Location: ChefHome.php");
+                header("Location: Chef/ChefHome.php");
                 exit();
             
         }
         elseif($row['Email'] === $useremail && $row['Password'] == $userpassword && $row['Position'] == "Staff" || $row['Position'] == "staff"){
             $_SESSION['User_ID'] = $row['User_ID'];
-                header("Location: StaffHome.php");
+                header("Location: Staff/StaffHome.php");
                 exit();
         }
 
         elseif($row['Email'] === $useremail && $row['Password'] == $userpassword && $row['Position'] == "Manager" || $row['Position'] == "manager"){
             $_SESSION['User_ID'] = $row['User_ID'];
-                header("Location: ManagerHome.php");
+                header("Location: Manager/ManagerHome.php");
                 exit();
         }
         
