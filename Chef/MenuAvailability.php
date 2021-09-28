@@ -405,6 +405,79 @@ a{
                                     }
                                     echo"</div>
                                     </section>
+
+                                    </div>"; }
+                                    $sql1 = "SELECT Item_ID, Item_Name, Availability, Image FROM item WHERE Main_ID = 2;";
+                $result = mysqli_query($conn, $sql1);
+          
+                if (mysqli_num_rows($result) <= 0) {
+                    echo "<script>alert('There are no desserts.');</script>";
+                } 
+                else {
+                  echo"
+                  <h1>Dessert</h1>
+                  <div class='menu'>
+                  <section>
+                  <div class='card-wrapper'>";
+             
+                    while ($rows = mysqli_fetch_array($result)) {
+                        $item_id = $rows['Item_ID'];
+                        $item_name = $rows['Item_Name'];
+                        $availability = $rows['Availability'];
+                        $image = $rows['Image'];
+                        ?>
+                      <div class='card'>
+                        <img width='200vw' height='160vw' src="\FYP\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
+                            <h1><?php echo $item_name; ?></h1></br>
+                              <label class="switch">
+                                <input type ="checkbox" name ="item_id[]" value="<?php echo $item_id.',';?>" <?php if($availability=="Available"){echo "checked";}?>>
+                                <span class = "slider round"></span>
+                              </label>
+                    </br>
+                    </div>
+           
+                        
+                            <?php
+          
+                          }
+                          echo"</div>
+                          </section>
+                          </div>"; }
+
+                          $sql2 = "SELECT Item_ID, Item_Name, Availability, Image FROM item WHERE Main_ID = 3;";
+                          $result = mysqli_query($conn, $sql2);
+                    
+                          if (mysqli_num_rows($result) <= 0) {
+                              echo "<script>alert('There are no desserts.');</script>";
+                          } else {
+                            echo"
+                            <h1>Drinks</h1>
+                            <div class='menu'>
+                            <section>
+                            <div class='card-wrapper'>";
+                       
+                              while ($rows = mysqli_fetch_array($result)) {
+                                  $item_id = $rows['Item_ID'];
+                                  $item_name = $rows['Item_Name'];
+                                  $availability = $rows['Availability'];
+                                  $image = $rows['Image'];
+                                  ?>
+                                <div class='card'>
+                                  <img width='200vw' height='160vw' src="\FYP\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
+                                      <h1><?php echo $item_name; ?></h1></br>
+                                        <label class="switch">
+                                          <input type ="checkbox" name ="item_id[]" value="<?php echo $item_id.',';?>" <?php if($availability=="Available"){echo "checked";}?>>
+                                          <span class = "slider round"></span>
+                                        </label>
+                              </br>
+                              </div>
+                     
+                                  
+                                      <?php
+                    
+                                    }
+                                    echo"</div>
+                                    </section>
                                     </div>"; }
                 ?> 
 
