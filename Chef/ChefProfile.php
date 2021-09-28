@@ -75,12 +75,11 @@ if(isset($_SESSION['User_ID'])) {
             $sq3 = $_POST['sq3'];
         }
 
-    
-    
             $sql1 = "UPDATE user SET Name = '$fullname', Email = '$email', PhoneNumber = '$phonenumber',  Password = '$password', SecurityQs1 = '$sq1', SecurityQs2 = '$sq2', SecurityQs3 = '$sq3' WHERE User_ID = '{$_SESSION['User_ID']}'";
             $results = mysqli_query($conn,$sql1);
                 if ($results){
-                    header("Location: ChefProfile.php");
+                   echo "<script>alert('Profile Updated')</script>";
+                   echo "<script>window.location.href='ChefProfile.php';</script>";
                 }else{
                     //error
                     echo "Query error: ". mysqli_error($conn);// showing the database connection error
