@@ -28,7 +28,7 @@ session_start();
           <li><a href="GenerateReportMenu.php">Generate Report</a></li>
           <li><a href="GenerateBill.php">Generate Bill</a></li>
           <li><a href="ManageUsers.php">Manage Users</a></li>
-          <li><a href="EditProfile.php">Edit Profile</a></li>
+          <li><a href="ManagerProfile.php">Edit Profile</a></li>
         </ul>
       </li>
     </ul>
