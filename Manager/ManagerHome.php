@@ -181,6 +181,53 @@ a{
 </style>
 </head>
 <body>
+
+<div class="text">
+        <span class="border">
+            Kitchen Progress Notification:
+        </span>
+</div>
+
+
+
+<?php
+include "connectdb.php";
+$sql="SELECT order_item.Order_ID, order_item.OrderItem_ID, order_item.Item_ID, order_item.Item_Name, order_item.Comments, order_item.OrderedItem_Status, order_item.Quantity, orders.Table_ID from order_item, orders where order_item.Order_ID = orders.Order_ID AND OrderedItem_Status ='Order Cooked';";
+$result=mysqli_query($conn,$sql);
+
+    if(mysqli_num_rows($result)<=0){
+        echo "<script>alert('There are no Orders.');</script>";
+    }
+        
+    else{
+    echo"        <section>
+    <div class='card-wrapper'>
+            <div class='card'>";
+                
+    while($rows=mysqli_fetch_array($result)){
+        if ($rows['OrderedItem_Status']== 'Order Cooked'){
+        echo"
+        <p class='about'>
+        Ordered Item Status:</td><td>".$rows['OrderedItem_Status']."<br>
+        Item Name:</td><td>".$rows['Item_Name']."<br>
+        Quantity:</td><td>".$rows['Quantity']."<br>
+        Comments:</td><td>".$rows['Comments']."<br>
+        Table:</td><td>".$rows['Table_ID']."<br>
+        </p>
+        <a href='OrderDone.php'><div class='btn'>Done</div></a>";
+                }
+                else
+                {}
+}
+    echo"</div>
+        </div>
+        </section>
+    ";
+}
+
+?>
+
+
 <div class="img1">
 <div class="text">
         <span class="border">
@@ -268,5 +315,24 @@ a{
         </section>
 
 
+
+
+
+
+        <!-- <section>
+    <div class="card-wrapper">
+            <div class="card">
+                <p class="about">
+                Ordered Item Status:</td><td>".$rows['OrderedItem_Status']."<br>
+                Item Name:</td><td>".$rows['Item_Name']."<br>
+                Quantity:</td><td>".$rows['Quantity']."<br>
+                Comments:</td><td>".$rows['Comments']."<br>
+                Table:</td><td>".$rows['Table_ID']."<br>
+                </p>
+                <a href="OrderDone.php"><div class="btn">View Menu</div></a>
+            </div>
+    </div>
+
+    </section> -->
 </body>
 </html>
