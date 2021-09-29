@@ -1,7 +1,8 @@
 <?php
 include ("connectdb.php");
-if(isset($_SESSION['Email'])) {
-    $sql = "SELECT SecurityQs1, SecurityQs2, SecurityQs3 FROM user WHERE Email = '{$_SESSION['Email']}'";
+
+if(isset($_SESSION['User_ID'])) {
+    $sql = "SELECT SecurityQs1, SecurityQs2, SecurityQs3 FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
     $result = mysqli_query($conn,$sql);
     if(mysqli_num_rows($result) > 0){
         $row = mysqli_fetch_assoc($result);
