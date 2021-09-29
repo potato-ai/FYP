@@ -50,7 +50,7 @@ body{
     background: none;
     display: block;
     width:20vw;
-    height: 5vw;
+    height: 6vw;
     padding: 0.5rem 2.5rem;
     background-color:#0B0742;
     border-radius: 2rem;
@@ -101,8 +101,8 @@ body{
         transition-duration: 0.4s;
         cursor: pointer;
         border-radius:100px;
-        width:150px;
-        height:150px;
+        width:200px;
+        height:200px;
         border:solid;
         color: black; 
         background-image:url(table.png);
