@@ -1,23 +1,43 @@
 <?php
 include ("connectdb.php");
-session_start();
-$SecurityQs1 = $SecurityQs2 = $SecurityQs3 "";
+if(isset($_SESSION['Email'])) {
+    $sql = "SELECT SecurityQs1, SecurityQs2, SecurityQs3 FROM user WHERE Email = '{$_SESSION['Email']}'";
+    $result = mysqli_query($conn,$sql);
+    if(mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_assoc($result);
+        $row['SecurityQs1'];
+        $row['SecurityQs2'];
+        $row['SecurityQs3'];
+        
+    }
+$SecurityQs1 = $SecurityQs2 = $SecurityQs3 = "";
 $error = array('SecurityQs1'=>"", 'SecurityQs2'=>"", 'SecurityQs3'=>"");
 
 if(isset($_POST['submit'])){
-    if(empty($_POST['userEmail'])){
-        $error['userEmail'] = "Email is required";
+    if(empty($_POST['SecurityQs1'])){
+        $error['SecurityQs1'] = "Answer is required";
     }
     else{
-        $useremail = $_POST['userEmail'];
-        if(!preg_match("/(@)(gmail|imail|outlook|hotmail|yahoo)(.com)/", $useremail)){
-            $error['userEmail'] = "Please enter a valid email address";
-        }
+        $SecurityQs1 = $_POST['SecurityQs1'];
+    }
+
+    if(empty($_POST['SecurityQs2'])){
+        $error['SecurityQs2'] = "Answer is required";
+    }
+    else{
+        $SecurityQs1 = $_POST['SecurityQs2'];
+    }
+
+    if(empty($_POST['SecurityQs3'])){
+        $error['SecurityQs3'] = "Answer is required";
+    }
+    else{
+        $SecurityQs1 = $_POST['SecurityQs3'];
     }
 
     
     if(!array_filter($error)){
-        $useremail = "";
+        $SecurityQs1 = $SecurityQs2 = $SecurityQs3 = "";
     }
 }
 
@@ -166,3 +186,10 @@ if(!empty($_POST['userEmail'])){
     -->
   </body>
 </html>
+
+<?php
+}
+else{
+    header("Location: Login.php");
+}
+?>

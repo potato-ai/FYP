@@ -31,11 +31,12 @@ if(!empty($_POST['userEmail'])){
     $useremail = validate($_POST['userEmail']);
 
 
-    $sql = "SELECT Email, SecurityQs1, SecurityQs2, SecurityQs3 FROM user WHERE Email = '$useremail'";
+    $sql = "SELECT Email FROM user WHERE Email = '$useremail'";
     $result = mysqli_query($conn, $sql);
     
     if(mysqli_num_rows($result) === 1){
         $row = mysqli_fetch_assoc($result);
+        $row['Email'];
         if($row['Email'] === $useremail){
                 $_SESSION['Email'] = $row['Email'];
                 header("Location: verifyUser.php");
