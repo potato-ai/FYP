@@ -36,9 +36,8 @@ if(!empty($_POST['userEmail'])){
     
     if(mysqli_num_rows($result) === 1){
         $row = mysqli_fetch_assoc($result);
-        $row['Email'];
         if($row['Email'] === $useremail){
-                $_SESSION['Email'] = $row['Email'];
+                $_SESSION['User_ID'] = $row['User_ID'];
                 header("Location: verifyUser.php");
                 exit();
             
