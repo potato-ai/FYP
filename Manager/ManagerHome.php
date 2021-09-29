@@ -182,11 +182,7 @@ a{
 </head>
 <body>
 
-<div class="text">
-        <span class="border">
-            Kitchen Progress Notification:
-        </span>
-</div>
+
 
 
 
@@ -200,7 +196,15 @@ $result=mysqli_query($conn,$sql);
     }
         
     else{
-    echo"        <section>
+    echo"    
+    
+    <div class='text'>
+        <span class='border'>
+            Kitchen Progress Notification:
+        </span>
+</div>
+    
+    <section>
     <div class='card-wrapper'>
             <div class='card'>";
                 
@@ -214,7 +218,7 @@ $result=mysqli_query($conn,$sql);
         Comments:</td><td>".$rows['Comments']."<br>
         Table:</td><td>".$rows['Table_ID']."<br>
         </p>
-        <a href='OrderDone.php'><div class='btn'>Done</div></a>";
+        <a href='OrderDone.php?OrderItem_ID=".$rows['OrderItem_ID']."'><div class='btn'>Done</div></a>";
                 }
                 else
                 {}

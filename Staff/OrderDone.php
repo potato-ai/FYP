@@ -10,10 +10,10 @@ if(mysqli_affected_rows($conn)<0)
     {
         
         echo "<script>alert('Cannot update data!');</script>";
-        echo "<script>window.location.href='ManagerHome.php';</script>";
+        echo "<script>window.location.href='StaffHome.php';</script>";
             }
 else {
     echo "<script>alert('Successfuly to update data!');</script>";
-    echo "<script>window.location.href='ManagerHome.php';</script>";
+    echo "<script>window.location.href='StaffHome.php';</script>";
 }
 ?>
