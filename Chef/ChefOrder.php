@@ -8,20 +8,16 @@ include "ChefHeader.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chef Orders</title>
 <style>
-body{
-    background-image: url();
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-color: #EDF6F9;
-}
+
+
 
 .img1{
     min-height: 45%;
 }
 
 .text{
-    position:absolute;
-    top:20%;
+    position:relative;
+    top:30%;
     width:100%;
     text-align:center;
     color:#000;
@@ -29,11 +25,12 @@ body{
     letter-spacing:8px;
     text-transform: uppercase;
     font-family: 'Oleo Script';
+    padding:50px;
+
 }
 
 .text .border{
     background-color:#EDF6F9;
-    color:#fffff;
     padding:20px;
     
 }
@@ -41,6 +38,7 @@ body{
 .text .border.trans{
     background-color:  transparent;
 }
+
 .card-wrapper{
     display:flex;
     align-items: center;
@@ -50,7 +48,6 @@ body{
 
 .card{
     width: 25vw;
-    height:25vw;
     background-color:#ebeef8;
     display: flex;
     flex-direction: column;
@@ -61,34 +58,31 @@ body{
     font-family: 'Oleo Script';
 }
 
+.card .card-img{
+    width:100%;
+    height:26rem;
+    object-fit: cover;
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+}
+
 .card h1{
     font-size:2.5rem;
     color: #333;
     margin:1.5rem 0;
 }
 
+.about{
+    font-size: 1.5rem;
+    margin:1.5rem 0;
+    font-style: normal;
+    text-align:center;
+    color: #333;
+    padding-right: 1vw;
+    padding-left: 1vw;
+}
+
 .card .btn{
-    padding: 1rem 2.5rem;
-    background-color:green;
-    border-radius: 2rem;
-    margin: 1rem 0;
-    text-transform:uppercase;
-    color: white;
-    font-size: 1.4rem;
-}
-
-.card .btn2{
-    padding: 1rem 2.5rem;
-    background-color:red;
-    border-radius: 2rem;
-    margin: 1rem 0;
-    text-transform:uppercase;
-    color: white;
-    font-size: 1.4rem;
-}
-
-.btn3{
-    width:5vw;
     padding: 1rem 2.5rem;
     background-color:#0B0742;
     border-radius: 2rem;
@@ -96,18 +90,6 @@ body{
     text-transform:uppercase;
     color: #fdc094;
     font-size: 1.4rem;
-    align-items: center;
-    align-content: center;
-}
-
-.btn3:hover{
-    transform: translateY(-2px);
-    box-shadow:.5rem .5rem 2rem rgba(0,0,0,.2)
-}
-
-.btn3:active{
-    transform:translateY(0);
-    box-shadow: none;
 }
 
 .card .popuptext {
@@ -129,12 +111,12 @@ body{
     visibility: visible;
   }
 
-.card .btn:hover,.btn2:hover,.btn3:hover{
+.card .btn:hover{
     transform: translateY(-2px);
     box-shadow:.5rem .5rem 2rem rgba(0,0,0,.2)
 }
 
-.card .btn:active,.btn2:active,.btn3:active{
+.card .btn:active{
     transform:translateY(0);
     box-shadow: none;
 }
@@ -161,60 +143,39 @@ body{
     }
 }
     
-    
+.card:nth-child(1){
+        animation:fadeIn .5s 0.5s backwards;
+    }
+
+    .card:nth-child(2){
+        animation:fadeIn .5s 0.5s backwards;
+    }
+
+    .card:nth-child(3){
+        animation:fadeIn .5s 0.5s backwards;
+    }
+    .card:nth-child(4){
+        animation:fadeIn .5s 0.5s backwards;
+    }
+    .card:nth-child(5){
+        animation:fadeIn .5s 0.5s backwards;
+    }
+    .card:nth-child(6){
+        animation:fadeIn .5s 0.5s backwards;
+    }
 
     .card:hover{
         transform: scale(0.9);
     }
 }
 
-input[type = "submit"]{
-    width:20vw;
-    font-family: 'Oleo Script';
-    padding: 1rem 2.5rem;
-    background-color:#0B0742;
-    border-radius: 2rem;
-    margin: 1rem 0;
-    text-transform:uppercase;
-    color: #fdc094;
-    font-size: 1.4rem;
-    align-items: center;
-    align-content: center;
-}
-
-input[type = "submit"]:hover{
-    transform: translateY(-2px);
-    box-shadow:.5rem .5rem 2rem rgba(0,0,0,.2)
-}
-
-input[type = "submit"]:active{
-    transform:translateY(0);
-    box-shadow: none;
-}
-
-.confirm{
-    padding: 1rem 2.5rem;
-    background-color:green;
-    border-radius: 2rem;
-    margin: 1rem 0;
-    text-transform:uppercase;
-    color: white;
-    font-size: 1.4rem;
-}
-
 a{
-    text-decoration: none;
-}
-</style>
+    text-decoration:none;
+}</style>
 </head>
-<body>
-<div class="img1">
-<div class="text">
-        <span class="border">
-            Received Orders
-        </span>
-</div>
-</div>
+<body style="background-color: #EDF6F9;">
+
+
 
 <?php
 include "connectdb.php";
@@ -227,37 +188,36 @@ $result=mysqli_query($conn,$sql);
     }
         
     else{
-    echo"<div class='menu'>
-        <section>
-             <div class='card-wrapper'>";
+    echo"    
+    
+    <div class='text'>
+        <span class='border'>
+            Order Notification:
+        </span>
+</div>
+    
+    <section>
+    <div class='card-wrapper'>
+            <div class='card'>";
                 
     while($rows=mysqli_fetch_array($result)){
-        if ($rows['Ordered_Item_Status']== 'Cooking'){
+        if ($rows['OrderedItem_Status']== 'Cooking'){
         echo"
-                <div class='card'>
-                <center>
-                    <h1>Order ID: ".$rows['Order_ID']."</h1>
-                    <h3>
-                        <table>
-                            <tr><td>Order_ItemID:</td><td>".$rows['Order_ItemID']."</td></tr>
-                            <tr><td>Item Name:</td><td>".$rows['Item_Name']."</td></tr>
-                            <tr><td>Quantity:</td><td>".$rows['Quantity']."</td></tr>
-                            <tr><td>Remarks:</td><td>".$rows['Remarks']."</td></tr>
-                        </table>
-                    </h3>
-                    
-
-                    <a href='ChefOrdersConfirmation.php?Order_ItemId=".$rows['Order_ItemID']."' class='confirm'>Confirm</a>
-                    </center>
-                 </div>";
+        <p class='about'>
+        Ordered Item ID:</td><td>".$rows['OrderItem_ID']."<br>
+        Item Name:</td><td>".$rows['Item_Name']."<br>
+        Quantity:</td><td>".$rows['Quantity']."<br>
+        Comments:</td><td>".$rows['Comments']."<br>
+        </p>
+        <a href='OrderDone.php?OrderItem_ID=".$rows['OrderItem_ID']."'><div class='btn'>Done</div></a>";
                 }
                 else
-                {                    
-                }
+                {}
 }
     echo"</div>
+        </div>
         </section>
-    </div>";
+    ";
 }
 
 ?>
