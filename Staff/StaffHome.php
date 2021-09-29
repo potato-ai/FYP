@@ -181,6 +181,56 @@ a{
 </style>
 </head>
 <body>
+
+
+
+
+
+<?php
+include "connectdb.php";
+$sql="SELECT order_item.Order_ID, order_item.OrderItem_ID, order_item.Item_ID, order_item.Item_Name, order_item.Comments, order_item.OrderedItem_Status, order_item.Quantity, orders.Table_ID from order_item, orders where order_item.Order_ID = orders.Order_ID AND OrderedItem_Status ='Order Cooked';";
+$result=mysqli_query($conn,$sql);
+
+    if(mysqli_num_rows($result)<=0){
+        echo "<script>alert('There are no Orders.');</script>";
+    }
+        
+    else{
+    echo"   
+    
+    <div class='text'>
+        <span class='border'>
+            Kitchen Progress Notification:
+        </span>
+</div>
+    
+    <section>
+    <div class='card-wrapper'>
+            <div class='card'>";
+                
+    while($rows=mysqli_fetch_array($result)){
+        if ($rows['OrderedItem_Status']== 'Order Cooked'){
+        echo"
+        <p class='about'>
+        Ordered Item Status:</td><td>".$rows['OrderedItem_Status']."<br>
+        Item Name:</td><td>".$rows['Item_Name']."<br>
+        Quantity:</td><td>".$rows['Quantity']."<br>
+        Comments:</td><td>".$rows['Comments']."<br>
+        Table:</td><td>".$rows['Table_ID']."<br>
+        </p>
+        <a href='OrderDone.php?OrderItem_ID=".$rows['OrderItem_ID']."'><div class='btn'>Done</div></a>";
+                }
+                else
+                {}
+}
+    echo"</div>
+        </div>
+        </section>
+    ";
+}
+
+?>
+
 <div class="img1">
 <div class="text">
         <span class="border">
@@ -219,46 +269,6 @@ a{
             </div>
     </div>
 
-    </section>
-
-    <div class="text">
-        <span class="border">
-            Kitchen Progress Notification:
-        </span>
-</div>
-
-<section>
-    <div class="card-wrapper">
-            <div class="card">
-                <img src="../image/ViewMenu.jpg" alt="card backgroud" class="card-img">
-                <h1>View Menu</h1>
-                <p class="about">
-                    View the food that is available
-                </p>
-                <a href="StaffMenu.php"><div class="btn">View Menu</div></a>
-            </div>
-
-            <div class="card">
-                <img src="../image/TableOrder.jpg" alt="card backgroud" class="card-img">
-                <h1>Table Order</h1>
-                <p class="about">
-                    Places order for a table
-                </p>
-                <a href="TableAvailable.php"><div class="btn">Table Order</div></a>
-            </div>
-
-            <div class="card">
-                <img src="../image/editprofilechef.jpg" alt="card backgroud" class="card-img">
-                <h1>Edit Profile</h1>
-                <p class="about">
-                    Edit personal details
-                </p>
-                <a href="StaffEditProfile.php"><div class="btn">Edit Profile</div></a>
-            </div>
-    </div>
-
-    </section>
-    
 
 
 </body>
