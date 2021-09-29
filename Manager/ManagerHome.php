@@ -311,7 +311,7 @@ $result=mysqli_query($conn,$sql);
                 <p class="about">
                     Edit personal details
                 </p>
-                <a href="EditProfile.php"><div class="btn">Edit Profile</div></a>
+                <a href="ManagerProfile.php"><div class="btn">Edit Profile</div></a>
             </div>
         </div>
     
