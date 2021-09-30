@@ -1,8 +1,8 @@
 <?php
 include ("connectdb.php");
 session_start();
-$useremail = "";
-$error = array('userEmail'=>"");
+$useremail = $SecurityQs1 = $SecurityQs2 = $SecurityQs3 = $userPassword = "";
+$error = array('userEmail'=>"", 'SecurityQs1'=>"", 'SecurityQs2'=>"", 'SecurityQs3'=>"", 'userPassword'=>"");
 
 if(isset($_POST['submit'])){
     if(empty($_POST['userEmail'])){
@@ -15,13 +15,39 @@ if(isset($_POST['submit'])){
         }
     }
 
+    if(empty($_POST['SecurityQs1'])){
+        $error['SecurityQs1'] = "Answer is required";
+    }
+    else{
+        $SecurityQs1 = $_POST['SecurityQs1'];
+    }
+
+    if(empty($_POST['SecurityQs2'])){
+        $error['SecurityQs2'] = "Answer is required";
+    }
+    else{
+        $SecurityQs1 = $_POST['SecurityQs2'];
+    }
+
+    if(empty($_POST['SecurityQs3'])){
+        $error['SecurityQs3'] = "Answer is required";
+    }
+    else{
+        $SecurityQs1 = $_POST['SecurityQs3'];
+    }
+    if(empty($_POST['userPassword'])){
+        $error['userPassword'] = "New Password is required";
+    }
+    else{
+        $SecurityQs1 = $_POST['userPassword'];
+    }
     
     if(!array_filter($error)){
-        $useremail = "";
+        $useremail = $SecurityQs1 = $SecurityQs2 = $SecurityQs3 = $userPassword = "";
     }
 }
 
-if(!empty($_POST['userEmail'])){
+if(!empty($_POST['userEmail']) && !empty($_POST['SecurityQs1']) && !empty($_POST['SecurityQs2']) && !empty($_POST['SecurityQs3']) && !empty($_POST['userPassword'])){
     function validate($data){
         $data = trim($data);
         $data = stripslashes($data);
@@ -29,23 +55,36 @@ if(!empty($_POST['userEmail'])){
         return $data;
     }
     $useremail = validate($_POST['userEmail']);
+    $SecurityQs1 = validate($_POST['SecurityQs1']);
+    $SecurityQs2 = validate($_POST['SecurityQs2']);
+    $SecurityQs3 = validate($_POST['SecurityQs3']);
+    $userPassword = validate($_POST['userPassword']);
+    
 
 
-    $sql = "SELECT Email FROM user WHERE Email = '$useremail'";
+    $sql = "SELECT * FROM user WHERE Email = '$useremail' AND SecurityQs1 = '$SecurityQs1' AND SecurityQs2 = '$SecurityQs2' AND SecurityQs3 = '$SecurityQs3'";
     $result = mysqli_query($conn, $sql);
     
     if(mysqli_num_rows($result) === 1){
         $row = mysqli_fetch_assoc($result);
-        if($row['Email'] === $useremail){
-                $_SESSION['User_ID'] = $row['User_ID'];
-                header("Location: verifyUser.php");
-                exit();
+        if($row['Email'] === $useremail && $row['SecurityQs1'] == $SecurityQs1 && $row['SecurityQs2'] == $SecurityQs2 && $row['SecurityQs3'] == $SecurityQs3){
+                $sql2 = "UPDATE user SET Password ='$userPassword' WHERE Email = '$useremail'";
+                $results = mysqli_query($conn,$sql2);
+                if ($results){
+                   echo "<script>alert('Password Changed')</script>";
+                   echo "<script>window.location.href='Login.php';</script>";
+                }else{
+                    //error
+                    echo "<script>alert('Wrong Answer. Password Not Changed')</script>";
+                    echo "Query error: ". mysqli_error($conn);// showing the database connection error
+                }
+                
             
         }
         
     }
     else{
-        echo "<script>alert('Account does not exist or incorrect password')</script>";
+        echo "<script>alert('Account does not exist or incorrect answers')</script>";
         echo "<script>window.location.href = 'login.php'</script>";
     }
 
@@ -116,24 +155,49 @@ if(!empty($_POST['userEmail'])){
                 </div>
                 <div class="col-lg-7 px-5 pt-5">
 
-                    <h1 class="fw-bold py-3">Forgot your password?</h1>
-                    <h4>Enter your email address</h4>
+                    <h1 class="fw-bold py-3">Forgot Your Password?</h1>
 
                     <form action="userForgot.php" method="POST">
-
                         <div class="form-row">
                             <div class="col-lg-7">
+                                <h4>Enter Email Address</h4>
                                 <input type="email" class="form-control my-3 p-3" name = "userEmail" placeholder="Email Address">
                                 <div style="color: red; font-size: 20px;"><?php echo $error['userEmail'] ?></div>
                             </div>
                         </div>
-                        
+                        <div class="form-row">
+                            <div class="col-lg-7">
+                                <h4>Favourite Colour</h4>
+                                <input type="text" class="form-control my-3 p-3" name = "SecurityQs1" placeholder="Enter Answer">
+                                <div style="color: red; font-size: 20px;"><?php echo $error['SecurityQs1'] ?></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-lg-7">
+                                <h4>Favourite Food</h4>
+                                <input type="text" class="form-control my-3 p-3" name = "SecurityQs2" placeholder="Enter Answer">
+                                <div style="color: red; font-size: 20px;"><?php echo $error['SecurityQs2'] ?></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-lg-7">
+                                <h4>Favourite Activity</h4>
+                                <input type="text" class="form-control my-3 p-3" name = "SecurityQs3" placeholder="Enter Answer">
+                                <div style="color: red; font-size: 20px;"><?php echo $error['SecurityQs3'] ?></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-lg-7">
+                                <h4>Enter New Password</h4>
+                                <input type="password" class="form-control my-3 p-3" name = "userPassword" placeholder="Password">
+                                <div style="color: red; font-size: 20px;"><?php echo $error['userPassword'] ?></div>
+                            </div>
+                        </div>
                         <div class="form-row">
                             <div class="col-lg-7">
                                 <button type="submit" class="btn1 mt-3 mb-3" name="submit">Submit</button>
                             </div>
                         </div>
-                        
                     </form>
                 </div>
             </div>
