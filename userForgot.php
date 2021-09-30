@@ -56,18 +56,21 @@ if(!empty($_POST['userEmail']) && !empty($_POST['SecurityQs1']) && !empty($_POST
     }
     $useremail = validate($_POST['userEmail']);
     $SecurityQs1 = validate($_POST['SecurityQs1']);
+    $a = strtolower($SecurityQs1);
     $SecurityQs2 = validate($_POST['SecurityQs2']);
+    $b = strtolower($SecurityQs2);
     $SecurityQs3 = validate($_POST['SecurityQs3']);
+    $c = strtolower($SecurityQs3);
     $userPassword = validate($_POST['userPassword']);
     
 
 
-    $sql = "SELECT * FROM user WHERE Email = '$useremail' AND SecurityQs1 = '$SecurityQs1' AND SecurityQs2 = '$SecurityQs2' AND SecurityQs3 = '$SecurityQs3'";
+    $sql = "SELECT * FROM user WHERE Email = '$useremail' AND SecurityQs1 = '$a' AND SecurityQs2 = '$b' AND SecurityQs3 = '$c'";
     $result = mysqli_query($conn, $sql);
     
     if(mysqli_num_rows($result) === 1){
         $row = mysqli_fetch_assoc($result);
-        if($row['Email'] === $useremail && $row['SecurityQs1'] == $SecurityQs1 && $row['SecurityQs2'] == $SecurityQs2 && $row['SecurityQs3'] == $SecurityQs3){
+        if($row['Email'] === $useremail && $row['SecurityQs1'] == $a && $row['SecurityQs2'] == $b && $row['SecurityQs3'] == $c){
                 $sql2 = "UPDATE user SET Password ='$userPassword' WHERE Email = '$useremail'";
                 $results = mysqli_query($conn,$sql2);
                 if ($results){

@@ -1,5 +1,20 @@
 <?php
 include "ChefHeader.php";
+include "connectdb.php";
+if(isset($_SESSION['User_ID'])) {
+    $sql = "SELECT Name, Email, PhoneNumber, Position, Password, SecurityQs1, SecurityQs2, SecurityQs3 FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
+    $results = mysqli_query($conn,$sql);
+    if(mysqli_num_rows($results) > 0){
+        $row = mysqli_fetch_assoc($results);
+        $row['Name'];
+        $row['Email'];
+        $row['PhoneNumber'];
+        $row['Position'];
+        $row['Password'];
+        $row['SecurityQs1'];
+        $row['SecurityQs2'];
+        $row['SecurityQs3'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -178,7 +193,7 @@ a{
 
 
 <?php
-include "connectdb.php";
+
 $sql="SELECT OrderItem_ID, Item_ID,  Order_ID, Item_Name, Comments, OrderedItem_Status, Quantity from order_item where OrderedItem_Status ='cooking'";
 $result=mysqli_query($conn,$sql);
 
@@ -224,3 +239,10 @@ $result=mysqli_query($conn,$sql);
 
 </body>
 </html>
+<?php
+}
+else{
+    header("Location: login.php");
+    exit();
+}
+?>
