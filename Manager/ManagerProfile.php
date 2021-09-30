@@ -59,6 +59,7 @@ if(isset($_SESSION['User_ID'])) {
         }
         else{
             $sq1 = $_POST['sq1'];
+            $a = strtolower($sq1);
         }
 
         if(empty($_POST['sq2'])){
@@ -66,6 +67,7 @@ if(isset($_SESSION['User_ID'])) {
         }
         else{
             $sq2 = $_POST['sq2'];
+            $b = strtolower($sq2);
         }
 
         if(empty($_POST['sq3'])){
@@ -73,9 +75,10 @@ if(isset($_SESSION['User_ID'])) {
         }
         else{
             $sq3 = $_POST['sq3'];
+            $c = strtolower($sq3);
         }
 
-            $sql1 = "UPDATE user SET Name = '$fullname', Email = '$email', PhoneNumber = '$phonenumber',  Password = '$password', SecurityQs1 = '$sq1', SecurityQs2 = '$sq2', SecurityQs3 = '$sq3' WHERE User_ID = '{$_SESSION['User_ID']}'";
+            $sql1 = "UPDATE user SET Name = '$fullname', Email = '$email', PhoneNumber = '$phonenumber',  Password = '$password', SecurityQs1 = '$a', SecurityQs2 = '$b', SecurityQs3 = '$c' WHERE User_ID = '{$_SESSION['User_ID']}'";
             $results = mysqli_query($conn,$sql1);
                 if ($results){
                    echo "<script>alert('Profile Updated')</script>";
