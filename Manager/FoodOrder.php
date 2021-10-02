@@ -453,25 +453,25 @@ a{
 
 					$itemArray = array($orderitem_id => array('ordered_code' => $orderitem_id, 'code' => $item_id, 'name' => $item_name, 'comments' => $comments, 'price' => $item_price, 'quantity' => $quantity,  'image' => $item_image));
 
-					if (empty($_SESSION["cart_item"])) {
-						$_SESSION["cart_item"] = $itemArray; 
+					if (empty($_SESSION["shopping_item"])) {
+						$_SESSION["shopping_item"] = $itemArray; 
 					} else {
-						$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $itemArray); 
+						$_SESSION["shopping_item"] = array_merge($_SESSION["shopping_item"], $itemArray); 
 
 					}
 				}
 				break;
 			case "remove":
-				if (!empty($_SESSION["cart_item"])) {
-					foreach ($_SESSION["cart_item"] as $k => $v) {
-						if ($_GET["id"] == $_SESSION['cart_item'][$k]['ordered_code']) {
-							$sql3 = "DELETE FROM order_item WHERE OrderItem_ID = '" . $_SESSION['cart_item'][$k]['ordered_code'] . "' AND Order_ID = '" . $order_id . "' ;";
+				if (!empty($_SESSION["shopping_item"])) {
+					foreach ($_SESSION["shopping_item"] as $k => $v) {
+						if ($_GET["id"] == $_SESSION['shopping_item'][$k]['ordered_code']) {
+							$sql3 = "DELETE FROM order_item WHERE OrderItem_ID = '" . $_SESSION['shopping_item'][$k]['ordered_code'] . "' AND Order_ID = '" . $order_id . "' ;";
 							mysqli_query($conn, $sql3);
 
-							unset($_SESSION["cart_item"][$k]); 
+							unset($_SESSION["shopping_item"][$k]); 
 						}
-						if (empty($_SESSION["cart_item"]))
-							unset($_SESSION["cart_item"]);
+						if (empty($_SESSION["shopping_item"]))
+							unset($_SESSION["shopping_item"]);
 					} 
 				} 
 				break;
@@ -482,7 +482,7 @@ a{
 	<div id="shopping-cart">
 		<div class="txt-heading">Order Cart</div>
 		<?php 
-		if (isset($_SESSION["cart_item"])) {
+		if (isset($_SESSION["shopping_item"])) {
 			$total_quantity = 0;
 			$total_price = 0;
 		?>
@@ -497,7 +497,7 @@ a{
 						<th style="text-align:center;" width="10%">Remove</th>
 					</tr>
 					<?php		//Display in cart table
-					foreach ($_SESSION["cart_item"] as $item) {
+					foreach ($_SESSION["shopping_item"] as $item) {
 						$item_price = $item["quantity"] * $item["price"];
 
 					?>

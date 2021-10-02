@@ -32,7 +32,7 @@
 			$sql2 = "UPDATE tables SET Table_Status = 'Occupied' WHERE Table_ID = '" .$table_id. "'; ";
 			$result2 = mysqli_query($conn, $sql2);
 			echo "<script>alert('Successful send the order!');window.location.href='TableOrder.php';</script>";
-			unset($_SESSION["cart_item"]);
+			unset($_SESSION["shopping_item"]);
 			unset($_SESSION["table_id"]);
 		} else {
 			echo "<script>alert('Please enter at least 1 item!');window.history.go(-1);</script>";
@@ -46,7 +46,7 @@
 
 		if (mysqli_affected_rows($conn) > 0) {
 			echo "<script>alert('Successful add the order!');window.location.href='TableOrder.php';</script>";
-			unset($_SESSION["cart_item"]);
+			unset($_SESSION["shopping_item"]);
 		} else {
 			echo "<script>alert('Please enter at least 1 item!');window.history.go(-1);</script>";
 		}
