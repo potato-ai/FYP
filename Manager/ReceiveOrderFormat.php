@@ -1,9 +1,9 @@
 <?php
 	session_start();
 	$user_id = $_SESSION['User_ID'];
-	$table_id = $_POST['Table_ID'];
-	$order_id = $_POST['Order_ID'];
-	$order_type = $_POST['Order_Type'];
+	$table_id = $_POST['table_id'];
+	$order_id = $_POST['order_id'];
+	$order_type = $_POST['order_type'];
 
 	date_default_timezone_set("Singapore");
 	$date = date("Y/m/d");
