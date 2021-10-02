@@ -9,38 +9,33 @@ include "ManagerHeader.php";
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Food & Beverage Order</title>
 	<style>
-	body {
-	background-color: lavenderblush;
-	font-family: Arial;
-	color: #211a1a;
-	font-size: 0.9em;
-}
-
-.img1{
-	position: relative;
-    background-position: center;
-    background-size: cover;
+	body{
+    background-image: url();
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-	min-height: 65%;
-	background-image: url(TakingOrder.jpg);
+    background-color: #EDF6F9;
+} 
+ 
+.img1{
+    min-height: 45%;
 }
 
 .text{
-	font-family: 'Oleo Script';
-    position:absolute;
-    top:50%;
+    position:relative;
+    top:30%;
     width:100%;
     text-align:center;
     color:#000;
     font-size:27px;
     letter-spacing:8px;
     text-transform: uppercase;
+    font-family: 'Oleo Script';
+    padding:50px;
+
 }
 
 .text .border{
-    background-color:#0B0742;
-    color:#fdc094;
+    background-color:#EDF6F9;
     padding:20px;
     
 }
@@ -190,13 +185,13 @@ input[name="addtocart"]{
 
 #shopping-cart {
 	margin: 5px;
-	width:41%;
+	width:45%;
 	float:left;
 }
 
 #product-grid {
 	margin: 5px;
-	width:57%;
+	width: 50%;
 	float:right;
 }
 
@@ -248,7 +243,7 @@ input[name="addtocart"]{
 .product-item {
 	float: left;
 	background: #ffffff;
-	margin: 30px 30px 0px 0px;
+	margin: 30px 30px 15px 0px;
 	border: #E0E0E0 1px solid;
 }
 
@@ -496,10 +491,10 @@ a{
 					<tr>
 						<th style="text-align:left;">Name</th>
 						<th style="text-align:left;">Comments</th>
-						<th style="text-align:right;" width="5%">Quantity</th>
+						<th style="text-align:right;" width="10%">Quantity</th>
 						<th style="text-align:right;" width="10%">Unit Price</th>
 						<th style="text-align:right;" width="10%">Price</th>
-						<th style="text-align:center;" width="5%">Remove</th>
+						<th style="text-align:center;" width="10%">Remove</th>
 					</tr>
 					<?php		//Display in cart table
 					foreach ($_SESSION["cart_item"] as $item) {
@@ -543,8 +538,7 @@ a{
 			<table>
 				<tr>
 			<th>Name: </th><td><input type="text" id="itemname" name="itemname" placeholder="Enter Item Name" /></td>
-			<td><input name="search" type="submit" value="Search" onclick="
-	var x = document.getElementById('itemname').value;
+			<td><input name="search" type="submit" value="Search" onclick=" var x = document.getElementById('itemname').value;
 	if(x ===''){
 		alert('Please enter an item name!');
 	}
