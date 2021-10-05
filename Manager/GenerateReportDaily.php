@@ -380,7 +380,7 @@ button {
 <input type="date" name="date" id="date">
 
 <button type="submit" onclick="searchDate()" class="button container" style="color:#fdc094; margin-bottom: 15px; width:9vw; text-align:center;">Generate</button>
-<a href="#"><button class="button container" style="color:#fdc094; margin-bottom: 15px; width:7vw; text-align:center;">Back</button></a>
+<button class="button container" style="color:#fdc094; margin-bottom: 15px; width:7vw; text-align:center;"><a href="GenerateReportMenu.php" style=" text-decoration: none;color:#fdc094;">Back</a></button>
 </form>
 
 <section>
