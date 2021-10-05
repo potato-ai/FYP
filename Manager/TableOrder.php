@@ -143,10 +143,10 @@ body{
     $get_tableid = isset($_GET['table_id'])?$_GET['table_id']:''; 
         
     echo "<a href='FoodOrder.php?table_id=".$get_tableid."'><button class='button1'>Order</button></a>";
-    echo "<a href='Bill.php?id=".$get_tableid."'><button class='button2'>Check Order List</button></a>";
-    echo "<a href='TableStatus.php?'><button class='button3'>Change Table Status</button></a>";
-    echo "<a href='ViewBookingHistory.php?'><button class='button4'>View Booking History</button></a>";
-    echo "<a href='Manager_HomePage.php'><button class='button5'>Back</button></a>";
+    echo "<a href='CheckOrderList.php?id=".$get_tableid."'><button class='button2'>Check Order List</button></a>";
+    echo "<a href='TableAvailability.php?'><button class='button3'>Change Table Availability</button></a>";
+    echo "<a href='BookingHistory.php?'><button class='button4'>View Booking History</button></a>";
+    echo "<a href='ManagerHome.php'><button class='button5'>Back</button></a>";
     
     
     ?>
