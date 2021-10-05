@@ -2,18 +2,34 @@
 include "ManagerHeader.php";
 include "connectdb.php";
 if(isset($_SESSION['User_ID'])) {
-    $sql = "SELECT Name, Email, PhoneNumber, Position FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
+    $sql = "SELECT Name, Email, PhoneNumber, Position, Password, SecurityQs1, SecurityQs2, SecurityQs3 FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
     $result = mysqli_query($conn,$sql);
     if(mysqli_num_rows($result) > 0){
-        $row = mysqli_fetch_assoc($result);
+        $rows = mysqli_fetch_assoc($result);
+        $rows['Name'];
+       
+    }
+    $id = $_GET['id'];
+	$sql = "Select * from user where User_ID = $id";
+	$result = mysqli_query($conn, $sql);
+	if ($row = mysqli_fetch_array($result)) {
+        $row['User_ID'];
         $row['Name'];
         $row['Email'];
         $row['PhoneNumber'];
         $row['Position'];
-    }
-
-    $fullname = $email = $phonenumber = $password = $position = $salary = $sq1 = $sq2 = $sq3 = "";
-    $error = array('fullname'=>"", 'email'=>"", 'phonenumber'=>"", 'password'=>"",'position'=>"",'salary'=>"", 'sq1'=>"", 'sq2'=>"", 'sq3'=>"");
+        $row['Password'];
+        $row['SecurityQs1'];
+        $row['SecurityQs2'];
+        $row['SecurityQs3'];
+	}
+	else
+	{
+	echo "<script>alert('No data from database!');</script>";
+	die ("<script>window.location.href='ManageUsers.php';</script>");
+	}
+    $fullname = $email = $phonenumber = $password = $sq1 = $sq2 = $sq3 = "";
+    $error = array('fullname'=>"", 'email'=>"", 'phonenumber'=>"", 'password'=>"", 'sq1'=>"", 'sq2'=>"", 'sq3'=>"");
 
     if(isset($_POST['update'])){
         if(empty($_POST['fullname'])){
@@ -50,25 +66,12 @@ if(isset($_SESSION['User_ID'])) {
             $password = $_POST['password'];
         }
 
-        if(empty($_POST['position'])){
-            $error['position'] = "Position is required";
-        }
-        else{
-            $position = $_POST['position'];
-        }
-
-        if(empty($_POST['salary'])){
-            $error['salary'] = "Salary is required";
-        }
-        else{
-            $salary = $_POST['salary'];
-        }
-
         if(empty($_POST['sq1'])){
             $error['sq1'] = "Security Answer is required";
         }
         else{
             $sq1 = $_POST['sq1'];
+            $a = strtolower($sq1);
         }
 
         if(empty($_POST['sq2'])){
@@ -76,6 +79,7 @@ if(isset($_SESSION['User_ID'])) {
         }
         else{
             $sq2 = $_POST['sq2'];
+            $b = strtolower($sq2);
         }
 
         if(empty($_POST['sq3'])){
@@ -83,14 +87,14 @@ if(isset($_SESSION['User_ID'])) {
         }
         else{
             $sq3 = $_POST['sq3'];
+            $c = strtolower($sq3);
         }
 
-    
-    
-            $sql1 = "INSERT INTO user(Name, Email, PhoneNumber, Position, Password, Salary, SecurityQs1, SecurityQs2, SecurityQs3) VALUES ('$fullname', '$email', '$phonenumber', '$position', '$password', '$salary', '$sq1', '$sq2', '$sq3')";
+            $sql1 = "UPDATE user SET Name = '$fullname', Email = '$email', PhoneNumber = '$phonenumber',  Password = '$password', SecurityQs1 = '$a', SecurityQs2 = '$b', SecurityQs3 = '$c' WHERE User_ID = '$id'";
             $results = mysqli_query($conn,$sql1);
                 if ($results){
-                    header("Location: ManageUsers.php");
+                   echo "<script>alert('Profile Updated')</script>";
+                   echo "<script>window.location.href='ManagerProfile.php';</script>";
                 }else{
                     //error
                     echo "Query error: ". mysqli_error($conn);// showing the database connection error
@@ -111,7 +115,7 @@ if(isset($_SESSION['User_ID'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create User</title>
+    <title>Edit User's Profile</title>
     
     <style>
     body {
@@ -185,7 +189,9 @@ if(isset($_SESSION['User_ID'])) {
 <body>
 
 <div class="container">
+<?php
 
+?>
 <div class="row gutters">
 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
 <div class="card h-100">
@@ -205,16 +211,23 @@ if(isset($_SESSION['User_ID'])) {
 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
 <div class="card h-100">
 	<div class="card-body" style="padding-top: 2rem; padding-left: 2rem; padding-right: 2rem; padding-bottom: 2rem;">
-    <form action="CreateUser.php" method="POST">
+    <form action="UpdateUserProfile.php" method="POST">
         <div class="row gutters">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <h4 style="text-align: center;">Create New User</h4>
 				<h6 class="mb-2 text-primary">Personal Details</h6>
 			</div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="userID">User ID</label>
+					<input type="text" class="form-control" id="userID" name="userID" placeholder="User ID" style="font-size: 12px;" value="<?php echo $row["User_ID"]?>" readonly>
+                    
+				</div>
+			</div>
+
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="fullName">Full Name</label>
-					<input type="text" class="form-control" id="fullName" name="fullname" placeholder="Enter full name" style="font-size: 12px;" required>
+					<input type="text" class="form-control" id="fullName" name="fullname" placeholder="Enter full name" style="font-size: 12px;" value="<?php echo $row["Name"]?>" required>
                     
 				</div>
 			</div>
@@ -222,35 +235,21 @@ if(isset($_SESSION['User_ID'])) {
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" class="form-control" id="eMail" name="email" placeholder="Enter email ID" style="font-size: 12px;" pattern="^[a-zA-Z0-9]+@(gmail|imail|outlook|hotmail|yahoo)\.com$" title="userName@gmail/imail/outlook/hotmail/yahoo.com" required>
+					<input type="email" class="form-control" id="eMail" name="email" placeholder="Enter email ID" style="font-size: 12px;" pattern="^[a-zA-Z0-9]+@(gmail|imail|outlook|hotmail|yahoo)\.com$" title="userName@gmail/imail/outlook/hotmail/yahoo.com" value="<?php echo $row["Email"]?>" required>
                     
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="phone">Phone</label>
-					<input type="text" class="form-control" id="phone" name="phonenumber" placeholder="Enter phone number" style="font-size: 12px;" pattern="(01)[0-9]{8,9}$" title="Example: 0123456789/01234567890" required>
+					<input type="text" class="form-control" id="phone" name="phonenumber" placeholder="Enter phone number" style="font-size: 12px;" pattern="(01)[0-9]{8,9}$" title="Example: 0123456789/01234567890" value="<?php echo $row["PhoneNumber"]?>" required>
                     
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="password">Password</label>
-					<input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" style="font-size: 12px;" required>
-                    
-				</div>
-			</div>
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="position">Position</label>
-					<input type="text" class="form-control" id="position" name="position" placeholder="Enter Position" style="font-size: 12px;" pattern="^(Chef|Staff|Manager|chef|staff|manager)$" title="Chef/Staff/Manager only" required>
-                    
-				</div>
-			</div>
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="salary">Salary</label>
-					<input type="text" class="form-control" id="salary" name="salary" placeholder="Enter Salary" style="font-size: 12px;" required>
+					<input type="password" class="form-control" id="password" name="password" placeholder="Password" style="font-size: 12px;" value="<?php echo $row["Password"]?>" required>
                     
 				</div>
 			</div>
@@ -263,21 +262,21 @@ if(isset($_SESSION['User_ID'])) {
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="sq1">Favourite color</label>
-					<input type="text" class="form-control" id="sq1" name="sq1" placeholder="Enter Answer for Security Question 1" style="font-size: 12px;" required>
+					<input type="text" class="form-control" id="sq1" name="sq1" placeholder="Enter Answer for Security Question 1" style="font-size: 12px;" value="<?php echo $row["SecurityQs1"]?>" required>
                     
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="sq2">Favourite food</label>
-					<input type="text" class="form-control" id="sq2" name="sq2" placeholder="Enter Answer for Security Question 2" style="font-size: 12px;" required>
+					<input type="text" class="form-control" id="sq2" name="sq2" placeholder="Enter Answer for Security Question 2" style="font-size: 12px;" value="<?php echo $row["SecurityQs2"]?>" required>
                     
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="sq3">Favourite activity</label>
-					<input type="text" class="form-control" id="sq3" name="sq3" placeholder="Enter Answer for Security Question 3" style="font-size: 12px;" required>
+					<input type="text" class="form-control" id="sq3" name="sq3" placeholder="Enter Answer for Security Question 3" style="font-size: 12px;" value="<?php echo $row["SecurityQs3"]?>" required>
                     
 				</div>
 			</div>
@@ -287,7 +286,7 @@ if(isset($_SESSION['User_ID'])) {
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 				<div class="text-right">
 					<button type="submit" id="submit" name="cancel" class="btn btn-secondary">Cancel</button>
-					<button type="submit" id="submit" name="update" class="btn btn-primary">Create</button>
+					<button type="submit" id="submit" name="update" class="btn btn-primary">Update</button>
 				</div>
 			</div>
 		</div>
@@ -304,7 +303,7 @@ if(isset($_SESSION['User_ID'])) {
 <?php
 }
 else{
-    header("Location: Login.php");
+    header("Location: login.php");
     exit();
 }
 ?>

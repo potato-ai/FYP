@@ -1,6 +1,14 @@
 <?php
 include "ManagerHeader.php";
 include "connectdb.php";
+if(isset($_SESSION['User_ID'])) {
+    $sql = "SELECT Name, Email, PhoneNumber, Position, Password, SecurityQs1, SecurityQs2, SecurityQs3 FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
+    $result = mysqli_query($conn,$sql);
+    if(mysqli_num_rows($result) > 0){
+        $rows = mysqli_fetch_assoc($result);
+        $rows['Name'];
+       
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -127,7 +135,7 @@ include "connectdb.php";
 
 .insert{
 	border:0;
-    background: none;
+    background-color:#0B0742;
     display: block;
     margin: 20px auto;
     text-align: center;
@@ -135,14 +143,15 @@ include "connectdb.php";
     padding:14px 10px;
     width:10vw;
     outline:none;
-    color: black;
+    color: #fdc094;
     border-radius: 24px;
 	transition: 0.25s;
 	cursor: pointer;
 }
 
 .insert:hover{
-	background: #5E72EB;
+	transform: translateY(-2px);
+    box-shadow:.5rem .5rem 2rem rgba(0,0,0,.2)
 }
 a{
     text-decoration:none;
@@ -236,13 +245,10 @@ h1 {
 			$sql = "SELECT * FROM user WHERE Name LIKE '$searchname%'";
 			$result=mysqli_query($conn, $sql);
 	
-			if(mysqli_num_rows($result) <= 0)
-			{
+			if(mysqli_num_rows($result) <= 0) {
 			echo "<script>alert('No Result!');</script>";
 			}
-			else
-			{
-			}
+			else {
 			echo "<center>";
 			echo "<table class='manageusers'>";
 			echo "<tr>";
@@ -257,8 +263,7 @@ h1 {
 			echo "<th>Delete</th>";
 			echo "</tr>";
 				
-			while($rows = mysqli_fetch_array($result))
-			{
+			while($rows = mysqli_fetch_array($result)) {
 			echo "<tr>";
 			echo "<td>".$rows['User_ID']."</td>";
 			echo "<td>".$rows['Name']."</td>";
@@ -267,12 +272,13 @@ h1 {
 			echo "<td>".$rows['Position']."</td>";
 			echo "<td>".$rows['Password']."</td>";
 			echo "<td>".$rows['Salary']."</td>";
-			echo "<td><a href='EditProfile.php?id=".$rows['User_ID']."'<button>Edit</button></a></td>";
-			echo "<td><a href='Delete_Users.php?id=".$rows['User_ID']."'<button>Delete</button></a></td>";
+			echo "<td><a href='EditUserProfile.php?id=".$rows['User_ID']."'<button>Edit</button></a></td>";
+			echo "<td><a href='DeleteUsers.php?id=".$rows['User_ID']."'<button>Delete</button></a></td>";
 			echo "</tr>";
 			}
 			echo "</table>";
 			echo "</center>";
+            }
 		?>
 		<br/>
 		<a href='CreateUser.php'><button class="insert">Insert New User</button></a>
@@ -281,3 +287,10 @@ h1 {
 </body>
 
 </html>
+<?php
+}
+else{
+    header("Location: login.php");
+    exit();
+}
+?>
