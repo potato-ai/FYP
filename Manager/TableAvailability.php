@@ -195,7 +195,8 @@ echo"</div>
 ?>
 <center>
     
-            <input type="submit" value="Confirm"><a href="BookingHistory.php"><input type="button" value="Back"></a>
+            <input type="submit" value="Confirm"><a href="BookingHistory.php"></a>
+            <a href="TableOrder.php"><input type="button" value="Back"></a>
 
 </center>
 </form>

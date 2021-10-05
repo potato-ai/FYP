@@ -169,12 +169,12 @@ function search(){
     }
 }
 </script>
-    <form action="ViewBookingHistory.php" method="post">
+    <form action="BookingHistory.php" method="post">
     Select a date to search booking: <input type ="date" name="search_date" id="search_date">
     <input type="submit" value="Search" onclick="search()"/>    
     </form>
     <?php
-    include "conn.php";
+    include "connectdb.php";
     if(!empty($_POST["search_date"])){
         $search_date=$_POST["search_date"];
         $sql1="Select b.Booking_ID, b.Customer_Name, b.Booking_Date, b.Booking_Time, b.Contact_Number, GROUP_CONCAT(bt.Table_ID) from bookings b, booked_table bt where b.Booking_ID = bt.Booking_ID AND Booking_Date = '".$search_date."' GROUP BY Booking_ID ORDER BY b.Booking_Time ASC;";
@@ -212,7 +212,7 @@ else{
         <div class="test">
             
             <?php
-            include "conn.php"; 
+            include "connectdb.php"; 
             date_default_timezone_set("Singapore");  
             $current_date = date("Y/m/d");
             $sql="Select b.Booking_ID, b.Customer_Name, b.Booking_Date, b.Booking_Time, b.Contact_Number, GROUP_CONCAT(bt.Table_ID) from bookings b, booked_table bt where b.Booking_ID = bt.Booking_ID AND Booking_Date = '".$current_date."' GROUP BY Booking_ID ORDER BY b.Booking_Time ASC;";

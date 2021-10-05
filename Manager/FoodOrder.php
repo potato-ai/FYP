@@ -329,12 +329,44 @@ input[name="addtocart"]{
 a{
     text-decoration:none;
 }
+* {
+  box-sizing: border-box;
+}
+
+form.Search input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+form.Search button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: black;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.Search button:hover {
+  background: grey;
+}
+
+form.Search::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 	</style>
 </head>
 
 <body>
 
-<div class="img1">
 <div class="text">
         <span class="border">
             Order
@@ -478,7 +510,7 @@ a{
 		}
 	}
 	?>
-
+	
 	<div id="shopping-cart">
 		<div class="txt-heading">Order Cart</div>
 		<?php 
@@ -532,8 +564,8 @@ a{
 		?>
 	</div>
 
-	<div id="product-grid">
-		<div class="txt-heading">Products</div>
+
+		<p><div class="txt-heading">Products</div>
 		<form action="FoodOrder.php" method="post">
 			<table>
 				<tr>
