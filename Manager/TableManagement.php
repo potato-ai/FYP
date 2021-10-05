@@ -239,7 +239,6 @@ a{
 button {  
     background-color: lightblue;  
     color: black;  
-
 } 
 
 .button1{
@@ -293,12 +292,13 @@ span.blue {
 <div class="text">
         <span class="border">
             Table Management
-        </span>
+        </span><br>
+
 </div>
 </div>
 
 <center>
-
+            <button class='button container' style='color:#fdc094; margin-bottom: 15px; width:63px; padding:10px; text-align:center;'><a style='color:#fdc094;' href='ManagerHome.php'>Back</a></button>
 <?php
 
     include "connectdb.php";

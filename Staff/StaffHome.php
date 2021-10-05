@@ -200,32 +200,36 @@ $result=mysqli_query($conn,$sql);
     
     <div class='text'>
         <span class='border'>
-            Kitchen Progress Notification:
+            Kitchen Progress Notification
         </span>
 </div>
     
     <section>
     <div class='card-wrapper'>
-            <div class='card'>";
+    ";
                 
     while($rows=mysqli_fetch_array($result)){
         if ($rows['OrderedItem_Status']== 'Order Cooked'){
         echo"
-        <p class='about'>
-        Ordered Item Status:</td><td>".$rows['OrderedItem_Status']."<br>
-        Item Name:</td><td>".$rows['Item_Name']."<br>
-        Quantity:</td><td>".$rows['Quantity']."<br>
-        Comments:</td><td>".$rows['Comments']."<br>
-        Table:</td><td>".$rows['Table_ID']."<br>
-        </p>
-        <a href='OrderDone.php?OrderItem_ID=".$rows['OrderItem_ID']."'><div class='btn'>Done</div></a>";
+        <div class='card'>
+        <center>
+        <h3>Ordered Item Status:</td><td>".$rows['OrderedItem_Status']."</h3>
+        <table>
+            <tr><td>Item Name:</td><td>".$rows['Item_Name']."</td></tr>
+            <tr><td>Quantity:</td><td>".$rows['Quantity']."</td></tr>
+            <tr><td>Quantity:</td><td>".$rows['Quantity']."</td></tr>
+            <tr><td>Table:</td><td>".$rows['Table_ID']."</td></tr>
+        </table>
+        <a href='OrderDone.php?OrderItem_ID=".$rows['OrderItem_ID']."'><div class='btn'>Done</div></a>
+        </center>
+        </div>";
                 }
                 else
                 {}
 }
     echo"</div>
-        </div>
         </section>
+        </div>
     ";
 }
 

@@ -186,7 +186,26 @@ if(isset($_SESSION['User_ID'])) {
 
 a{
     text-decoration:none;
-}</style>
+    
+}
+
+button {  
+    background-color: lightblue;  
+    color: black;  
+} 
+.container {  
+    width:20vw;
+    font-family: 'Oleo Script';
+    padding: 1.5rem 2.5rem;
+    background-color:#0B0742;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    text-transform:uppercase;
+    font-size: 1.5rem;
+    align-items: center;
+    align-content: center;
+}  
+</style>
 </head>
 <body style="background-color: #EDF6F9;">
 
@@ -201,37 +220,45 @@ $result=mysqli_query($conn,$sql);
         echo "<script>alert('There are no Orders.');</script>";
         echo "<script>window.location.href='ChefHome.php';</script>";
     }
-        
+
     else{
-    echo"    
-    
-    <div class='text'>
+    echo"
+
+<div class='text'>
         <span class='border'>
-            Order Notification:
-        </span>
+            Order Notification
+        </span><br>
+        <button class='button container' style='color:#fdc094; margin-bottom: 15px; width:63px; padding:10px; text-align:center;'><a style='color:#fdc094;' href='ChefHome.php'>Back</a></button>
 </div>
-    
-    <section>
-    <div class='card-wrapper'>
-            <div class='card'>";
-                
+
+<section>
+<div class='card-wrapper'>
+    ";
+
     while($rows=mysqli_fetch_array($result)){
         if ($rows['OrderedItem_Status']== 'Cooking'){
         echo"
-        <p class='about'>
-        Ordered Item ID:</td><td>".$rows['OrderItem_ID']."<br>
-        Item Name:</td><td>".$rows['Item_Name']."<br>
-        Quantity:</td><td>".$rows['Quantity']."<br>
-        Comments:</td><td>".$rows['Comments']."<br>
-        </p>
-        <a href='OrderDone.php?OrderItem_ID=".$rows['OrderItem_ID']."'><div class='btn'>Done</div></a>";
+
+        <div class='card'>
+        <center>
+        <h3>Ordered Item ID:</td><td>".$rows['OrderItem_ID']."</h3>
+        <table>
+            <tr><td>Item Name:</td><td>".$rows['Item_Name']."</td></tr>
+            <tr><td>Quantity:</td><td>".$rows['Quantity']."</td></tr>
+            <tr><td>Comments:</td><td>".$rows['Comments']."</td></tr>
+        </table>
+        <a href='OrderDone.php?OrderItem_ID=".$rows['OrderItem_ID']."'><div class='btn'>Done</div></a>
+        <center>
+        </div>
+
+    ";
                 }
                 else
                 {}
 }
     echo"</div>
-        </div>
-        </section>
+    </section>
+    </div>
     ";
 }
 
