@@ -1,5 +1,5 @@
 <?php
-include "ManagerHeader.php";
+include "StaffHeader.php";
 include "connectdb.php";
 if(isset($_SESSION['User_ID'])) {
     $sql = "SELECT Name, Email, PhoneNumber, Position, Password, SecurityQs1, SecurityQs2, SecurityQs3 FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
@@ -82,7 +82,7 @@ if(isset($_SESSION['User_ID'])) {
             $results = mysqli_query($conn,$sql1);
                 if ($results){
                    echo "<script>alert('Profile Updated')</script>";
-                   echo "<script>window.location.href='ManagerProfile.php';</script>";
+                   echo "<script>window.location.href='StaffProfile.php';</script>";
                 }else{
                     //error
                     echo "Query error: ". mysqli_error($conn);// showing the database connection error
@@ -91,7 +91,7 @@ if(isset($_SESSION['User_ID'])) {
     }//close update if
 
     if(isset($_POST['cancel'])){
-        echo "<script>window.location.href = 'ManagerHome.php'</script>";
+        echo "<script>window.location.href = 'StaffHome.php'</script>";
     }
 
     
@@ -198,7 +198,7 @@ if(isset($_SESSION['User_ID'])) {
 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
 <div class="card h-100">
 	<div class="card-body" style="padding-top: 2rem; padding-left: 2rem; padding-right: 2rem; padding-bottom: 2rem;">
-    <form action="ManagerProfile.php" method="POST">
+    <form action="StaffProfile.php" method="POST">
         <div class="row gutters">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 				<h6 class="mb-2 text-primary">Personal Details</h6>

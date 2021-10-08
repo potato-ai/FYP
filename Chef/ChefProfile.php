@@ -133,7 +133,7 @@ if(isset($_SESSION['User_ID'])) {
 .account-settings .user-profile h3.user-name {
     margin: 0 0 0.5rem 0;
 }
-.account-settings .user-profile h5.sub-user {
+.account-settings .user-profile h4.sub-user {
     margin: 0 0 0.5rem 0;
     font-weight: 400;
     color: #696767;
@@ -145,7 +145,7 @@ if(isset($_SESSION['User_ID'])) {
     margin: 2rem 0 0 0;
     text-align: center;
 }
-.account-settings .about h5 {
+.account-settings .about h6 {
     margin: 0 0 15px 0;
     color: #007ae1;
 }
@@ -175,7 +175,7 @@ if(isset($_SESSION['User_ID'])) {
 </head>
 
 <body>
-
+<br>
 <div class="container">
 
 <div class="row gutters">
@@ -185,9 +185,10 @@ if(isset($_SESSION['User_ID'])) {
 		<div class="account-settings">
 			<div class="user-profile">
 				<h3 class="user-name"><?php echo $row["Name"]?></h3>
-				<h5 class="sub-user">Email: <?php echo $row["Email"]?></h5>
-                <h5 class="sub-user">Phone Number: <?php echo $row["PhoneNumber"]?></h5>
-                <h5 class="sub-user">Position: <?php echo $row["Position"]?></h5>
+                <br>
+				<h5 class="sub-user" style="text-align: left;">Email: <?php echo $row["Email"]?></h5>
+                <h5 class="sub-user" style="text-align: left;">Phone Number: <?php echo $row["PhoneNumber"]?></h5>
+                <h5 class="sub-user" style="text-align: left;">Position: <?php echo $row["Position"]?></h5>
 			</div>
 			
 		</div>
@@ -259,7 +260,7 @@ if(isset($_SESSION['User_ID'])) {
 				</div>
 			</div>
 		</div>
-
+        <br>
 		<div class="row gutters">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 				<div class="text-right">

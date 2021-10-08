@@ -269,7 +269,7 @@ $result=mysqli_query($conn,$sql);
                 <p class="about">
                     Edit personal details
                 </p>
-                <a href="StaffEditProfile.php"><div class="btn">Edit Profile</div></a>
+                <a href="StaffProfile.php"><div class="btn">Edit Profile</div></a>
             </div>
     </div>
 
