@@ -462,9 +462,9 @@ form.Search::after {
 					$total_price = 0;
 					$item_price =$unit_price;
 					$total_quantity += $quantity;
-					$total_price += ($item_price * $quantity);
+					$total_price += ($item_price * $total_quantity);
 
-					$sql2 = "INSERT INTO order_item(Item_ID, Order_ID, Item_Name, Comments, OrderedItem_Status, Price, Quantity, Amount) VALUES ('" . $item_id . "', '" . $order_id . "', '" . $item_name . "','" . $comments . "','Pending','" . $unit_price . "','" . $quantity . "', '" . $item_price . "')";
+					$sql2 = "INSERT INTO order_item(Item_ID, Order_ID, Item_Name, Comments, OrderedItem_Status, Price, Quantity, Amount) VALUES ('" . $item_id . "', '" . $order_id . "', '" . $item_name . "','" . $comments . "','Pending','" . $unit_price . "','" . $quantity . "', '" . $total_price . "')";
 					mysqli_query($conn, $sql2);
 					if (mysqli_affected_rows($conn) > 0) {
 					} else {
@@ -530,7 +530,7 @@ form.Search::after {
 					</tr>
 					<?php		//Display in cart table
 					foreach ($_SESSION["shopping_item"] as $item) {
-						$item_price = $item["quantity"] * $item["price"];
+						$item_price = $item["price"] * $item["quantity"];
 
 					?>
 						<tr>

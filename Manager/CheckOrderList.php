@@ -367,6 +367,7 @@ body{
     cursor: pointer;
     transition: 0.25s;     
     }
+
     </style>
 </head>
 <body>
@@ -414,10 +415,10 @@ body{
                         <th>Item ID</th>
                         <th>Name</th>
                         <th>Remark</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Amount</th>
                         <th>Status</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Amount</th>
                         <th>Delete</th>
                     </tr>
                 <?php
@@ -432,8 +433,9 @@ body{
                     echo "<td>" . $rows['Item_Name'] . "</td>";
                     echo "<td>" . $rows['Comments'] . "</td>";
                     echo "<td>" . $rows['OrderedItem_Status'] . "</td>";
-                    echo "<td>" . $rows['Price'] . "</td>";
                     echo "<td>" . $rows['Quantity'] . "</td>";
+                    echo "<td>" . $rows['Price'] . "</td>";
+                    
                     echo "<td>" . $rows['Amount'] . "</td>";
                     echo "<td><a href='delete_ordereditem.php?ordered_itemid=" . $rows['OrderItem_ID'] . "'><center><img src='icon-delete.jpeg' alt='Remove Item'/></center></a></td>";
                     echo "</tr>";
@@ -463,8 +465,8 @@ body{
                         </td>
                     </tr>
                     <tr>
-                        <th>SST</th>
-                        <td>RM</td><td> + <input type="number" id="GST" name="GST" value="<?php $GST = $total * 0.1;
+                        <th>GST</th>
+                        <td>RM</td><td> + <input type="number" id="GST" name="GST" value="<?php $GST = $total * 0.06;
                                                                                 echo number_format($GST, 2); ?>" readonly></td>
                     </tr>
                     <tr>
