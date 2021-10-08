@@ -3,7 +3,7 @@ include "connectdb.php";
 
 
 $orderID = $_GET['OrderItem_ID'];
-$confirm ="UPDATE order_item SET OrderedItem_Status='Done Cooking' WHERE OrderItem_ID=".$orderID;
+$confirm ="UPDATE order_item SET OrderedItem_Status='Order Cooked' WHERE OrderItem_ID=".$orderID;
 $run=mysqli_query($conn,$confirm);
 
 if(mysqli_affected_rows($conn)<0)
