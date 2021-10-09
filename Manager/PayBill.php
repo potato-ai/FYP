@@ -9,7 +9,7 @@ if($_POST['balance']<0){
     $time=$_POST['time'];
     $order_type=$_POST['order_type'];
     $total_amount=$_POST['amount'];
-    $gst=$_POST['gst'];
+    $gst=$_POST['GST'];
     $discount=$_POST['discountamount'];
     $actual_amount=$_POST['actual_amount'];
     $customer_pay=$_POST['customer_pay'];
@@ -30,7 +30,7 @@ $sql="Update orders SET ".
 ",Time='".$time."' ".
 ",Order_Type='".$order_type."' ".
 ",Total_Amount='".$total_amount."' ".
-",gst='".$gst."' ".
+",GST='".$gst."' ".
 ",Discount='".$discount."' ".
 ",Actual_Amount='".$actual_amount."' ".
 ",Customer_Pay='".$customer_pay."' ".
