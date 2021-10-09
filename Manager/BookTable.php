@@ -10,10 +10,11 @@ include "ManagerHeader.php";
     <title>Book Table</title>
     <style>
 
-body {
-	background-color: lavenderblush;
-	font-family: Arial;
-	color: #211a1a;
+body{
+    background-image: url();
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: #EDF6F9;
 }
 
 .img1{
@@ -30,7 +31,7 @@ body {
 }
 
 .section-light{
-    background-color:#f4f4f4;
+    background-color:#EDF6F9;
     columns: #666;
 }
 
@@ -50,20 +51,23 @@ section{
 }
 
 .text{
-    position:absolute;
-    top:50%;
+    position:relative;
+    top:30%;
     width:100%;
     text-align:center;
     color:#000;
     font-size:27px;
     letter-spacing:8px;
     text-transform: uppercase;
+    font-family: 'Oleo Script';
+    padding:50px;
+
 }
 
 .text .border{
-    background-color:#111;
-    color:#fff;
+    background-color:#EDF6F9;
     padding:20px;
+    
 }
 
 .text .border.trans{
@@ -185,13 +189,6 @@ input[type = "button"]:active, input[type = "submit"]:active{
     </style>
 </head>
 <body>
-<div class="img">
-        <div class="text">
-            <span class="border">
-                TABLE BOOKING
-            </span>
-        </div>
-    </div>
 
     <section class="section section-light">
         <div class="card-wrapper">
@@ -200,7 +197,7 @@ input[type = "button"]:active, input[type = "submit"]:active{
     <h1>Table Booking</h1>
     <form action="InsertBookingRecord.php" method="post">
     <table align="center" class="addfood" cellpadding="5px">
-   <tr><th>Customer Name</th><td><input type="text" name="customer_name" require></td>     
+   <tr><th>Customer Name</th><td><input type="text" name="cust_name" require></td>     
    <tr><th>Booking Date</th><td> <input type="date" name="booking_date" require></td></tr>
    <tr><th>Booking Time</th><td> <input type="time" name="booking_time" format="HH:mm" min="0900" max="2100" require></td></tr>
    <tr><th>Contact Number</th><td> <input type="tel" name="contact_number" require></td></tr>
@@ -227,7 +224,7 @@ input[type = "button"]:active, input[type = "submit"]:active{
            ?></td></tr>
 
     </table>
-    <tr><td><a href="BookingHistory.php"><input type="button" value="Back"></a></td> <td><input type="submit" value="Book"></td>
+    <tr><td><input type="submit" value="Book"></td><td><a href="ViewBookingHistory.php"><input type="button" value="Back"></a></td> 
     </form>
 </center>
 </div>
