@@ -185,7 +185,7 @@ if(isset($_SESSION['User_ID'])) {
 
     </style>
 </head>
-
+<br>
 <body>
 
 <div class="container">
@@ -285,6 +285,7 @@ if(isset($_SESSION['User_ID'])) {
 		<div class="row gutters">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 				<div class="text-right">
+                    <br>
 					<button type="submit" id="submit" name="cancel" class="btn btn-secondary">Cancel</button>
 					<button type="submit" id="submit" name="update" class="btn btn-primary">Update</button>
 				</div>

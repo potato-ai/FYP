@@ -217,13 +217,7 @@ h1 {
 
 <body style="background-color: #EDF6F9;">
 
-<div class="img">
-    <div class="text">
-        <span class="border">
-            MANAGE USERS
-        </span>
-    </div>
-</div>
+
 	
         <div class="search">
                 <h1>&#128104; Search for Employees &#128105;</h1>
