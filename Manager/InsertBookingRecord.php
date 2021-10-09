@@ -25,7 +25,7 @@ $y= implode("", (array)$table_id);//change array to string
 
 $check_tableid = rtrim($y, ",");
 
-    $sql = "SELECT b.Booking_ID, b.Booking_Date, b.Booking_Time, GROUP_CONCAT(bt.Table_ID) FROM bookings b, table_booking bt WHERE b.Booking_ID = bt.Booking_ID AND Booking_Date = '" . $booking_date . "' AND Booking_Time BETWEEN ADDTIME('" . $booking_time . "', '-0:15:0') AND ADDTIME('" . $booking_time . "', '0:15:0') AND Table_ID IN (" . $check_tableid . ") GROUP BY Booking_ID;";
+    $sql = "SELECT b.Booking_ID, b.Booking_Date, b.Booking_Time, GROUP_CONCAT(tb.Table_ID) FROM bookings b, table_booking tb WHERE b.Booking_ID = tb.Booking_ID AND Booking_Date = '" . $booking_date . "' AND Booking_Time BETWEEN ADDTIME('" . $booking_time . "', '-0:15:0') AND ADDTIME('" . $booking_time . "', '0:15:0') AND Table_ID IN (" . $check_tableid . ") GROUP BY Booking_ID;";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) <= 0) {
         $sql1 = "INSERT INTO bookings (Cust_Name, Booking_Date, " .
@@ -59,7 +59,7 @@ $check_tableid = rtrim($y, ",");
     } else {
         while ($rows = mysqli_fetch_array($result)) {
             
-                $z = $rows['GROUP_CONCAT(bt.Table_ID)'];
+                $z = $rows['GROUP_CONCAT(tb.Table_ID)'];
         }
         echo "<script>alert('The table ".$z." is booked by other customers!');window.history.go(-1);</script>";
     }
