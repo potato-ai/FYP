@@ -334,14 +334,15 @@ table {
 
 
 .container {  
-    width:25vw;
+    width:20vw;
+    height: 5vw;
     font-family: 'Oleo Script';
     padding: 1.5rem 2.5rem;
     background-color:#0B0742;
     border-radius: 2rem;
     margin: 1rem 0;
     text-transform:uppercase;
-    font-size: 1.5rem;
+    font-size: 1rem;
     align-items: center;
     align-content: center;
 }  
@@ -377,7 +378,7 @@ button {
 <label for="date">Date Of Booking</label><br>
 <input type="date" name="date" id="date">
 
-<button type="submit" onclick="searchDate()" class="container" style="color:#fdc094; width:15vw; font-size: 1.0em;">Search</button>
+<button type="submit" onclick="searchDate()" class="container" style="color:#fdc094; width:10vw; height: 5vw; font-size: 1.0em;">Search</button>
 
 </form>
 
