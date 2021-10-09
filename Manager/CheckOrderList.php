@@ -27,7 +27,7 @@ body{
         #pmf {
             /*display: none;*/
             /*to hide the form*/
-            width: 47%;
+            width: 50%;
             margin: 1%;
         }
     
@@ -35,7 +35,7 @@ body{
         #cash_form {
             display: none;
             /*to hide the form*/
-            width: 47%;
+            width: 50%;
             margin: 1%;
         }
     
@@ -72,15 +72,16 @@ body{
     }
     
     .details th{
-    background-color:#a3a3c2;
+    background-color:#0B0742;
+    color: #fdc094;
     }
     
     .details td{
-    background-color: #d1d1e0;
+    background-color: #0B0742;
     }
     
     .details input[type="text"]{
-    background-color: #d1d1e0;
+    background-color: #dedede;
     }
     
     .img1{
@@ -132,8 +133,8 @@ body{
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #FF9190;
-    color: white;
+    background-color: #0B0742;
+    color: #fdc094;
     }
     
     .amount{
@@ -149,7 +150,7 @@ body{
     }
           
     .amount tr:hover {
-    background-color: #ffff80;
+    background-color: #fdc094;
     transition:0.25s;
     
     }
@@ -158,8 +159,8 @@ body{
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #ffff33;
-    color:#000;
+    background-color: #0B0742;
+    color:#fdc094;
     }
     
     .amount input[type ="button"]{
@@ -222,8 +223,8 @@ body{
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #88ff4d;
-    color:#000;
+    background-color: #0B0742;
+    color:#fdc094;
     }
     
     .discount input[type ="button"]{
@@ -265,8 +266,8 @@ body{
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color:  #993d00;
-    color:white;
+    background-color:  #0B0742;
+    color:#fdc094;
     }
 
     .payment select{
@@ -288,7 +289,7 @@ body{
     font-family:'Oleo Script';
     background: none;
     display: block;
-    width:5vw;
+    width:6vw;
     background-color:#0B0742;
     border-radius: 2rem;
     text-transform:uppercase;
@@ -374,9 +375,7 @@ body{
 
 <div class="img1">
 <div class="text">
-        <span class="border">
-           Bill
-        </span>
+           <h2>Bill<h2>
 </div>
 </div>
 
@@ -408,13 +407,15 @@ body{
                 echo "<th>Date</th><td><input type='text' name='date' value='" . $date . "' readonly></td>";
                 echo "<tr><th>Receipt ID</th><td><input type='text' name='order_id' value='" . $order_id . "' readonly></td>";
                 echo "<th>Time</th><td><input type='text' name='time' value='" . date("H:i:s") . "' readonly></td></tr>";
-                echo "<tr><th colspan='2'>Order Type</th><td colspan='2'><input type='text' name='order_type' value='" . $order_type . "' readonly></td></tr></table>";
+                echo "<tr><th>Order Type</th><td><input type='text' name='order_type' value='" . $order_type . "' readonly></td></tr></table>";
+                
+                
             ?>
                 <table width="95%" class="orders">
                     <tr>
                         <th>Item ID</th>
                         <th>Name</th>
-                        <th>Remark</th>
+                        <th>Comments</th>
                         <th>Status</th>
                         <th>Quantity</th>
                         <th>Price</th>
@@ -437,7 +438,7 @@ body{
                     echo "<td>" . $rows['Price'] . "</td>";
                     
                     echo "<td>" . $rows['Amount'] . "</td>";
-                    echo "<td><a href='delete_ordereditem.php?ordered_itemid=" . $rows['OrderItem_ID'] . "'><center><img src='icon-delete.jpeg' alt='Remove Item'/></center></a></td>";
+                    echo "<td><a href='DeleteOrderItem.php?OrderItem_ID=" . $rows['OrderItem_ID'] . "'><center><img src='icon-delete.jpeg' alt='Remove Item'/></center></a></td>";
                     echo "</tr>";
                 }
             } elseif (mysqli_num_rows($result) <= 0) {
@@ -450,7 +451,7 @@ body{
                     <tr>
                         <th>Amount</th>
                         <td>RM</td><td> <input type="number" id="amount" name="amount" step="0.01" value="<?php
-                            $sql2 = "SELECT sum(Quantity*Price) AS Total FROM order_item WHERE Order_ID='" . $order_id . "';"; //From table ordered_items
+                            $sql2 = "SELECT sum(Quantity*Price) AS Total FROM order_item WHERE Order_ID='" . $order_id . "';";
                             $result2 = mysqli_query($conn, $sql2);
 
                             if (mysqli_num_rows($result2) <= 0) {
