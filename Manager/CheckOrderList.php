@@ -524,7 +524,7 @@ body{
             <table class="payment">
                 <tr>
                 <th>Pay Method</th>
-                <td><select name="pay_method">
+                <td><select name="paying_method">
 							<option value="Cash">Cash</option>
 							<option value="Credit Card">Credit Card</option>
 						</select>

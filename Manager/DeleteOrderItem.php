@@ -1,14 +1,14 @@
 <?php
-$order_itemid=$_GET['OrderItem_ID'];
+$OrderItem_ID=$_GET['OrderItem_ID'];
 include "connectdb.php";
-$sql1="Select Order_ID from order_item where OrderItem_ID = '".$orderitem_id."';";
+$sql1="Select Order_ID from order_item where OrderItem_ID = '".$OrderItem_ID."';";
 $result1=mysqli_query($conn,$sql1);
 
 while($rows=mysqli_fetch_array($result1)){
     $order_id=$rows['Order_ID'];
 }
 
-$sql="Delete from order_item where OrderItem_ID='".$orderitem_id."' AND OrderedItem_Status='Cooking';";
+$sql="Delete from order_item where OrderItem_ID='".$OrderItem_ID."' AND OrderedItem_Status='Cooking';";
 
 $result = mysqli_query($conn,$sql);
 

@@ -22,7 +22,7 @@ if($_POST['balance']<0){
 if(!empty($discount)){
     $discount=$_POST['discountamount'];
 
-$sql1="Update tables SET Table_Status='Free' where Table_ID='".$table_id."';";
+$sql1="Update tables SET Table_Status='Available' where Table_ID='".$table_id."';";
 $result1=mysqli_query($conn,$sql1);
 
 $sql="Update orders SET ".
@@ -56,7 +56,7 @@ else{
 }
 else{// (else the discount is empty)
 
-$sql1="Update tables SET Table_Status='Free' where Table_ID='".$table_id."';";
+$sql1="Update tables SET Table_Status='Available' where Table_ID='".$table_id."';";
 $result1=mysqli_query($conn,$sql1);
 
 $sql="Update orders SET ".
