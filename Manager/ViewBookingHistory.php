@@ -453,7 +453,7 @@ $curdate = date("Y/m/d");
         
 ?>
 
-
+</section>
 
 <section>
 
@@ -533,7 +533,11 @@ $year=date("Y",$time);
 
 
 
-</section>
+<center>
+<button class="button container" style="color:#fdc094; margin-bottom: 15px; width:15%; height:15%; text-align:center;"><a href="BookTable.php" style=" text-decoration: none;color:#fdc094;">Book Table</a></button>
+<button class="button container" style="color:#fdc094; margin-bottom: 15px; width:15%; height:15%; text-align:center;"><a href="TableAvailability.php" style=" text-decoration: none;color:#fdc094;">Change Table Availability</a></button>
+<button class="button container" style="color:#fdc094; margin-bottom: 15px; width:15%; height:15%; text-align:center;"><a href="TableOrder.php" style=" text-decoration: none;color:#fdc094;">Back</a></button>
+</center>
 
 <?php
 
