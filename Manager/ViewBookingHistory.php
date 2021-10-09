@@ -378,7 +378,7 @@ button {
 <input type="date" name="date" id="date">
 
 <button type="submit" onclick="searchDate()" class="container" style="color:#fdc094; width:15vw; font-size: 1.0em;">Search</button>
-<button class="container" style="width:15vw; font-size: 1.0em;"><a href="TableOrder.php" style="color:#fdc094;">Back</a></button>
+
 </form>
 
 
