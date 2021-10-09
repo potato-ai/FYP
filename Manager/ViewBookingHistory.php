@@ -334,7 +334,7 @@ table {
 
 
 .container {  
-    width:20vw;
+    width:25vw;
     font-family: 'Oleo Script';
     padding: 1.5rem 2.5rem;
     background-color:#0B0742;
@@ -347,9 +347,7 @@ table {
 }  
 
 button {  
-    background-color: lightblue;  
     color: black;  
-
 } 
 </style>
 </head>
@@ -379,8 +377,8 @@ button {
 <label for="date">Date Of Booking</label><br>
 <input type="date" name="date" id="date">
 
-<button type="submit" onclick="searchDate()" class="button container" style="color:#fdc094; margin-bottom: 15px; width:9vw; text-align:center;">Search</button>
-<button class="button container" style="color:#fdc094; margin-bottom: 15px; width:7vw; text-align:center;"><a href="TableOrder.php" style=" text-decoration: none;color:#fdc094;">Back</a></button>
+<button type="submit" onclick="searchDate()" class="container" style="color:#fdc094; width:15vw; font-size: 1.0em;">Search</button>
+<button class="container" style="width:15vw; font-size: 1.0em;"><a href="TableOrder.php" style="color:#fdc094;">Back</a></button>
 </form>
 
 
@@ -391,15 +389,10 @@ button {
             <div class="row">
                 <div class="col-md-12">
 
-
 <?php
-
             include "connectdb.php";
 
-                    
-
-
-                
+            
 //get current date
 date_default_timezone_set("Singapore");  
 $curdate = date("Y/m/d");
@@ -534,9 +527,9 @@ $year=date("Y",$time);
 
 
 <center>
-<button class="button container" style="color:#fdc094; margin-bottom: 15px; width:15%; height:15%; text-align:center;"><a href="BookTable.php" style=" text-decoration: none;color:#fdc094;">Book Table</a></button>
-<button class="button container" style="color:#fdc094; margin-bottom: 15px; width:15%; height:15%; text-align:center;"><a href="TableAvailability.php" style=" text-decoration: none;color:#fdc094;">Change Table Availability</a></button>
-<button class="button container" style="color:#fdc094; margin-bottom: 15px; width:15%; height:15%; text-align:center;"><a href="TableOrder.php" style=" text-decoration: none;color:#fdc094;">Back</a></button>
+<button class="container" style="color:#fdc094"><a href="BookTable.php" style="color:#fdc094;">Book Table</a></button>
+<button class="container" style="color:#fdc094"><a href="TableAvailability.php" style="color:#fdc094;">Table Availability</a></button>
+<button class="container" style="color:#fdc094"><a href="TableOrder.php" style="color:#fdc094;">Back</a></button>
 </center>
 
 <?php
