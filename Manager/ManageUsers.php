@@ -276,6 +276,7 @@ h1 {
 		?>
 		<br/>
 		<a href='CreateUser.php'><button class="insert">Insert New User</button></a>
+        <a href='ManagerHome.php'><button class="insert">Back</button></a>
 	
 
 </body>
