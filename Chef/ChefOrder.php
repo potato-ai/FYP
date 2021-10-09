@@ -225,10 +225,10 @@ $result=mysqli_query($conn,$sql);
     echo"
 
 <div class='text'>
-        <span class='border'>
-            Order Notification
-        </span><br>
-        <button class='button container' style='color:#fdc094; margin-bottom: 15px; width:63px; padding:10px; text-align:center;'><a style='color:#fdc094;' href='ChefHome.php'>Back</a></button>
+
+        <h2>Order Notification</h2>
+
+        <button class='button container' style='color:#fdc094; margin-bottom: 15px; width:100px; padding:10px; text-align:center;'><a style='color:#fdc094;' href='ChefHome.php'>Back</a></button>
 </div>
 
 <section>

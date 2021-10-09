@@ -42,7 +42,7 @@ if(isset($_SESSION['User_ID'])) {
         }
         else{
             $phonenumber = $_POST['phonenumber'];
-            if(!preg_match("/(601)[0-9]{8,9}$/", $phonenumber)){
+            if(!preg_match("/(01)[0-9]{8,9}$/", $phonenumber)){
                 $error['phonenumber'] = "Please enter a valid Malaysian phone number";
             }
         }
@@ -78,6 +78,7 @@ if(isset($_SESSION['User_ID'])) {
             $c = strtolower($sq3);
         }
 
+        if(!array_filter($error)){
             $sql1 = "UPDATE user SET Name = '$fullname', Email = '$email', PhoneNumber = '$phonenumber',  Password = '$password', SecurityQs1 = '$a', SecurityQs2 = '$b', SecurityQs3 = '$c' WHERE User_ID = '{$_SESSION['User_ID']}'";
             $results = mysqli_query($conn,$sql1);
                 if ($results){
@@ -87,6 +88,8 @@ if(isset($_SESSION['User_ID'])) {
                     //error
                     echo "Query error: ". mysqli_error($conn);// showing the database connection error
                 }
+        }
+            
             
     }//close update if
 
@@ -185,7 +188,6 @@ if(isset($_SESSION['User_ID'])) {
 		<div class="account-settings">
 			<div class="user-profile">
 				<h3 class="user-name"><?php echo $row["Name"]?></h3>
-                <br>
 				<h5 class="sub-user" style="text-align: left;">Email: <?php echo $row["Email"]?></h5>
                 <h5 class="sub-user" style="text-align: left;">Phone Number: <?php echo $row["PhoneNumber"]?></h5>
                 <h5 class="sub-user" style="text-align: left;">Position: <?php echo $row["Position"]?></h5>
@@ -206,30 +208,30 @@ if(isset($_SESSION['User_ID'])) {
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="fullName">Full Name</label>
-					<input type="text" class="form-control" id="fullName" name="fullname" placeholder="Enter full name" style="font-size: 12px;" value="<?php echo $row["Name"]?>" required>
-                    
+					<input type="text" class="form-control" id="fullName" name="fullname" placeholder="Enter full name" style="font-size: 12px;" value="<?php echo $row["Name"]?>" >
+                    <div style="color: red"><?php echo $error['fullname']; ?></div>
 				</div>
 			</div>
 
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" class="form-control" id="eMail" name="email" placeholder="Enter email ID" style="font-size: 12px;" pattern="^[a-zA-Z0-9]+@(gmail|imail|outlook|hotmail|yahoo)\.com$" title="userName@gmail/imail/outlook/hotmail/yahoo.com" value="<?php echo $row["Email"]?>" required>
-                    
+					<input type="email" class="form-control" id="eMail" name="email" placeholder="Enter email ID" style="font-size: 12px;" value="<?php echo $row["Email"]?>" >
+                    <div style="color: red"><?php echo $error['email']; ?></div>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="phone">Phone</label>
-					<input type="text" class="form-control" id="phone" name="phonenumber" placeholder="Enter phone number" style="font-size: 12px;" pattern="(01)[0-9]{8,9}$" title="Example: 0123456789/01234567890" value="<?php echo $row["PhoneNumber"]?>" required>
-                    
+					<input type="text" class="form-control" id="phone" name="phonenumber" placeholder="Enter phone number" style="font-size: 12px;" value="<?php echo $row["PhoneNumber"]?>" >
+                    <div style="color: red"><?php echo $error['phonenumber']; ?></div>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="password">Password</label>
-					<input type="password" class="form-control" id="password" name="password" placeholder="Password" style="font-size: 12px;" value="<?php echo $row["Password"]?>" required>
-                    
+					<input type="password" class="form-control" id="password" name="password" placeholder="Password" style="font-size: 12px;" value="<?php echo $row["Password"]?>" >
+                    <div style="color: red"><?php echo $error['password']; ?></div>
 				</div>
 			</div>
 		</div>
@@ -241,22 +243,22 @@ if(isset($_SESSION['User_ID'])) {
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="sq1">Favourite color</label>
-					<input type="text" class="form-control" id="sq1" name="sq1" placeholder="Enter Answer for Security Question 1" style="font-size: 12px;" value="<?php echo $row["SecurityQs1"]?>" required>
-                    
+					<input type="text" class="form-control" id="sq1" name="sq1" placeholder="Enter Answer for Security Question 1" style="font-size: 12px;" value="<?php echo $row["SecurityQs1"]?>" >
+                    <div style="color: red"><?php echo $error['sq1']; ?></div>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="sq2">Favourite food</label>
-					<input type="text" class="form-control" id="sq2" name="sq2" placeholder="Enter Answer for Security Question 2" style="font-size: 12px;" value="<?php echo $row["SecurityQs2"]?>" required>
-                    
+					<input type="text" class="form-control" id="sq2" name="sq2" placeholder="Enter Answer for Security Question 2" style="font-size: 12px;" value="<?php echo $row["SecurityQs2"]?>" >
+                    <div style="color: red"><?php echo $error['sq2']; ?></div>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="sq3">Favourite activity</label>
-					<input type="text" class="form-control" id="sq3" name="sq3" placeholder="Enter Answer for Security Question 3" style="font-size: 12px;" value="<?php echo $row["SecurityQs3"]?>" required>
-                    
+					<input type="text" class="form-control" id="sq3" name="sq3" placeholder="Enter Answer for Security Question 3" style="font-size: 12px;" value="<?php echo $row["SecurityQs3"]?>" >
+                    <div style="color: red"><?php echo $error['sq3']; ?></div>
 				</div>
 			</div>
 		</div>
