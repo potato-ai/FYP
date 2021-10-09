@@ -440,7 +440,7 @@ $curdate = date("Y/m/d");
                                     echo "<td>".$rows['Booking_Time']."</td>";
                                     echo "<td>".$rows['Contact_Number']."</td>";
                                     echo "<td>".$rows['GROUP_CONCAT(table_booking.Table_ID)']."</td>";
-                                    echo "<td><a href='UpdateBooking.php?id=".$rows['Booking_ID']."'><button>Edit</button></a></td>";
+                                    echo "<td><a href='EditBooking.php?id=".$rows['Booking_ID']."'><button>Edit</button></a></td>";
                                     echo "<td><a href='DeleteBooking.php?id=".$rows['Booking_ID']."'><button>Complete</button></a></td>";
                                     echo "</tr>";
 			}
@@ -515,7 +515,7 @@ $year=date("Y",$time);
                                     echo "<td>".$rows['Booking_Time']."</td>";
                                     echo "<td>".$rows['Contact_Number']."</td>";
                                     echo "<td>".$rows['GROUP_CONCAT(table_booking.Table_ID)']."</td>";
-                                    echo "<td><a href='UpdateBooking.php?id=".$rows['Booking_ID']."'><button>Edit</button></a></td>";
+                                    echo "<td><a href='EditBooking.php?id=".$rows['Booking_ID']."'><button>Edit</button></a></td>";
                                     echo "<td><a href='DeleteBooking.php?id=".$rows['Booking_ID']."'><button>Complete</button></a></td>";
                                     echo "</tr>";
 			}
