@@ -244,13 +244,14 @@ a{
 }
 
 .card{
-    width: 25vw;
+    width: 25%;
+    height: 25%;
     background-color:#ebeef8;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin:2rem 0;
+    margin:5%;
     box-shadow: .5rem .5rem 3rem rgba(0,0,0,0.2);
     font-family: 'Oleo Script';
     padding-bottom:2vw;
@@ -258,47 +259,47 @@ a{
 
 .card .card-img{
     width:100%;
-    height:26rem;
+    height:16rem;
     object-fit: cover;
     -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
 }
 
 .card h1{
-    font-size:2.5rem;
+    font-size:2rem;
     color: #333;
-    margin:1.5rem 0;
+    margin:2%;
     font-family:'Oleo Script';
 }
 
 .about{
     font-size: 1.5rem;
-    margin:1.5rem 0;
+    margin:2%;
     font-style: normal;
     text-align:center;
     color: #333;
-    padding-right: 1vw;
-    padding-left: 1vw;
+    padding-right: 2%;
+    padding-left: 2%;
 }
 
 .card .btn{
-    padding: 1rem 2.5rem;
+    padding: 1rem 1.5rem;
     background-color:green;
     border-radius: 2rem;
     margin: 1rem 0;
     text-transform:uppercase;
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .card .btn2{
-    padding: 1rem 2.5rem;
+    padding: 1rem 1.5rem;
     background-color:red;
     border-radius: 2rem;
     margin: 1rem 0;
     text-transform:uppercase;
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 @media screen and (min-width:700px){
@@ -368,9 +369,7 @@ a{
   <div class="img">
   
     <div class="text">
-        <span class="border">
-            MENU AVAILABILITY
-        </span>
+        <h2>MENU AVAILABILITY</h2>
     </div>
 </div>
 
@@ -493,8 +492,8 @@ a{
 
 <table>
     <tr rowspan="2">
-    <td><center><input type="submit" value="Save Changes" class="saveBtn"></a></center></td>
-    <td><center><a href="ChefHome.php"><input type="button" value="Back" class="btn3"></a></center></td>
+    <td><center><input type="submit" value="Save Changes" class="saveBtn" style="font-size: 1.2rem;"></a></center></td>
+    <td><center><a href="ChefHome.php"><input type="button" value="Back" class="btn3" style="font-size: 1.2rem;"></a></center></td>
     </tr>
     </table>
     </form>

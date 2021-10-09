@@ -197,42 +197,7 @@ $result=mysqli_query($conn,$sql);
     }
         
     else{
-    echo"    
-    
-    <div class='text'>
-        <span class='border'>
-            Kitchen Progress Notification
-        </span>
-</div>
-    
-    <section>
-    <div class='card-wrapper'>";
-                
-    while($rows=mysqli_fetch_array($result)){
-        if ($rows['OrderedItem_Status']== 'Order Cooked'){
-        echo"
-        <div class='card'>
-        <center>
-        <h3>Ordered Item Status:</td><td>".$rows['OrderedItem_Status']."</h3>
-        <table>
-            <tr><td>Item Name:</td><td>".$rows['Item_Name']."</td></tr>
-            <tr><td>Quantity:</td><td>".$rows['Quantity']."</td></tr>
-            <tr><td>Quantity:</td><td>".$rows['Quantity']."</td></tr>
-            <tr><td>Table:</td><td>".$rows['Table_ID']."</td></tr>
-        </table>
-        <a href='OrderDone.php?OrderItem_ID=".$rows['OrderItem_ID']."'><div class='btn'>Done</div></a>
-        </center>
-        </div>";
-        
-                }
-                else
-                {}
-}
-    echo"</div>
-        </section>
-        </div>
-    ";
-}
+
 
 ?>
 
@@ -321,7 +286,44 @@ $result=mysqli_query($conn,$sql);
     
         
         </section>
-
+<?php
+    echo"    
+    
+    <div class='text'>
+    
+        <h2>Kitchen Progress Notification</h2>
+        
+</div>
+    
+    <section>
+    <div class='card-wrapper'>";
+                
+    while($rows=mysqli_fetch_array($result)){
+        if ($rows['OrderedItem_Status']== 'Order Cooked'){
+        echo"
+        <div class='card'>
+        <center>
+        <h3>Ordered Item Status:</td><td>".$rows['OrderedItem_Status']."</h3>
+        <table>
+            <tr><td>Item Name:</td><td>".$rows['Item_Name']."</td></tr>
+            <tr><td>Quantity:</td><td>".$rows['Quantity']."</td></tr>
+            <tr><td>Quantity:</td><td>".$rows['Quantity']."</td></tr>
+            <tr><td>Table:</td><td>".$rows['Table_ID']."</td></tr>
+        </table>
+        <a href='OrderDone.php?OrderItem_ID=".$rows['OrderItem_ID']."'><div class='btn'>Done</div></a>
+        </center>
+        </div>";
+        
+                }
+                else
+                {}
+}
+    echo"</div>
+        </section>
+        </div>
+    ";
+}
+?>
 
 
 

@@ -31,6 +31,13 @@ if(isset($_SESSION['User_ID'])) {
             if(!preg_match("/(@)(gmail|imail|outlook|hotmail|yahoo)(.com)/", $email)){
                 $error['email'] = "Please enter a valid email address";
             }
+            $emailerror = "SELECT Email FROM user WHERE Email = '$email'";
+            $emailerror = mysqli_query($conn, $emailerror);
+
+            if(mysqli_num_rows($emailerror) > 0){
+                $error['email'] = "Email has been already registered";
+                
+            }
         }
 
         if(empty($_POST['phonenumber'])){
@@ -38,8 +45,14 @@ if(isset($_SESSION['User_ID'])) {
         }
         else{
             $phonenumber = $_POST['phonenumber'];
-            if(!preg_match("/(601)[0-9]{8,9}$/", $phonenumber)){
+            if(!preg_match("/(01)[0-9]{8,9}$/", $phonenumber)){
                 $error['phonenumber'] = "Please enter a valid Malaysian phone number";
+            }
+            $phoneerror = "SELECT PhoneNumber FROM user WHERE PhoneNumber = '$phonenumber'";
+            $phoneerror = mysqli_query($conn, $phoneerror);
+
+            if(mysqli_num_rows($phoneerror) > 0){
+                $error['phonenumber'] = "Phone number has been registered";
             }
         }
 
@@ -85,17 +98,18 @@ if(isset($_SESSION['User_ID'])) {
             $sq3 = $_POST['sq3'];
         }
 
-    
-    
+        if(!array_filter($error)){
             $sql1 = "INSERT INTO user(Name, Email, PhoneNumber, Position, Password, Salary, SecurityQs1, SecurityQs2, SecurityQs3) VALUES ('$fullname', '$email', '$phonenumber', '$position', '$password', '$salary', '$sq1', '$sq2', '$sq3')";
             $results = mysqli_query($conn,$sql1);
                 if ($results){
-                    header("Location: ManageUsers.php");
+                    echo "<script>alert('User Created')</script>";
+                    echo "<script>window.location.href = 'ManageUsers.php'</script>";
                 }else{
                     //error
                     echo "Query error: ". mysqli_error($conn);// showing the database connection error
                 }
-            
+        }
+     
     }//close update if
 
     if(isset($_POST['cancel'])){
@@ -105,7 +119,7 @@ if(isset($_SESSION['User_ID'])) {
     
 
 ?>
-
+<br>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -214,44 +228,45 @@ if(isset($_SESSION['User_ID'])) {
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="fullName">Full Name</label>
-					<input type="text" class="form-control" id="fullName" name="fullname" placeholder="Enter full name" style="font-size: 12px;" required>
-                    
+					<input type="text" class="form-control" id="fullName" name="fullname" placeholder="Enter full name" style="font-size: 12px;" >
+                    <div style="color: red"><?php echo $error['fullname']; ?></div>
 				</div>
 			</div>
 
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" class="form-control" id="eMail" name="email" placeholder="Enter email ID" style="font-size: 12px;" pattern="^[a-zA-Z0-9]+@(gmail|imail|outlook|hotmail|yahoo)\.com$" title="userName@gmail/imail/outlook/hotmail/yahoo.com" required>
-                    
+					<input type="email" class="form-control" id="eMail" name="email" placeholder="Enter email ID" style="font-size: 12px;">
+                    <div style="color: red"><?php echo $error['email']; ?></div>
+                
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="phone">Phone</label>
-					<input type="text" class="form-control" id="phone" name="phonenumber" placeholder="Enter phone number" style="font-size: 12px;" pattern="(01)[0-9]{8,9}$" title="Example: 0123456789/01234567890" required>
-                    
+					<input type="text" class="form-control" id="phone" name="phonenumber" placeholder="Enter phone number" style="font-size: 12px;" >
+                    <div style="color: red"><?php echo $error['phonenumber']; ?></div>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="password">Password</label>
-					<input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" style="font-size: 12px;" required>
-                    
+					<input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" style="font-size: 12px;" >
+                    <div style="color: red"><?php echo $error['password']; ?></div>
 				</div>
 			</div>
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="position">Position</label>
-					<input type="text" class="form-control" id="position" name="position" placeholder="Enter Position" style="font-size: 12px;" pattern="^(Chef|Staff|Manager|chef|staff|manager)$" title="Chef/Staff/Manager only" required>
-                    
+					<input type="text" class="form-control" id="position" name="position" placeholder="Enter Position" style="font-size: 12px;" >
+                    <div style="color: red"><?php echo $error['position']; ?></div>
 				</div>
 			</div>
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="salary">Salary</label>
-					<input type="text" class="form-control" id="salary" name="salary" placeholder="Enter Salary" style="font-size: 12px;" required>
-                    
+					<input type="text" class="form-control" id="salary" name="salary" placeholder="Enter Salary" style="font-size: 12px;" >
+                    <div style="color: red"><?php echo $error['salary']; ?></div>
 				</div>
 			</div>
 		</div>
@@ -263,26 +278,26 @@ if(isset($_SESSION['User_ID'])) {
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="sq1">Favourite color</label>
-					<input type="text" class="form-control" id="sq1" name="sq1" placeholder="Enter Answer for Security Question 1" style="font-size: 12px;" required>
-                    
+					<input type="text" class="form-control" id="sq1" name="sq1" placeholder="Enter Answer for Security Question 1" style="font-size: 12px;" >
+                    <div style="color: red"><?php echo $error['sq1']; ?></div>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="sq2">Favourite food</label>
-					<input type="text" class="form-control" id="sq2" name="sq2" placeholder="Enter Answer for Security Question 2" style="font-size: 12px;" required>
-                    
+					<input type="text" class="form-control" id="sq2" name="sq2" placeholder="Enter Answer for Security Question 2" style="font-size: 12px;" >
+                    <div style="color: red"><?php echo $error['sq2']; ?></div>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="sq3">Favourite activity</label>
-					<input type="text" class="form-control" id="sq3" name="sq3" placeholder="Enter Answer for Security Question 3" style="font-size: 12px;" required>
-                    
+					<input type="text" class="form-control" id="sq3" name="sq3" placeholder="Enter Answer for Security Question 3" style="font-size: 12px;" >
+                    <div style="color: red"><?php echo $error['sq3']; ?></div>
 				</div>
 			</div>
 		</div>
-
+        <br>
 		<div class="row gutters">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 				<div class="text-right">

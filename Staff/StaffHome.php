@@ -1,5 +1,15 @@
 <?php
 include "StaffHeader.php";
+include "connectdb.php";
+if(isset($_SESSION['User_ID'])) {
+    $sql = "SELECT Name FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
+    $result = mysqli_query($conn,$sql);
+    if(mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_assoc($result);
+        $row['Name'];
+        
+        
+    }
 ?>
 
 <!DOCTYPE html>
@@ -184,58 +194,6 @@ a{
 <body>
 
 
-
-
-
-<?php
-include "connectdb.php";
-$sql="SELECT order_item.Order_ID, order_item.OrderItem_ID, order_item.Item_ID, order_item.Item_Name, order_item.Comments, order_item.OrderedItem_Status, order_item.Quantity, orders.Table_ID from order_item, orders where order_item.Order_ID = orders.Order_ID AND OrderedItem_Status ='Order Cooked';";
-$result=mysqli_query($conn,$sql);
-
-    if(mysqli_num_rows($result)<=0){
-        echo "<script>alert('There are no Orders.');</script>";
-    }
-        
-    else{
-    echo"   
-    
-    <div class='text'>
-        <span class='border'>
-            Kitchen Progress Notification
-        </span>
-</div>
-    
-    <section>
-    <div class='card-wrapper'>
-    ";
-                
-    while($rows=mysqli_fetch_array($result)){
-        if ($rows['OrderedItem_Status']== 'Order Cooked'){
-        echo"
-        <div class='card'>
-        <center>
-        <h3>Ordered Item Status:</td><td>".$rows['OrderedItem_Status']."</h3>
-        <table>
-            <tr><td>Item Name:</td><td>".$rows['Item_Name']."</td></tr>
-            <tr><td>Quantity:</td><td>".$rows['Quantity']."</td></tr>
-            <tr><td>Quantity:</td><td>".$rows['Quantity']."</td></tr>
-            <tr><td>Table:</td><td>".$rows['Table_ID']."</td></tr>
-        </table>
-        <a href='OrderDone.php?OrderItem_ID=".$rows['OrderItem_ID']."'><div class='btn'>Done</div></a>
-        </center>
-        </div>";
-                }
-                else
-                {}
-}
-    echo"</div>
-        </section>
-        </div>
-    ";
-}
-
-?>
-
 <div class="img1">
 <div class="text">
         <h2>Staff's Services</h2>
@@ -272,7 +230,58 @@ $result=mysqli_query($conn,$sql);
             </div>
     </div>
 
+<?php
+include "connectdb.php";
+$sql="SELECT order_item.Order_ID, order_item.OrderItem_ID, order_item.Item_ID, order_item.Item_Name, order_item.Comments, order_item.OrderedItem_Status, order_item.Quantity, orders.Table_ID from order_item, orders where order_item.Order_ID = orders.Order_ID AND OrderedItem_Status ='Order Cooked';";
+$result=mysqli_query($conn,$sql);
 
+    if(mysqli_num_rows($result)<=0){
+        echo "<script>alert('There are no Orders.');</script>";
+    }
+        
+    else{
+    echo"   
+    
+    <div class='text'>
+        <h2>Kitchen Progress Notification</h2>
+</div>
+    
+    <section>
+    <div class='card-wrapper'>
+    ";
+                
+    while($rows=mysqli_fetch_array($result)){
+        if ($rows['OrderedItem_Status']== 'Order Cooked'){
+        echo"
+        <div class='card'>
+        <center>
+        <h3>Ordered Item Status:</td><td>".$rows['OrderedItem_Status']."</h3>
+        <table>
+            <tr><td>Item Name:</td><td>".$rows['Item_Name']."</td></tr>
+            <tr><td>Quantity:</td><td>".$rows['Quantity']."</td></tr>
+            <tr><td>Quantity:</td><td>".$rows['Quantity']."</td></tr>
+            <tr><td>Table:</td><td>".$rows['Table_ID']."</td></tr>
+        </table>
+        <a href='OrderDone.php?OrderItem_ID=".$rows['OrderItem_ID']."'><div class='btn'>Done</div></a>
+        </center>
+        </div>";
+                }
+                else
+                {}
+}
+    echo"</div>
+        </section>
+        </div>
+    ";
+}
+?>
 
 </body>
 </html>
+<?php
+}
+else{
+    header("Location: login.php");
+    exit();
+}
+?>
