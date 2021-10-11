@@ -190,11 +190,6 @@ input[type = "button"]:active, input[type = "submit"]:active{
 </head>
 <body>
 
-    <section class="section section-light">
-        <div class="card-wrapper">
-          <div class="card">
-<center>
-    <h1>Edit Table Booking</h1>
 
     <?php
 include "connectdb.php";
@@ -209,59 +204,63 @@ include "connectdb.php";
     while($rows=mysqli_fetch_array($result)){
         $booking_date=$rows['Booking_Date'];
         $booking_time=$rows['Booking_Time'];
-        $cust_name=$rows['Customer_Name'];
+        $cust_name=$rows['Cust_Name'];
         $contact_number=$rows['Contact_Number'];
         $table_id=$rows['GROUP_CONCAT(bt.Table_ID)']; // IN STATEMENT
     }
     }
     ?>
-    <form action="InsertBookingRecord.php" method="post">
-    <table align="center" class="addfood" cellpadding="5px">
-   <tr><th>Customer Name</th><td><input type="text" name="cust_name" value="<?php echo $cust_name; ?>" require></td>     
-   <tr><th>Booking Date</th><td> <input type="date" name="booking_date" value="<?php echo $booking_date; ?>" require></td></tr>
-   <tr><th>Booking Time</th><td> <input type="time" name="booking_time"  value="<?php echo $booking_time; ?>" format="HH:mm" min="0900" max="2100" require></td></tr>
-   <tr><th>Contact Number</th><td> <input type="tel" name="contact_number" value="<?php echo $contact_number; ?>" require></td></tr>
+    <section class="section section-light">
+        <div class="card-wrapper">
+          <div class="card">
+    <center>
+    <h1>Edit Table Booking</h1>
+    <form action="<?php echo "EditBookingScript.php?id=".$booking_id ; ?>" method="post">
+    <table align="center" class="addfood">
+   <tr><th>Customer Name</th><td><input type="text" name="cust_name" value="<?php echo $cust_name;?>"required></td>     
+   <tr><th>Booking Date</th><td> <input type="Date" name="booking_date" value="<?php echo $booking_date;?>" required></td></tr>
+   <tr><th>Booking Time</th><td> <input type="time" name="booking_time" format="hh:mm" min="0900" max="2100" value="<?php echo $booking_time;?>" required></td></tr>
+   <tr><th>Contact Number</th><td> <input type="tel" name="contact_number" value="<?php echo $contact_number;?>" required><td></tr>
    <tr><th rowspan="4">Table Number</th><td>
-
+   
    <?php
-   include "connectdb.php";
-   $sql="SELECT Table_ID FROM tables;";
-   $result=mysqli_query($conn,$sql);
 
-
+   $sql1="SELECT Table_ID FROM tables;";
+   $result1=mysqli_query($conn,$sql1);
    $limit=3;
    $count=0;
-   if(mysqli_num_rows($result)>0){
-    $show_tables = $rows['Table_ID'];
-    ?>
-    <input type="checkbox" name="table_id[]" value="<?php echo $show_tables;?>,"
-    <?php
-    $sql1="SELECT * FROM table_bookking WHERE Booking_ID='".$booking_id."' AND Table_ID IN($table_id);";
-    $result1=mysqli_query($conn,$sql1);
 
-    while($row=mysqli_fetch_array($result1)){
-    if($show_tables == $row['Table_ID']){ 
-        echo " checked='checked'";
-    }else{}
-}
-    
+       while($rows=mysqli_fetch_array($result1)){
+           $show_tables = $rows['Table_ID'];
+       ?>
 
-?><?php echo $show_tables;
+        <input type="checkbox" name="table_id[]" value="<?php echo $show_tables;?>,"
+        <?php
+        $sql2="SELECT * FROM table_booking  WHERE Booking_ID='".$booking_id."' AND Table_ID IN($table_id);";
+        $result2=mysqli_query($conn,$sql2);
+
+        while($row=mysqli_fetch_array($result2)){
+        if($show_tables == $row['Table_ID']){ 
+            echo " checked='checked'";
+        }else{}
+    }
+        
+
+?>><?php echo $show_tables;
 if($count==$limit){
-echo "<br/>";
-$count=-1;
+    echo "<br/>";
+    $count=-1;
 }
 $count++;
 
 }?></td></tr>
-
+</table>
+   <table>
+   <tr><td><input type="submit" id='btnSubmit' value="Update"></td> <td><a href="ViewBookingHistory.php"><input type="button" value="Back"></a></td></tr>
     </table>
-    <tr><td><input type="submit" value="Update"></td><td><a href="ViewBookingHistory.php"><input type="button" value="Back"></a></td> 
+    </center>
     </form>
-</center>
 </div>
 </div>
 </section>
-
 </body>
-</html>
