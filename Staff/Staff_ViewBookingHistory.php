@@ -1,7 +1,16 @@
 <?php
-include "ManagerHeader.php";
+include "StaffHeader.php";
+include "connectdb.php";
+if(isset($_SESSION['User_ID'])) {
+    $sql = "SELECT Name FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
+    $result = mysqli_query($conn,$sql);
+    if(mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_assoc($result);
+        $row['Name'];
+        
+        
+    }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -530,8 +539,8 @@ $year=date("Y",$time);
 
 <center>
 <button class="container" style="color:#fdc094"><a href="BookTable.php" style="color:#fdc094;">Book Table</a></button>
-<button class="container" style="color:#fdc094"><a href="TableAvailability.php" style="color:#fdc094;">Table Availability</a></button>
-<button class="container" style="color:#fdc094"><a href="TableOrder.php" style="color:#fdc094;">Back</a></button>
+<button class="container" style="color:#fdc094"><a href="Staff_TableAvailability.php" style="color:#fdc094;">Table Availability</a></button>
+<button class="container" style="color:#fdc094"><a href="Staff_TableOrder.php" style="color:#fdc094;">Back</a></button>
 </center>
 
 <?php
@@ -541,3 +550,10 @@ $year=date("Y",$time);
 ?>
 </body>
 </html>
+<?php
+}
+else{
+    header("Location: login.php");
+    exit();
+}
+?>

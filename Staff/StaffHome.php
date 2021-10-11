@@ -217,7 +217,7 @@ a{
                 <p class="about">
                     Places order for a table
                 </p>
-                <a href="TableAvailable.php"><div class="btn">Table Order</div></a>
+                <a href="Staff_TableOrder.php"><div class="btn">Table Order</div></a>
             </div>
 
             <div class="card">

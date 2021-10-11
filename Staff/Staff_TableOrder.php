@@ -1,6 +1,17 @@
 <?php
-    include "ManagerHeader.php";
+include "StaffHeader.php";
+include "connectdb.php";
+if(isset($_SESSION['User_ID'])) {
+    $sql = "SELECT Name FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
+    $result = mysqli_query($conn,$sql);
+    if(mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_assoc($result);
+        $row['Name'];
+        
+        
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,11 +152,11 @@ body{
     
     $get_tableid = isset($_GET['table_id'])?$_GET['table_id']:''; 
         
-    echo "<a href='FoodOrder.php?table_id=".$get_tableid."'><button class='button1'>Order</button></a>";
-    echo "<a href='CheckOrderList.php?id=".$get_tableid."'><button class='button2'>Check Order List</button></a>";
-    echo "<a href='TableAvailability.php?'><button class='button3'>Change Table Availability</button></a>";
-    echo "<a href='ViewBookingHistory.php?'><button class='button4'>View Booking History</button></a>";
-    echo "<a href='ManagerHome.php'><button class='button5'>Back</button></a>";
+    echo "<a href='Staff_FoodOrder.php?table_id=".$get_tableid."'><button class='button1'>Order</button></a>";
+    echo "<a href='Staff_CheckOrderList.php?id=".$get_tableid."'><button class='button2'>Check Order List</button></a>";
+    echo "<a href='Staff_TableAvailability.php?'><button class='button3'>Change Table Availability</button></a>";
+    echo "<a href='Staff_ViewBookingHistory.php?'><button class='button4'>View Booking History</button></a>";
+    echo "<a href='StaffHome.php'><button class='button5'>Back</button></a>";
     
     
     ?>
@@ -208,3 +219,10 @@ body{
     </table>
     </body>
 </html>
+<?php
+}
+else{
+    header("Location: login.php");
+    exit();
+}
+?>
