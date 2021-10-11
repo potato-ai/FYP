@@ -417,8 +417,9 @@ $curdate = date("Y/m/d");
                                 echo "<thead>";
                                     echo "<tr>";
                                         echo "<th>Booking ID</th>";
-                                        echo "<th>Customer ID</th>";
+                                        echo "<th>Customer Name</th>";
                                         echo "<th>Booking Date</th>";
+                                        echo "<th>Booking Time</th>";
                                         echo "<th>Contact Number</th>";
                                         echo "<th>Table</th>";
                                         echo "<th>Edit</th>";
@@ -434,7 +435,7 @@ $curdate = date("Y/m/d");
                                     echo "<td>".$rows['Booking_Time']."</td>";
                                     echo "<td>".$rows['Contact_Number']."</td>";
                                     echo "<td>".$rows['GROUP_CONCAT(table_booking.Table_ID)']."</td>";
-                                    echo "<td><a href='EditBooking.php?id=".$rows['Booking_ID']."'><button>Edit</button></a></td>";
+                                    echo "<td><button><a href='EditBooking.php?id=".$rows['Booking_ID']."'>Edit</a></button></td>";
                                     echo "<td><a href='DeleteBooking.php?id=".$rows['Booking_ID']."'><button>Complete</button></a></td>";
                                     echo "</tr>";
 			}
@@ -491,6 +492,7 @@ $year=date("Y",$time);
                 echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
+<<<<<<< Updated upstream
                                         echo "<th>Booking ID</th>";
                                         echo "<th>Customer ID</th>";
                                         echo "<th>Booking Date</th>";
@@ -499,6 +501,16 @@ $year=date("Y",$time);
                                         echo "<th>Table</th>";
                                         echo "<th>Edit</th>";
                                         echo "<th>Delete</th>";
+=======
+                                    echo "<th>Booking ID</th>";
+                                    echo "<th>Customer Name</th>";
+                                    echo "<th>Booking Date</th>";
+                                    echo "<th>Booking Time</th>";
+                                    echo "<th>Contact Number</th>";
+                                    echo "<th>Table</th>";
+                                    echo "<th>Edit</th>";
+                                    echo "<th>Delete</th>";
+>>>>>>> Stashed changes
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -510,7 +522,7 @@ $year=date("Y",$time);
                                     echo "<td>".$rows['Booking_Time']."</td>";
                                     echo "<td>".$rows['Contact_Number']."</td>";
                                     echo "<td>".$rows['GROUP_CONCAT(table_booking.Table_ID)']."</td>";
-                                    echo "<td><a href='EditBooking.php?id=".$rows['Booking_ID']."'><button>Edit</button></a></td>";
+                                    echo "<td><button><a href='EditBooking.php?id=".$rows['Booking_ID']."'>Edit</a></button></td>";
                                     echo "<td><a href='DeleteBooking.php?id=".$rows['Booking_ID']."'><button>Complete</button></a></td>";
                                     echo "</tr>";
 			}
