@@ -347,6 +347,30 @@ table {
     align-content: center;
 }  
 
+.btn3{
+    width:20vw;
+    font-family: 'Oleo Script';
+    padding: 1rem 2.5rem;
+    background-color:#0B0742;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    text-transform:uppercase;
+    color: #fdc094;
+    font-size: 1.2rem;
+    align-items: center;
+    align-content: center;
+}
+
+.btn3:hover{
+    transform: translateY(-2px);
+    box-shadow:.5rem .5rem 2rem rgba(0,0,0,.2)
+}
+
+.btn3:active{
+    transform:translateY(0);
+    box-shadow: none;
+}
+
 button {  
     color: black;  
 } 
@@ -530,9 +554,9 @@ $year=date("Y",$time);
 
 
 <center>
-<button class="container" style="color:#fdc094"><a href="BookTable.php" style="color:#fdc094;">Book Table</a></button>
-<button class="container" style="color:#fdc094"><a href="TableAvailability.php" style="color:#fdc094;">Table Availability</a></button>
-<button class="container" style="color:#fdc094"><a href="TableOrder.php" style="color:#fdc094;">Back</a></button>
+<button class="btn3" style="color:#fdc094" formaction="BookTable.php">Book Table</button>
+<button class="btn3" style="color:#fdc094" formaction="TableAvailability.php">Table Availability</button>
+<button class="btn3" style="color:#fdc094" formaction="TableOrder.php">Back</button>
 </center>
 
 <?php
