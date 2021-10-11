@@ -492,16 +492,6 @@ $year=date("Y",$time);
                 echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
-<<<<<<< Updated upstream
-                                        echo "<th>Booking ID</th>";
-                                        echo "<th>Customer ID</th>";
-                                        echo "<th>Booking Date</th>";
-                                        echo "<th>Booking Time</th>";
-                                        echo "<th>Contact Number</th>";
-                                        echo "<th>Table</th>";
-                                        echo "<th>Edit</th>";
-                                        echo "<th>Delete</th>";
-=======
                                     echo "<th>Booking ID</th>";
                                     echo "<th>Customer Name</th>";
                                     echo "<th>Booking Date</th>";
@@ -510,7 +500,6 @@ $year=date("Y",$time);
                                     echo "<th>Table</th>";
                                     echo "<th>Edit</th>";
                                     echo "<th>Delete</th>";
->>>>>>> Stashed changes
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
