@@ -398,7 +398,7 @@ table {
     border-radius: 2rem;
     margin: 1rem 0;
     text-transform:uppercase;
-    font-size: 1.4rem;
+    font-size: 1rem;
     align-items: center;
     align-content: center;
 }
@@ -486,7 +486,7 @@ table {
         </section>
 		<br/>
         <center>
-		<a href='AddFood.php'><button class="btn3" style="color:#fdc094">Add New Food</button></a><a href="EditMenu.php"><input type="button" class="btn3" style="color:#fdc094" value="Back to Previous Page" /></a>
+		<a href='AddFood.php'><button class="btn3" style="color:#fdc094">Add New Food</button></a><a href="EditMenu.php"><input type="button" class="btn3" style="color:#fdc094" value="Previous Page" /></a>
         </center>
     </section>
 <script>

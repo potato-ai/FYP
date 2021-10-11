@@ -204,7 +204,30 @@ button {
     font-size: 1.5rem;
     align-items: center;
     align-content: center;
-}  
+}
+.btn3{
+    width:15vw;
+    font-family: 'Oleo Script';
+    padding: 1rem 2.5rem;
+    background-color:#0B0742;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    text-transform:uppercase;
+    color: #fdc094;
+    font-size: 1.4rem;
+    align-items: center;
+    align-content: center;
+}
+
+.btn3:hover{
+    transform: translateY(-2px);
+    box-shadow:.5rem .5rem 2rem rgba(0,0,0,.2)
+}
+
+.btn3:active{
+    transform:translateY(0);
+    box-shadow: none;
+}
 </style>
 </head>
 <body style="background-color: #EDF6F9;">
@@ -228,7 +251,9 @@ $result=mysqli_query($conn,$sql);
 
         <h2>Order Notification</h2>
 
-        <button class='button container' style='color:#fdc094; margin-bottom: 15px; width:100px; padding:10px; text-align:center;'><a style='color:#fdc094;' href='ChefHome.php'>Back</a></button>
+        <center>
+        <a href='ChefHome.php'><input type='button' value='Back' class='btn3'></a>
+        </center>
 </div>
 
 <section>

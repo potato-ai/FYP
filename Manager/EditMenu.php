@@ -53,39 +53,41 @@ include "ManagerHeader.php";
 }
 
 .card{
-    width: 25vw;
+    width: 25%;
+    height: 25%;
     background-color:#ebeef8;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin:2rem 0;
+    margin:5%;
     box-shadow: .5rem .5rem 3rem rgba(0,0,0,0.2);
     font-family: 'Oleo Script';
 }
 
 .card .card-img{
     width:100%;
-    height:26rem;
+    height:16rem;
     object-fit: cover;
     -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
 }
 
 .card h1{
-    font-size:2.5rem;
+    font-size:2rem;
     color: #333;
+    margin:2%;
     margin:1.5rem 0;
 }
 
 .about{
     font-size: 1.5rem;
-    margin:1.5rem 0;
+    margin:2%;
     font-style: normal;
     text-align:center;
     color: #333;
-    padding-right: 1vw;
-    padding-left: 1vw;
+    padding-right: 2%;
+    padding-left: 2%;
 }
 
 .card .btn{
@@ -207,9 +209,9 @@ a{
 <body>
 <div class="img1">
 <div class="text">
-        <span class="border">
-            Edit Menu
-        </span>
+        
+        <h2>Edit Menu</h2>
+    
 </div>
 </div>
 

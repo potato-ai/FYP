@@ -1,5 +1,6 @@
 <?php
 include "StaffHeader.php";
+include "connectdb.php";
 if(isset($_SESSION['User_ID'])) {
     $sql = "SELECT Name FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
     $result = mysqli_query($conn,$sql);
@@ -169,6 +170,30 @@ button {
     transition: transform.5s;
 }
 
+.btn3{
+    width:15vw;
+    font-family: 'Oleo Script';
+    padding: 1rem 2.5rem;
+    background-color:#0B0742;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    text-transform:uppercase;
+    color: #fdc094;
+    font-size: 1.4rem;
+    align-items: center;
+    align-content: center;
+}
+
+.btn3:hover{
+    transform: translateY(-2px);
+    box-shadow:.5rem .5rem 2rem rgba(0,0,0,.2)
+}
+
+.btn3:active{
+    transform:translateY(0);
+    box-shadow: none;
+}
+
 @keyframes fadeIn{
     from{
         opacity:0;
@@ -212,9 +237,7 @@ a{
 <body>
 <div class="img1">
 <div class="text">
-        <span class="border">
-            View Menu
-        </span>
+        <h2>View Menu</h2>
 </div>
 
 <section>
@@ -244,10 +267,10 @@ a{
             }
             echo "</div>";
         ?>
+        
 
     <center>
-    <div class="container">
-    <a href="StaffHome.php"><div class="button" style="color:#fdc094">Return To The Previous Page</div></a>
+    <a href="StaffHome.php"><input type="button" value="Back" class="btn3"></a>
     </center>
 
 

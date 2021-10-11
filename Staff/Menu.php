@@ -1,5 +1,6 @@
 <?php
 include "StaffHeader.php";
+include "connectdb.php";
 if(isset($_SESSION['User_ID'])) {
     $sql = "SELECT Name FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
     $result = mysqli_query($conn,$sql);
@@ -273,13 +274,14 @@ a{
 }
 
 .card{
-    width: 25vw;
+    width: 25%;
+    height: 25%;
     background-color:#ebeef8;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin:2rem 0;
+    margin:5%;
     box-shadow: .5rem .5rem 3rem rgba(0,0,0,0.2);
     font-family: 'Oleo Script';
     padding-bottom:2vw;
@@ -287,15 +289,16 @@ a{
 
 .card .card-img{
     width:100%;
-    height:26rem;
+    height:16rem;
     object-fit: cover;
     -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
 }
 
 .card h1{
-    font-size:2.5rem;
+    font-size:2rem;
     color: #333;
+    margin:2%;
     margin:1.5rem 0;
 }
 
@@ -310,23 +313,23 @@ a{
 }
 
 .card .btn{
-    padding: 1rem 2.5rem;
+    padding: 1rem 1.5rem;
     background-color:green;
     border-radius: 2rem;
     margin: 1rem 0;
     text-transform:uppercase;
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .card .btn2{
-    padding: 1rem 2.5rem;
+    padding: 1rem 1.5rem;
     background-color:red;
     border-radius: 2rem;
     margin: 1rem 0;
     text-transform:uppercase;
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 @media screen and (min-width:700px){
@@ -394,8 +397,8 @@ a{
 <body>
   
     <div class="text">
-        <span class="border">
-            MENU AVAILABILITY
+        
+        <h2>MENU AVAILABILITY</h2>
         </span>
     </div>
 </div>
