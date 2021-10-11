@@ -405,7 +405,7 @@ button {
                                     echo "<td>" . $row['Paying_Method'] . "</td>";
                                     echo "<td>" . $row['Table_ID'] . "</td>";
                                     echo "<td>" . $row['User_ID'] . "</td>";
-                                    echo "<td><a href='View_Bill.php?id=".$rows['Order_ID']."'<button>Check</button></a></td>";
+                                    echo "<td><a href='View_Bill.php?id=".$row['Order_ID']."'<button>Check</button></a></td>";
         echo "</tr>";
         }
         echo "</table>";
