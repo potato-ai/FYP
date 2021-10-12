@@ -311,7 +311,7 @@ a{
                  <h3></h3>
                  <div class="projects_data">
                  <div class="data">
-									<h4 style=margin-left:70%;>User ID:</h4>
+									<h4 style=margin-left:50%;>User ID:</h4>
 									<p style=margin-left:50%;><input type="text" name="User_ID" value="<?php echo $userid;?>" readonly/></p>
                                 </div>
                                 <div class="data">
