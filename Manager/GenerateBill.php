@@ -355,9 +355,9 @@ button {
 </head>
 <body>
 <div class="text">
-        <span class="border">
-            Generate Bill
-        </span>
+        
+        <h2>Generate Bill</h2>
+        
 </div>
 </div>
 <center>
