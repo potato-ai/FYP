@@ -404,7 +404,7 @@ button {
 <input type="date" name="date" id="date">
 
 <button type="submit" onclick="searchDate()" class="btn3">Generate</button>
-<button class="btn3" ><a href="GenerateReportMenu.php" style=" text-decoration: none;color:#fdc094;">Back</a></button>
+<button class="btn3" formaction="GenerateReportMenu.php">Back</button>
 </form>
 
 <section>
