@@ -5,7 +5,7 @@
     $cust_name = $_POST['cust_name'];
     $booking_date = $_POST['booking_date'];
     $booking_time = $_POST['booking_time'];
-    $contact_number = $_POST['contact_number'];
+    $contact_number = (String)$_POST['contact_number'];
     $table_id = $_POST['table_id'];
 
     date_default_timezone_set("Singapore");

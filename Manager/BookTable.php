@@ -200,7 +200,7 @@ input[type = "button"]:active, input[type = "submit"]:active{
    <tr><th>Customer Name</th><td><input type="text" name="cust_name" require></td>     
    <tr><th>Booking Date</th><td> <input type="date" name="booking_date" require></td></tr>
    <tr><th>Booking Time</th><td> <input type="time" name="booking_time" format="HH:mm" min="0900" max="2100" require></td></tr>
-   <tr><th>Contact Number</th><td> <input type="tel" name="contact_number" require></td></tr>
+   <tr><th>Contact Number</th><td> <input type="text" name="contact_number" pattern="(601)[0-9]{8,9}$" require></td></tr>
    <tr><th rowspan="4">Table Number</th><td>
    <?php
    include "connectdb.php";

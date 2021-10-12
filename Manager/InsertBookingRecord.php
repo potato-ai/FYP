@@ -5,7 +5,7 @@ $user_id = $_SESSION['User_ID'];
 $cust_name = $_POST['cust_name'];
 $booking_date = $_POST['booking_date'];
 $booking_time = $_POST['booking_time'];
-$contact_number = $_POST['contact_number'];
+$contact_number = "0"+$_POST['contact_number'];
 $table_id = $_POST['table_id'];
 
 date_default_timezone_set("Singapore");
@@ -14,10 +14,12 @@ $current_time = date('H:i:s');
 
 if($booking_date<$current_date){
     echo "<script>alert('There is a mistake with your booking date!');window.history.go(-1);</script>";
+    echo "<script>window.location.href='ViewBookingHistory.php';</script>";
 }
     elseif($booking_date==$current_date && $booking_time < $current_time )
     {
     echo "<script>alert('There is a mistake with your booking time!');window.history.go(-1);</script>";
+    echo "<script>window.location.href='ViewBookingHistory.php';</script>";
 }
 else{
 
@@ -50,6 +52,7 @@ $check_tableid = rtrim($y, ",");
         } //for loop
         if (mysqli_affected_rows($conn) > 0) {
             echo "<script>alert('The booking is made successully.');window.history.go(-1);</script>";
+            echo "<script>window.location.href='ViewBookingHistory.php';</script>";
             
         } //if(mysqli_affected_rows($conn)>0)
         else {
@@ -62,6 +65,7 @@ $check_tableid = rtrim($y, ",");
                 $z = $rows['GROUP_CONCAT(tb.Table_ID)'];
         }
         echo "<script>alert('The table ".$z." is booked by other customers!');window.history.go(-1);</script>";
+        echo "<script>window.location.href='ViewBookingHistory.php';</script>";
     }
 }
 ?>
