@@ -303,11 +303,11 @@ $result=mysqli_query($conn,$sql);
         echo"
         <div class='card'>
         <center>
-        <h3>Ordered Item Status:</td><td>".$rows['OrderedItem_Status']."</h3>
+        <h3 style='padding-top:10px;'>Ordered Item Status:</td><td>".$rows['OrderedItem_Status']."</h3>
         <table>
             <tr><td>Item Name:</td><td>".$rows['Item_Name']."</td></tr>
             <tr><td>Quantity:</td><td>".$rows['Quantity']."</td></tr>
-            <tr><td>Quantity:</td><td>".$rows['Quantity']."</td></tr>
+            <tr><td>Comments:</td><td>".$rows['Comments']."</td></tr>
             <tr><td>Table:</td><td>".$rows['Table_ID']."</td></tr>
         </table>
         <a href='OrderDone.php?OrderItem_ID=".$rows['OrderItem_ID']."'><div class='btn'>Done</div></a>
