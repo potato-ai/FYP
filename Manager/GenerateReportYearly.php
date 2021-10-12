@@ -551,8 +551,9 @@ echo "</table>";
     }
     else
     {
+        echo "<script>alert('No Result For Yearly Summary');</script>";
     }
-    echo "<script>alert('No Result For Yearly Summary');</script>";
+    
     
 
 }

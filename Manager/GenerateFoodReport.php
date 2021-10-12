@@ -443,9 +443,9 @@ $result=mysqli_query($conn, $sql);
 
     if(mysqli_num_rows($result) > 0)
     {
-
+        
         echo "<center><h3>Weekly Report Summary in $year</h3></center>";
-
+        while($row = mysqli_fetch_array($result)){
         echo "<table class='table table-bordered table-striped'>";
         echo "<thead>";
             echo "<tr>";
@@ -457,6 +457,7 @@ $result=mysqli_query($conn, $sql);
                 echo "<th>Profit Month</th>";
             echo "</tr>";
         echo "</thead>";
+        
         echo "<tbody>";
             echo "<tr>";
                 echo "<td>" . $row['Item_ID'] . "</td>";
@@ -467,12 +468,13 @@ $result=mysqli_query($conn, $sql);
                 echo "<td>" . $row['Month'] . "</td>";
 echo "</tr>";
 echo "</table>";
-
+        }
     }
     else
     {
+        echo "<script>alert('No Result For Food Report');</script>";
     }
-    echo "<script>alert('No Result For Food Report');</script>";
+    
     
 
 }

@@ -554,8 +554,9 @@ echo "</table>";
     }
     else
     {
+        echo "<script>alert('No Result For Monthly Summary');</script>";
     }
-    echo "<script>alert('No Result For Monthly Summary');</script>";
+    
     
 
 }

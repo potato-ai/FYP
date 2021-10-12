@@ -553,8 +553,9 @@ echo "</table>";
     }
     else
     {
+        echo "<script>alert('No Result For Weekly Summary');</script>";
     }
-    echo "<script>alert('No Result For Weekly Summary');</script>";
+    
 
 }
 
