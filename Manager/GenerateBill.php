@@ -351,6 +351,29 @@ button {
     color: black;  
 
 }  
+.btn3{
+    width:12vw;
+    font-family: 'Oleo Script';
+    padding: 1rem 2.5rem;
+    background-color:#0B0742;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    text-transform:uppercase;
+    color: #fdc094;
+    font-size: 1.2rem;
+    align-items: center;
+    align-content: center;
+}
+
+.btn3:hover{
+    transform: translateY(-2px);
+    box-shadow:.5rem .5rem 2rem rgba(0,0,0,.2)
+}
+
+.btn3:active{
+    transform:translateY(0);
+    box-shadow: none;
+}
     </style>
 </head>
 <body>
@@ -410,9 +433,9 @@ button {
         echo "</table>";
 
 ?>
-    <div class="container">
-    <a href="ManagerHome.php"><div class="button" style="color:#fdc094">Go Back</div></a>
-    </div>
+    
+    <a href="ManagerHome.php"><button class="btn3" style="color:#fdc094">Go Back</button></a>
+    
 </center>
 
 </body>
