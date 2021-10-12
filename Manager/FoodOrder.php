@@ -368,9 +368,9 @@ form.Search::after {
 <body>
 
 <div class="text">
-        <span class="border">
-            Order
-        </span>
+
+        <h2>Order</h2>
+
 </div>
 </div>
 	<div class="order-details">

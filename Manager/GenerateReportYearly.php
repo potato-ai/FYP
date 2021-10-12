@@ -356,9 +356,9 @@ button {
 <body>
 <div class="img1">
 <div class="text">
-        <span class="border">
-            Yearly Report
-        </span>
+        
+        <h2>Yearly Report</h2>
+        
 </div>
 </div>
 

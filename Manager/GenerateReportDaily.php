@@ -350,15 +350,39 @@ button {
     background-color: lightblue;  
     color: black;  
 
-} 
+}
+
+.btn3{
+    width:12vw;
+    font-family: 'Oleo Script';
+    padding: 1rem 2.5rem;
+    background-color:#0B0742;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    text-transform:uppercase;
+    color: #fdc094;
+    font-size: 1.2rem;
+    align-items: center;
+    align-content: center;
+}
+
+.btn3:hover{
+    transform: translateY(-2px);
+    box-shadow:.5rem .5rem 2rem rgba(0,0,0,.2)
+}
+
+.btn3:active{
+    transform:translateY(0);
+    box-shadow: none;
+}
 </style>
 </head>
 <body>
 <div class="img1">
 <div class="text">
-        <span class="border">
-            Daily Report
-        </span>
+       
+        <h2>Daily Report</h2>
+     
 </div>
 </div>
 
@@ -379,8 +403,8 @@ button {
 <label for="date">Date Of Report</label><br>
 <input type="date" name="date" id="date">
 
-<button type="submit" onclick="searchDate()" class="button container" style="color:#fdc094; margin-bottom: 15px; width:9vw; text-align:center;">Generate</button>
-<button class="button container" style="color:#fdc094; margin-bottom: 15px; width:7vw; text-align:center;"><a href="GenerateReportMenu.php" style=" text-decoration: none;color:#fdc094;">Back</a></button>
+<button type="submit" onclick="searchDate()" class="btn3">Generate</button>
+<button class="btn3" ><a href="GenerateReportMenu.php" style=" text-decoration: none;color:#fdc094;">Back</a></button>
 </form>
 
 <section>

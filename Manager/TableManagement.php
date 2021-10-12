@@ -290,9 +290,9 @@ span.blue {
 
 <div class="img1">
 <div class="text">
-        <span class="border">
-            Table Management
-        </span><br>
+
+        <h2>Table Management</h2>
+
 
 </div>
 </div>

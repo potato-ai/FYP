@@ -357,9 +357,9 @@ button {
 <body>
 <div class="img1">
 <div class="text">
-        <span class="border">
-            Weekly Report
-        </span>
+       
+        <h2>Weekly Report</h2>
+        
 </div>
 </div>
 

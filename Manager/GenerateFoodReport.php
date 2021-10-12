@@ -356,9 +356,9 @@ button {
 <body>
 <div class="img1">
 <div class="text">
-        <span class="border">
-            Food Report
-        </span>
+        
+        <h2>Food Report</h2>
+        
 </div>
 </div>
 
@@ -385,7 +385,7 @@ button {
 <input type="date" name="date" id="date">
 
 <button type="submit" onclick="searchDate()" class="button container" style="color:#fdc094; margin-bottom: 15px; width:9vw; text-align:center;">Generate</button>
-<a href="GenerateReportMenu.php"><button class="button container" style="color:#fdc094; margin-bottom: 15px; width:7vw; text-align:center;">Back</button></a>
+<button class="button container" style="color:#fdc094; margin-bottom: 15px; width:7vw; text-align:center;" formaction="GenerateReportMenu.php">Back</button>
 </form>
 
 <section>

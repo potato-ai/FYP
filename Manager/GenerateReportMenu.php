@@ -183,9 +183,9 @@ a{
 <body>
 <div class="img1">
 <div class="text">
-        <span class="border">
-            Generate Report
-        </span>
+        
+        <h2>Generate Report</h2>
+        
 </div>
 </div>
 
