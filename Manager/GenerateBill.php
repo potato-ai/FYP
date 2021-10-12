@@ -398,7 +398,6 @@ button {
                                     echo "<td>" . $row['Order_ID'] . "</td>";
                                     echo "<td>" . $row['Date'] . "</td>";
                                     echo "<td>" . $row['Order_Type'] . "</td>";
-                                    echo "<td>" . $row['Order_Type'] . "</td>";
                                     echo "<td>" . $row['Total_Amount'] . "</td>";
                                     echo "<td>" . $row['Customer_Pay'] . "</td>";
                                     echo "<td>" . $row['Balance'] . "</td>";
