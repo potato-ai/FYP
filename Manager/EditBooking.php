@@ -220,7 +220,7 @@ include "connectdb.php";
    <tr><th>Customer Name</th><td><input type="text" name="cust_name" value="<?php echo $cust_name;?>"required></td>     
    <tr><th>Booking Date</th><td> <input type="Date" name="booking_date" value="<?php echo $booking_date;?>" required></td></tr>
    <tr><th>Booking Time</th><td> <input type="time" name="booking_time" format="hh:mm" min="0900" max="2100" value="<?php echo $booking_time;?>" required></td></tr>
-   <tr><th>Contact Number</th><td> <input type="text" name="contact_number" pattern="(601)[0-9]{8,9}$" value="<?php echo $contact_number;?>" required><td></tr>
+   <tr><th>Contact Number</th><td> <input type="text" name="contact_number" pattern="(601)[0-9]{8,9}$" title="Example: 60123456789/601234567890" value="<?php echo $contact_number;?>" required><td></tr>
    <tr><th rowspan="4">Table Number</th><td>
    
    <?php
