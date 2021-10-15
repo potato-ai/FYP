@@ -1,5 +1,15 @@
 <?php
 include "ManagerHeader.php";
+
+if(isset($_SESSION['User_ID'])) {
+    $sql = "SELECT Name FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
+    $result = mysqli_query($conn,$sql);
+    if(mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_assoc($result);
+        $row['Name'];
+
+
+    }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -348,3 +358,11 @@ button {
 </body>
 
 </html>		
+
+<?php
+}
+else{
+    header("Location: login.php");
+    exit();
+}
+?>
