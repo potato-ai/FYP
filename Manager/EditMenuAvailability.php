@@ -375,7 +375,7 @@ a{
 
 <section class="bg" style="background-color:#EDF6F9;">
   <center>
-  <form action="UpdateAvailability.php" method="post">
+  <form action="ManagerUpdateAvailability.php" method="post">
       <?php
 
       include "connectdb.php";

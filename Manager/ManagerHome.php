@@ -313,7 +313,7 @@ $result=mysqli_query($conn,$sql);
             <tr><td>Comments:</td><td>".$rows['Comments']."</td></tr>
             <tr><td>Table:</td><td>".$rows['Table_ID']."</td></tr>
         </table>
-        <a href='OrderDone.php?OrderItem_ID=".$rows['OrderItem_ID']."'><div class='btn'>Done</div></a>
+        <a href='ManagerOrderDone.php?OrderItem_ID=".$rows['OrderItem_ID']."'><div class='btn'>Done</div></a>
         </center>
         </div>";
         
