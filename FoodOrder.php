@@ -635,7 +635,7 @@ form.Search::after {
 						<div class="product-title"><?php echo $rows["Item_Name"]; ?></div>
 						<div class="product-price"><?php echo "RM" . $rows["Price"]; ?>
 							<input type="text" class="product-quantity" name="quantity" value="1" size="2" readonly/><input type="submit" name="addtocart" value="Add to Cart" class="btnAddAction" style="background:grey; color:black;" disabled/></div>
-						<br /><textarea rows=3 id="remarks" name="remarks" class="product-remark" placeholder="Remarks" readonly></textarea>
+						<br /><textarea rows=3 id="remarks" name="remarks" class="product-remark" placeholder="Comments" readonly></textarea>
 					</div>
 				</form>
 			</div>
@@ -650,7 +650,7 @@ form.Search::after {
 						<div class="product-title"><?php echo $rows["Item_Name"]; ?></div>
 						<div class="product-price"><?php echo "RM" . $rows["Price"]; ?>
 							<input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" name="addtocart" value="Add to Cart" class="btnAddAction"/></div>
-						<br /><textarea rows=3 id="remarks" name="remarks" class="product-remark" placeholder="Remarks"></textarea>
+						<br /><textarea rows=3 id="remarks" name="remarks" class="product-remark" placeholder="Comments"></textarea>
 					</div>
 				</form>
 			</div>

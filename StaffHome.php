@@ -203,7 +203,7 @@ a{
     <section>
     <div class="card-wrapper">
             <div class="card">
-                <img src="../image/ViewMenu.jpg" alt="card backgroud" class="card-img">
+                <img src="image/ViewMenu.jpg" alt="card backgroud" class="card-img">
                 <h1>View Menu</h1>
                 <p class="about">
                     View the food that is available
@@ -212,7 +212,7 @@ a{
             </div>
 
             <div class="card">
-                <img src="../image/TableOrder.jpg" alt="card backgroud" class="card-img">
+                <img src="image/TableOrder.jpg" alt="card backgroud" class="card-img">
                 <h1>Table Order</h1>
                 <p class="about">
                     Places order for a table
@@ -221,7 +221,7 @@ a{
             </div>
 
             <div class="card">
-                <img src="../image/editprofilechef.jpg" alt="card backgroud" class="card-img">
+                <img src="image/editprofilechef.jpg" alt="card backgroud" class="card-img">
                 <h1>Edit Profile</h1>
                 <p class="about">
                     Edit personal details
@@ -237,6 +237,7 @@ $result=mysqli_query($conn,$sql);
 
     if(mysqli_num_rows($result)<=0){
         echo "<script>alert('There are no Orders.');</script>";
+
     }
         
     else{
