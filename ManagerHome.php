@@ -199,11 +199,91 @@ a{
 
 <?php
 include "connectdb.php";
-$sql="SELECT order_item.Order_ID, order_item.OrderItem_ID, order_item.Item_ID, order_item.Item_Name, order_item.Comments, order_item.OrderedItem_Status, order_item.Quantity, orders.Table_ID from order_item, orders where order_item.Order_ID = orders.Order_ID AND OrderedItem_Status ='Order Cooked';";
+$sql="SELECT order_item.Order_ID, order_item.OrderItem_ID, order_item.Item_ID, order_item.Item_Name, order_item.Comments, order_item.OrderedItem_Status, order_item.Quantity, orders.Table_ID from order_item, orders where order_item.Order_ID = orders.Order_ID AND OrderedItem_Status ='Done Cooking';";
 $result=mysqli_query($conn,$sql);
 
     if(mysqli_num_rows($result)<=0){
         echo "<script>alert('There are no Orders.');</script>";
+?>        
+
+<div class="img1">
+<div class="text">
+    <h2>Manager's Service</h2>        
+
+</div>
+</div>
+
+    <section>
+    <div class="card-wrapper">
+            <div class="card">
+                <img src="image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <h1>Edit Menu</h1>
+                <p class="about">
+                    Edit the Current Menu
+                </p>
+                <a href="EditMenu.php"><div class="btn">Edit Menu</div></a>
+            </div>
+
+            <div class="card">
+                <img src="image/TableOrder.jpg" alt="card backgroud" class="card-img">
+                <h1>Table Order</h1>
+                <p class="about">
+                    Places order for a table
+                </p>
+                <a href="TableOrder.php"><div class="btn">Table Order</div></a>
+            </div>
+
+            <div class="card">
+                    <img src="image/generateReport.jpg" alt="card backgroud" class="card-img">
+                    <h1>Generate Report</h1>
+                    <p class="about">
+                        Generate progress report
+                    </p>
+                    <a href="GenerateReportMenu.php"><div class="btn">Generate Report</div></a>
+                </div>
+
+
+    </div>
+
+    </section>
+    
+
+
+    <section>
+        <div class="card-wrapper">
+                
+    
+                <div class="card">
+                    <img src="image/generateBill.jpg" alt="card backgroud" class="card-img">
+                    <h1>Generate Bill</h1>
+                    <p class="about">
+                        Generate Order History
+                    </p>
+                    <a href="GenerateBill.php"><div class="btn">Generate Bill</div></a>
+                </div>
+    
+                <div class="card">
+                    <img src="image/manageUsers.jpg" alt="card backgroud" class="card-img">
+                    <h1>Manage Users</h1>
+                    <p class="about">
+                        Manage Staffs Profile
+                    </p>
+                    <a href="ManageUsers.php"><div class="btn">Manage Users</div></a>
+                </div>
+
+                <div class="card">
+                <img src="image/editprofilechef.jpg" alt="card backgroud" class="card-img">
+                <h1>Edit Profile</h1>
+                <p class="about">
+                    Edit personal details
+                </p>
+                <a href="ManagerProfile.php"><div class="btn">Edit Profile</div></a>
+            </div>
+        </div>
+    
+        
+        </section>
+<?php
     }
         
     else{
@@ -290,6 +370,7 @@ $result=mysqli_query($conn,$sql);
         
         </section>
 <?php
+
     echo"    
     
     <div class='text'>
@@ -302,7 +383,7 @@ $result=mysqli_query($conn,$sql);
     <div class='card-wrapper'>";
                 
     while($rows=mysqli_fetch_array($result)){
-        if ($rows['OrderedItem_Status']== 'Order Cooked'){
+        if ($rows['OrderedItem_Status']== 'Done Cooking'){
         echo"
         <div class='card'>
         <center>
@@ -329,24 +410,6 @@ $result=mysqli_query($conn,$sql);
 ?>
 
 
-
-
-
-        <!-- <section>
-    <div class="card-wrapper">
-            <div class="card">
-                <p class="about">
-                Ordered Item Status:</td><td>".$rows['OrderedItem_Status']."<br>
-                Item Name:</td><td>".$rows['Item_Name']."<br>
-                Quantity:</td><td>".$rows['Quantity']."<br>
-                Comments:</td><td>".$rows['Comments']."<br>
-                Table:</td><td>".$rows['Table_ID']."<br>
-                </p>
-                <a href="OrderDone.php"><div class="btn">View Menu</div></a>
-            </div>
-    </div>
-
-    </section> -->
 </body>
 </html>
 <?php
