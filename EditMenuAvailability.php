@@ -493,7 +493,7 @@ a{
 <table>
     <tr rowspan="2">
     <td><center><input type="submit" value="Save Changes" class="saveBtn" style="font-size: 1.2rem;"></a></center></td>
-    <td><center><a href="ManagerHome.php"><input type="button" value="Back" class="btn3" style="font-size: 1.2rem;"></a></center></td>
+    <td><center><a href="EditMenu.php"><input type="button" value="Back" class="btn3" style="font-size: 1.2rem;"></a></center></td>
     </tr>
     </table>
     </form>

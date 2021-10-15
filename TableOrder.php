@@ -1,6 +1,6 @@
 <?php
     include "ManagerHeader.php";
-
+    include "connectdb.php";
     if(isset($_SESSION['User_ID'])) {
         $sql = "SELECT Name FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
         $result = mysqli_query($conn,$sql);

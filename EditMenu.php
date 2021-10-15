@@ -229,7 +229,7 @@ a{
 <section>
     <div class="card-wrapper">
             <div class="card">
-                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <img src="image/editmenu.jfif" alt="card backgroud" class="card-img">
                 <h1>Edit Menu Details</h1>
                 <p class="about">
                     Edit the Current Menu
@@ -238,7 +238,7 @@ a{
             </div>
 
             <div class="card">
-                <img src="../image/TableOrder.jpg" alt="card backgroud" class="card-img">
+                <img src="image/TableOrder.jpg" alt="card backgroud" class="card-img">
                 <h1>Edit Menu Availability</h1>
                 <p class="about">
                 Check Menu Availability

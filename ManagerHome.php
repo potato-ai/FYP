@@ -222,7 +222,7 @@ $result=mysqli_query($conn,$sql);
     <section>
     <div class="card-wrapper">
             <div class="card">
-                <img src="../image/editmenu.jfif" alt="card backgroud" class="card-img">
+                <img src="image/editmenu.jfif" alt="card backgroud" class="card-img">
                 <h1>Edit Menu</h1>
                 <p class="about">
                     Edit the Current Menu
@@ -231,7 +231,7 @@ $result=mysqli_query($conn,$sql);
             </div>
 
             <div class="card">
-                <img src="../image/TableOrder.jpg" alt="card backgroud" class="card-img">
+                <img src="image/TableOrder.jpg" alt="card backgroud" class="card-img">
                 <h1>Table Order</h1>
                 <p class="about">
                     Places order for a table
@@ -240,7 +240,7 @@ $result=mysqli_query($conn,$sql);
             </div>
 
             <div class="card">
-                    <img src="../image/generateReport.jpg" alt="card backgroud" class="card-img">
+                    <img src="image/generateReport.jpg" alt="card backgroud" class="card-img">
                     <h1>Generate Report</h1>
                     <p class="about">
                         Generate progress report
@@ -260,7 +260,7 @@ $result=mysqli_query($conn,$sql);
                 
     
                 <div class="card">
-                    <img src="../image/generateBill.jpg" alt="card backgroud" class="card-img">
+                    <img src="image/generateBill.jpg" alt="card backgroud" class="card-img">
                     <h1>Generate Bill</h1>
                     <p class="about">
                         Generate Order History
@@ -269,7 +269,7 @@ $result=mysqli_query($conn,$sql);
                 </div>
     
                 <div class="card">
-                    <img src="../image/manageUsers.jpg" alt="card backgroud" class="card-img">
+                    <img src="image/manageUsers.jpg" alt="card backgroud" class="card-img">
                     <h1>Manage Users</h1>
                     <p class="about">
                         Manage Staffs Profile
@@ -278,7 +278,7 @@ $result=mysqli_query($conn,$sql);
                 </div>
 
                 <div class="card">
-                <img src="../image/editprofilechef.jpg" alt="card backgroud" class="card-img">
+                <img src="image/editprofilechef.jpg" alt="card backgroud" class="card-img">
                 <h1>Edit Profile</h1>
                 <p class="about">
                     Edit personal details
