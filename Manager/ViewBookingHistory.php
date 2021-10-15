@@ -551,8 +551,8 @@ $year=date("Y",$time);
                                     echo "<td>".$rows['Booking_Time']."</td>";
                                     echo "<td>".$rows['Contact_Number']."</td>";
                                     echo "<td>".$rows['GROUP_CONCAT(table_booking.Table_ID)']."</td>";
-                                    echo "<td><button class='btnd'><a href='EditBooking.php?id=".$rows['Booking_ID']."'>Edit</a></button></td>";
-                                    echo "<td><button class='btnd'><a href='DeleteBooking.php?id=".$rows['Booking_ID']."'>Complete</a></button></td>";
+                                    echo "<td><button class='btnd' formaction='EditBooking.php?id=".$rows['Booking_ID']."'>Edit</button></td>";
+                                    echo "<td><button class='btnd' formaction='DeleteBooking.php?id=".$rows['Booking_ID']."'>Complete</button></td>";
                                     echo "</tr>";
 			}
                         
