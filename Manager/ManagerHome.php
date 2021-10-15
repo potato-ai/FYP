@@ -1,5 +1,15 @@
 <?php
 include "ManagerHeader.php";
+include "connectdb.php";
+if(isset($_SESSION['User_ID'])) {
+    $sql = "SELECT Name FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
+    $result = mysqli_query($conn,$sql);
+    if(mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_assoc($result);
+        $row['Name'];
+        
+        
+    }
 ?>
 
 <!DOCTYPE html>
@@ -230,13 +240,13 @@ $result=mysqli_query($conn,$sql);
             </div>
 
             <div class="card">
-                <img src="../image/tableManagement.jpg" alt="card backgroud" class="card-img">
-                <h1>Table Management</h1>
-                <p class="about">
-                    Edit the amount of table
-                </p>
-                <a href="TableManagement.php"><div class="btn">Table Management</div></a>
-            </div>
+                    <img src="../image/generateReport.jpg" alt="card backgroud" class="card-img">
+                    <h1>Generate Report</h1>
+                    <p class="about">
+                        Generate progress report
+                    </p>
+                    <a href="GenerateReportMenu.php"><div class="btn">Generate Report</div></a>
+                </div>
 
 
     </div>
@@ -247,14 +257,7 @@ $result=mysqli_query($conn,$sql);
 
     <section>
         <div class="card-wrapper">
-                <div class="card">
-                    <img src="../image/generateReport.jpg" alt="card backgroud" class="card-img">
-                    <h1>Generate Report</h1>
-                    <p class="about">
-                        Generate progress report
-                    </p>
-                    <a href="GenerateReportMenu.php"><div class="btn">Generate Report</div></a>
-                </div>
+                
     
                 <div class="card">
                     <img src="../image/generateBill.jpg" alt="card backgroud" class="card-img">
@@ -346,3 +349,10 @@ $result=mysqli_query($conn,$sql);
     </section> -->
 </body>
 </html>
+<?php
+}
+else{
+    header("Location: login.php");
+    exit();
+}
+?>
