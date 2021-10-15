@@ -1,5 +1,15 @@
 <?php
 include "ManagerHeader.php";
+include "connectdb.php";
+if(isset($_SESSION['User_ID'])) {
+    $sql = "SELECT Name FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
+    $result = mysqli_query($conn,$sql);
+    if(mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_assoc($result);
+        $row['Name'];
+        
+        
+    }
 ?>
 
 <!DOCTYPE html>
@@ -261,3 +271,10 @@ a{
     <center>
     <a href="ManagerHome.php"><div class="btn3">Back</div></a>
     </center>
+    <?php
+}
+else{
+    header("Location: login.php");
+    exit();
+}
+?>
