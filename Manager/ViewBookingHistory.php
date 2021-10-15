@@ -371,6 +371,22 @@ table {
     box-shadow: none;
 }
 
+
+.btnd {
+            color:white;
+            background-color: gray;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            padding: .5rem 1rem;
+            transition: all .3s;
+            text-align: center;
+
+        }
+.btnd:hover{
+            background-color: rgba(158, 158, 158, 0.87);
+            transition: all .3s;
+        }
+
 button {  
     color: black;  
 } 
@@ -459,8 +475,8 @@ $curdate = date("Y/m/d");
                                     echo "<td>".$rows['Booking_Time']."</td>";
                                     echo "<td>".$rows['Contact_Number']."</td>";
                                     echo "<td>".$rows['GROUP_CONCAT(table_booking.Table_ID)']."</td>";
-                                    echo "<td><button><a href='EditBooking.php?id=".$rows['Booking_ID']."'>Edit</a></button></td>";
-                                    echo "<td><button><a href='DeleteBooking.php?id=".$rows['Booking_ID']."'>Complete</a></button></td>";
+                                    echo "<td><button class='btnd'><a href='EditBooking.php?id=".$rows['Booking_ID']."'>Edit</a></button></td>";
+                                    echo "<td><button class='btnd'><a href='DeleteBooking.php?id=".$rows['Booking_ID']."'>Complete</a></button></td>";
                                     echo "</tr>";
 			}
                         
@@ -535,8 +551,8 @@ $year=date("Y",$time);
                                     echo "<td>".$rows['Booking_Time']."</td>";
                                     echo "<td>".$rows['Contact_Number']."</td>";
                                     echo "<td>".$rows['GROUP_CONCAT(table_booking.Table_ID)']."</td>";
-                                    echo "<td><button><a href='EditBooking.php?id=".$rows['Booking_ID']."'>Edit</a></button></td>";
-                                    echo "<td><button><a href='DeleteBooking.php?id=".$rows['Booking_ID']."'>Complete</a></button></td>";
+                                    echo "<td><button class='btnd'><a href='EditBooking.php?id=".$rows['Booking_ID']."'>Edit</a></button></td>";
+                                    echo "<td><button class='btnd'><a href='DeleteBooking.php?id=".$rows['Booking_ID']."'>Complete</a></button></td>";
                                     echo "</tr>";
 			}
                         
