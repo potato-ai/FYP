@@ -125,7 +125,7 @@ input[name="addtocart"]:active, input[name="search"]:active, .conlanfirm input[t
     box-shadow: none;
 }
 
-textarea[name="remarks"]{
+textarea[name="comments"]{
 	border:0;
     background: none;
 	display: block;
@@ -310,7 +310,7 @@ input[name="addtocart"]{
     border: #E0E0E0 1px solid;
 }
 
-.product-remark{
+.product-comments{
 	margin-top:5px;
 	margin-bottom: 10px;
 	width:100%;
@@ -482,7 +482,7 @@ form.Search::after {
 						echo "<script>alert('Technical Error!');</script>";
 					}
 
-					$sql3 = "SELECT item.Item_ID, item.Item_Name, item.Price, item.Availability, item.Image, order_item.OrderItem_ID, order_item.OrderedItem_Status, order_item.Quantity, order_item.Amount FROM item, order_item WHERE item.Item_ID = order_item.Item_ID ORDER BY order_item.OrderItem_ID;";
+					$sql3 = "SELECT item.Item_ID, item.Item_Name, item.Price, item.Availability, item.Image, order_item.OrderItem_ID, order_item.Comments, order_item.Quantity, order_item.Amount FROM item, order_item WHERE item.Item_ID = order_item.Item_ID ORDER BY order_item.OrderItem_ID;";
 					$result3 = mysqli_query($conn, $sql3);
 					if (mysqli_num_rows($result3) > 0) {
 						while ($rows = mysqli_fetch_array($result3)) {
@@ -608,7 +608,7 @@ form.Search::after {
 								<div class="product-price"><?php echo "RM" . $rows["Price"]; ?>
 									<input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input name="addtocart" type="submit" value="Add to Cart" class="btnAddAction" /></div>
 								<br />
-								<textarea rows=3 id="remarks" name="remarks" class="product-remark" placeholder="Remarks"></textarea>
+								<textarea rows=3 id="comments" name="comments" class="product-comments" placeholder="Comments"></textarea>
 							</div>
 						</form>
 					</div>
@@ -635,7 +635,7 @@ form.Search::after {
 						<div class="product-title"><?php echo $rows["Item_Name"]; ?></div>
 						<div class="product-price"><?php echo "RM" . $rows["Price"]; ?>
 							<input type="text" class="product-quantity" name="quantity" value="1" size="2" readonly/><input type="submit" name="addtocart" value="Add to Cart" class="btnAddAction" style="background:grey; color:black;" disabled/></div>
-						<br /><textarea rows=3 id="remarks" name="remarks" class="product-remark" placeholder="Remarks" readonly></textarea>
+						<br /><textarea rows=3 id="comments" name="comments" class="product-comments" placeholder="Comments" readonly></textarea>
 					</div>
 				</form>
 			</div>
@@ -650,7 +650,7 @@ form.Search::after {
 						<div class="product-title"><?php echo $rows["Item_Name"]; ?></div>
 						<div class="product-price"><?php echo "RM" . $rows["Price"]; ?>
 							<input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" name="addtocart" value="Add to Cart" class="btnAddAction"/></div>
-						<br /><textarea rows=3 id="remarks" name="remarks" class="product-remark" placeholder="Remarks"></textarea>
+						<br /><textarea rows=3 id="comments" name="comments" class="product-comments" placeholder="Comments"></textarea>
 					</div>
 				</form>
 			</div>

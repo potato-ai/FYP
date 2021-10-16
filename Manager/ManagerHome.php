@@ -196,10 +196,9 @@ a{
 
 
 
-
 <?php
 include "connectdb.php";
-$sql="SELECT order_item.Order_ID, order_item.OrderItem_ID, order_item.Item_ID, order_item.Item_Name, order_item.Comments, order_item.OrderedItem_Status, order_item.Quantity, orders.Table_ID from order_item, orders where order_item.Order_ID = orders.Order_ID AND OrderedItem_Status ='Order Cooked';";
+$sql="SELECT order_item.Order_ID, order_item.OrderItem_ID, order_item.Item_ID, order_item.Item_Name, order_item.Comments, order_item.OrderedItem_Status, order_item.Quantity, orders.Table_ID from order_item, orders where order_item.Order_ID = orders.Order_ID AND OrderedItem_Status ='Done Cooking';";
 $result=mysqli_query($conn,$sql);
 
     if(mysqli_num_rows($result)<=0){
@@ -207,7 +206,6 @@ $result=mysqli_query($conn,$sql);
     }
         
     else{
-
 
 ?>
 
@@ -319,7 +317,9 @@ $result=mysqli_query($conn,$sql);
         
                 }
                 else
-                {}
+                {
+                    
+                }
 }
     echo"</div>
         </section>
@@ -329,24 +329,6 @@ $result=mysqli_query($conn,$sql);
 ?>
 
 
-
-
-
-        <!-- <section>
-    <div class="card-wrapper">
-            <div class="card">
-                <p class="about">
-                Ordered Item Status:</td><td>".$rows['OrderedItem_Status']."<br>
-                Item Name:</td><td>".$rows['Item_Name']."<br>
-                Quantity:</td><td>".$rows['Quantity']."<br>
-                Comments:</td><td>".$rows['Comments']."<br>
-                Table:</td><td>".$rows['Table_ID']."<br>
-                </p>
-                <a href="OrderDone.php"><div class="btn">View Menu</div></a>
-            </div>
-    </div>
-
-    </section> -->
 </body>
 </html>
 <?php

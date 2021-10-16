@@ -178,6 +178,25 @@ if(isset($_SESSION['User_ID'])) {
     .card:nth-child(6){
         animation:fadeIn .5s 0.5s backwards;
     }
+    .card:nth-child(7){
+        animation:fadeIn .5s 0.5s backwards;
+    }
+
+    .card:nth-child(8){
+        animation:fadeIn .5s 0.5s backwards;
+    }
+    .card:nth-child(9){
+        animation:fadeIn .5s 0.5s backwards;
+    }
+    .card:nth-child(10){
+        animation:fadeIn .5s 0.5s backwards;
+    }
+    .card:nth-child(11){
+        animation:fadeIn .5s 0.5s backwards;
+    }
+    .card:nth-child(12){
+        animation:fadeIn .5s 0.5s backwards;
+    }
 
     .card:hover{
         transform: scale(0.9);
