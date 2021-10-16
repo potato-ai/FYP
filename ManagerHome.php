@@ -283,7 +283,7 @@ include "connectdb.php";
         
         </section>
 <?php
-$sql="SELECT order_item.Order_ID, order_item.OrderItem_ID, order_item.Item_ID, order_item.Item_Name, order_item.Comments, order_item.OrderedItem_Status, order_item.Quantity, orders.Table_ID from order_item, orders where order_item.Order_ID = orders.Order_ID AND OrderedItem_Status ='Order Cooked';";
+$sql="SELECT order_item.Order_ID, order_item.OrderItem_ID, order_item.Item_ID, order_item.Item_Name, order_item.Comments, order_item.OrderedItem_Status, order_item.Quantity, orders.Table_ID from order_item, orders where order_item.Order_ID = orders.Order_ID AND OrderedItem_Status ='Done Cooking';";
 $result=mysqli_query($conn,$sql);
 
     if(mysqli_num_rows($result)<=0){
@@ -304,7 +304,7 @@ $result=mysqli_query($conn,$sql);
     <div class='card-wrapper'>";
                 
     while($rows=mysqli_fetch_array($result)){
-        if ($rows['OrderedItem_Status']== 'Order Cooked'){
+        if ($rows['OrderedItem_Status']== 'Done Cooking'){
         echo"
         <div class='card'>
         <center>
