@@ -13,8 +13,8 @@ $sql="Delete from order_item where OrderItem_ID='".$OrderItem_ID."' AND OrderedI
 $result = mysqli_query($conn,$sql);
 
 if (mysqli_affected_rows($conn)<=0){
-    echo $sql;
-    //echo die('<script>alert("The ordered item cannot be cancel!");window.history.go(-1);</script>');
+    
+    echo die('<script>alert("The ordered item cannot be cancel!");window.history.go(-1);</script>');
 }
 
 else{
