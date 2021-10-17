@@ -429,9 +429,9 @@ table {
 <body>
 <div class="img">
 <div class="text">
-        <span class="border">
-            Edit Menu Details
-        </span>
+        
+        <h2>Edit Menu Details</h2>
+        
 </div>
 </div>
 <section class="section section-light">
