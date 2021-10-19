@@ -1,6 +1,8 @@
 <?php
 $OrderItem_ID=$_GET['OrderItem_ID'];
+
 include "connectdb.php";
+
 $sql1="Select Order_ID from order_item where OrderItem_ID = '".$OrderItem_ID."';";
 $result1=mysqli_query($conn,$sql1);
 
@@ -25,7 +27,7 @@ $result2=mysqli_query($conn,$sql2);
 if(mysqli_num_rows($result2)<=0){
    $sql3="Delete from orders where Order_ID = '".$order_id."';";
     mysqli_query($conn,$sql3);
-    $sql4="Update tables SET Table_Status = 'Free';";
+    $sql4="Update tables SET Table_Status='Free';";
     mysqli_query($conn,$sql4);
     echo "<script>alert('The ordered items is removed!');window.history.go(-1);</script>";
 }
