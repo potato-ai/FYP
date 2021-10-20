@@ -75,6 +75,9 @@ $sql="Update orders SET ".
 
 $result=mysqli_query($conn,$sql);
 
+$sqlorderstatus = "UPDATE order_item SET OrderedItem_Status = 'Order Completed' WHERE Order_ID='".$order_id."'";
+$resultOrder=mysqli_query($conn,$sqlorderstatus);
+
 
 if(mysqli_affected_rows($conn)<=0){
 "<script>alert('The data is not stored!');window.history.go(-1);</script>";
