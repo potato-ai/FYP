@@ -15,7 +15,7 @@ if (!empty($_POST['table_id'])) {
   }
 
   $sql1 = "Update tables SET " .
-    "Table_Status = 'Available' " .
+    "Table_Status = 'Free' " .
     "WHERE Table_ID NOT IN(".$checked.") AND NOT Table_Status = 'Occupied';";
   mysqli_query($conn, $sql1);
   if (mysqli_affected_rows($conn) > 0) {
@@ -25,7 +25,7 @@ if (!empty($_POST['table_id'])) {
 
 } else {
   $sql2="Update tables SET " .
-  "Table_Status = 'Available' " .
+  "Table_Status = 'Free' " .
   "WHERE NOT Table_Status = 'Occupied';";
   mysqli_query($conn,$sql2);
   if(mysqli_affected_rows($conn)>0){

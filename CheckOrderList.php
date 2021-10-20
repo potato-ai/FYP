@@ -392,7 +392,7 @@ body{
     <div id="container-left">
         <center>
         <h1>Order List</h1>
-        <form name="bill" action="PayBill.php" method="post">
+        <form name="CheckOrderList" action="PayBill.php" method="post">
             <?php
             include "connectdb.php";
             $table_id = $_GET['id'];
@@ -446,7 +446,6 @@ body{
                     echo "<td>" . $rows['OrderedItem_Status'] . "</td>";
                     echo "<td>" . $rows['Quantity'] . "</td>";
                     echo "<td>" . $rows['Price'] . "</td>";
-                    
                     echo "<td>" . $rows['Amount'] . "</td>";
                     echo "<td><a href='DeleteOrderItem.php?OrderItem_ID=" . $rows['OrderItem_ID'] . "'><center><img src='icon-delete.jpeg' alt='Remove Item'/></center></a></td>";
                     echo "</tr>";
