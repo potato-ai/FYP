@@ -381,7 +381,7 @@ form.Search::after {
 </div>
 </div>
 	<div class="order-details">
-		<form action="ReceiveOrderFormat.php" method="post">
+		<form action="Staff_ReceiveOrderFormat.php" method="post">
 			<table cellpadding="15">
 				<tr>
 					
