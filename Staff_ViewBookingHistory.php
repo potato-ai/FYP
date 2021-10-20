@@ -538,7 +538,7 @@ $year=date("Y",$time);
 
 
 <center>
-<button class="container" style="color:#fdc094"><a href="BookTable.php" style="color:#fdc094;">Book Table</a></button>
+<button class="container" style="color:#fdc094"><a href="Staff_BookTable.php" style="color:#fdc094;">Book Table</a></button>
 <button class="container" style="color:#fdc094"><a href="Staff_TableAvailability.php" style="color:#fdc094;">Table Availability</a></button>
 <button class="container" style="color:#fdc094"><a href="Staff_TableOrder.php" style="color:#fdc094;">Back</a></button>
 </center>
