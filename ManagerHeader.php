@@ -30,7 +30,6 @@ session_start();
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="EditMenu.php">Edit Menu</a></li>
             <li><a class="dropdown-item" href="TableOrder.php">Table Order</a></li>
-            <li><a class="dropdown-item" href="TableManagement.php">Table Management</a></li>
             <li><a class="dropdown-item" href="GenerateReportMenu.php">Generate Report</a></li>
             <li><a class="dropdown-item" href="GenerateBill.php">Generate Bill</a></li>
             <li><a class="dropdown-item" href="ManageUsers.php">Manage Users</a></li>
