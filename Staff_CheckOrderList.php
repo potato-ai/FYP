@@ -452,7 +452,7 @@ body{
                     echo "</tr>";
                 }
             } elseif (mysqli_num_rows($result) <= 0) {
-                die("<script>alert('There are no order!');window.location.href='TableOrder.php';</script>");
+                die("<script>alert('There are no order!');window.location.href='Staff_TableOrder.php';</script>");
             }
                 ?>
                 </table>

@@ -400,7 +400,7 @@ a{
               $image = $rows['Image'];
               ?>
             <div class='card'>
-              <img width='200vw' height='160vw' src="\FYP\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
+              <img width='200vw' height='160vw' src="\FYP/<?php echo $image; ?>" alt="card backgroud" class="card-img">
                   <h1><?php echo $item_name; ?></h1></br>
                     <label class="switch">
                       <input type ="checkbox" name ="item_id[]" value="<?php echo $item_id.',';?>" <?php if($availability == "Available"){echo "checked";}?>>
@@ -436,7 +436,7 @@ a{
                         $image = $rows['Image'];
                         ?>
                       <div class='card'>
-                        <img width='200vw' height='160vw' src="\FYP\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
+                        <img width='200vw' height='160vw' src="\FYP/<?php echo $image; ?>" alt="card backgroud" class="card-img">
                             <h1><?php echo $item_name; ?></h1></br>
                               <label class="switch">
                                 <input type ="checkbox" name ="item_id[]" value="<?php echo $item_id.',';?>" <?php if($availability=="Available"){echo "checked";}?>>
@@ -472,7 +472,7 @@ a{
                                   $image = $rows['Image'];
                                   ?>
                                 <div class='card'>
-                                  <img width='200vw' height='160vw' src="\FYP\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
+                                  <img width='200vw' height='160vw' src="\FYP/<?php echo $image; ?>" alt="card backgroud" class="card-img">
                                       <h1><?php echo $item_name; ?></h1></br>
                                         <label class="switch">
                                           <input type ="checkbox" name ="item_id[]" value="<?php echo $item_id.',';?>" <?php if($availability=="Available"){echo "checked";}?>>

@@ -236,11 +236,10 @@ input[name="addtocart"]{
 
 .btnAddAction {
     padding: 5px 10px;
-    margin-left: 5px;
     background-color: #efefef;
     border: #E0E0E0 1px solid;
     color: #211a1a;
-    float: right;
+	margin-top: 10px;
     text-decoration: none;
     border-radius: 3px;
     cursor: pointer;
@@ -253,7 +252,7 @@ input[name="addtocart"]{
 .product-item {
 	float: left;
 	background: #ffffff;
-	margin: 30px 30px 15px 0px;
+	margin: 30px 30px 0px 20px;
 	border: #E0E0E0 1px solid;
 }
 
@@ -522,7 +521,7 @@ form.Search::after {
 	?>
 	
 	<div id="shopping-cart">
-		<div class="txt-heading">Order Cart</div>
+		<div class="txt-heading" style="margin-top:6px;">Order Cart</div>
 		<?php 
 		if (isset($_SESSION["shopping_item"])) {
 			$total_quantity = 0;
@@ -544,7 +543,7 @@ form.Search::after {
 
 					?>
 						<tr>
-							<td><img src="\FYP\Manager/<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
+							<td><img src="\FYP/<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
 							<td><?php echo $item["comments"]; ?></td>
 							<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
 							<td style="text-align:right;"><?php echo "RM " . $item["price"]; ?></td>
@@ -602,11 +601,11 @@ form.Search::after {
 
 					<div class="search-item">
 						<form method="post" action="FoodOrder.php?action=add&id=<?php echo $rows["Item_ID"]; ?>">
-							<div class="product-image"><img src="\FYP\Manager/<?php echo $rows["Image"]; ?>" width="250px" height="155px"></div>
+							<div class="product-image"><img src="\FYP/<?php echo $rows["Image"]; ?>" width="250px" height="155px"></div>
 							<div class="product-tile-footer">
 								<div class="product-title"><?php echo $rows["Item_Name"]; ?></div>
 								<div class="product-price"><?php echo "RM" . $rows["Price"]; ?>
-									<input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input name="addtocart" type="submit" value="Add to Cart" class="btnAddAction" /></div>
+									<input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input name="addtocart" type="submit" value="Add to Cart" style="padding: 0px;" class="btnAddAction" /></div>
 								<br />
 								<textarea rows=3 id="comments" name="comments" class="product-comments" placeholder="Comments"></textarea>
 							</div>
@@ -630,11 +629,11 @@ form.Search::after {
 		?>
 			<div class="product-item">
 				<form method="post" action="FoodOrder.php?action=add&id=<?php echo $rows["Item_ID"]; ?>">
-					<div class="product-image"><img src="\FYP\Manager/<?php echo $rows["Image"]; ?>" width="250px" height="155px"></div>
+					<div class="product-image"><img src="\FYP/<?php echo $rows["Image"]; ?>" width="250px" height="155px"></div>
 					<div class="product-tile-footer" style= "background:#d00000">
 						<div class="product-title"><?php echo $rows["Item_Name"]; ?></div>
 						<div class="product-price"><?php echo "RM" . $rows["Price"]; ?>
-							<input type="text" class="product-quantity" name="quantity" value="1" size="2" readonly/><input type="submit" name="addtocart" value="Add to Cart" class="btnAddAction" style="background:grey; color:black;" disabled/></div>
+							<input type="text" class="product-quantity" name="quantity" value="1" size="2" readonly/><input type="submit" name="addtocart" value="Add"  class="btnAddAction" style="background:grey; color:black;" disabled/></div>
 						<br /><textarea rows=3 id="comments" name="comments" class="product-comments" placeholder="Comments" readonly></textarea>
 					</div>
 				</form>
@@ -645,11 +644,11 @@ form.Search::after {
 				?>
 			<div class="product-item">
 				<form method="post" action="FoodOrder.php?action=add&id=<?php echo $rows["Item_ID"]; ?>">
-					<div class="product-image"><img src="\FYP\Manager/<?php echo $rows["Image"]; ?>" width="250px" height="155px"></div>
+					<div class="product-image"><img src="\FYP/<?php echo $rows["Image"]; ?>" width="250px" height="155px"></div>
 					<div class="product-tile-footer">
 						<div class="product-title"><?php echo $rows["Item_Name"]; ?></div>
 						<div class="product-price"><?php echo "RM" . $rows["Price"]; ?>
-							<input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" name="addtocart" value="Add to Cart" class="btnAddAction"/></div>
+							<input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" name="addtocart" value="Add" class="btnAddAction"/></div>
 						<br /><textarea rows=3 id="comments" name="comments" class="product-comments" placeholder="Comments"></textarea>
 					</div>
 				</form>
