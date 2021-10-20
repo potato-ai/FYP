@@ -234,7 +234,7 @@ input[type = "button"]:active, input[type = "submit"]:active{
            ?></td></tr>
 
     </table>
-    <tr><td><input type="submit" value="Book"></td><td><a href="ViewBookingHistory.php"><input type="button" value="Back"></a></td> 
+    <tr><td><input type="submit" value="Book"></td><td><a href="Staff_ViewBookingHistory.php"><input type="button" value="Back"></a></td> 
     </form>
 </center>
 </div>

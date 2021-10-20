@@ -16,7 +16,7 @@ if(isset($_SESSION['User_ID'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manager's Service</title>
+    <title>View Booking List</title>
     
     <style>
     body{
@@ -365,7 +365,7 @@ button {
 <div class="img1">
 <div class="text">
         <h2>
-            View Booking History
+            View Booking List
         </h2>
 </div>
 </div>
