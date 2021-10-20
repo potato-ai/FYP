@@ -392,7 +392,7 @@ body{
     <div id="container-left">
         <center>
         <h1>Order List</h1>
-        <form name="bill" action="PayBill.php" method="post">
+        <form name="bill" action="Staff_PayBill.php" method="post">
             <?php
             include "connectdb.php";
             $table_id = $_GET['id'];
