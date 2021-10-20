@@ -355,7 +355,7 @@ a{
 }
     
     .card:nth-child(1){
-        animation:fadeIn .5s .5s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
 
     .card:nth-child(2){
@@ -363,28 +363,28 @@ a{
     }
 
     .card:nth-child(3){
-        animation:fadeIn .5s 1.5s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
     .card:nth-child(4){
-        animation:fadeIn .5s 2s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
     .card:nth-child(5){
-        animation:fadeIn .5s 2.5s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
     .card:nth-child(6){
-        animation:fadeIn .5s 3s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
     .card:nth-child(7){
-        animation:fadeIn .5s 3.5s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
     .card:nth-child(8){
-        animation:fadeIn .5s 4s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
     .card:nth-child(9){
-        animation:fadeIn .5s 4.5s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
     .card:nth-child(10){
-        animation:fadeIn .5s 5s backwards;
+        animation:fadeIn .5s 1s backwards;
     }
 
     .card:hover{
@@ -430,7 +430,7 @@ a{
               $image = $rows['Image'];
               ?>
             <div class='card'>
-              <img width='200vw' height='160vw' src="\FYP\Manager/<?php echo $image; ?>" alt="card backgroud" class="card-img">
+              <img width='200vw' height='160vw' src="\FYP/<?php echo $image; ?>" alt="card backgroud" class="card-img">
                   <h1><?php echo $item_name; ?></h1></br>
                       <h1><?php echo $availability?></h1>
 
