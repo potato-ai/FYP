@@ -527,7 +527,7 @@ $result=mysqli_query($conn, $sql);
     if(mysqli_num_rows($result) > 0)
     {
 
-        echo "<center><h3>Weekly Report Summary in $year</h3></center>";
+        echo "<center><h3>Yearly Report Summary in $year</h3></center>";
 
         echo "<table class='table table-bordered table-striped'>";
         echo "<thead>";
