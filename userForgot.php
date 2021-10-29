@@ -201,11 +201,18 @@ if(!empty($_POST['userEmail']) && !empty($_POST['SecurityQs1']) && !empty($_POST
                                 <button type="submit" class="btn1 mt-3 mb-3" name="submit">Submit</button>
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="col-lg-7">
+                            <input type="button" class="btn1 mt-3 mb-3" onClick="location.href='Login.php'" value='Back'>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
