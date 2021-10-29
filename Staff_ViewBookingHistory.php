@@ -378,6 +378,20 @@ table {
     transform:translateY(0);
     box-shadow: none;
 }
+.btnd {
+            color:white;
+            background-color: gray;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            padding: .5rem 1rem;
+            transition: all .3s;
+            text-align: center;
+
+        }
+.btnd:hover{
+            background-color: rgba(158, 158, 158, 0.87);
+            transition: all .3s;
+        }
 
 button {  
     color: black;  
@@ -449,8 +463,9 @@ $curdate = date("Y/m/d");
                                 echo "<thead>";
                                     echo "<tr>";
                                         echo "<th>Booking ID</th>";
-                                        echo "<th>Customer ID</th>";
+                                        echo "<th>Customer Name</th>";
                                         echo "<th>Booking Date</th>";
+                                        echo "<th>Booking Time</th>";
                                         echo "<th>Contact Number</th>";
                                         echo "<th>Table</th>";
                                         echo "<th>Edit</th>";
@@ -466,8 +481,8 @@ $curdate = date("Y/m/d");
                                     echo "<td>".$rows['Booking_Time']."</td>";
                                     echo "<td>".$rows['Contact_Number']."</td>";
                                     echo "<td>".$rows['GROUP_CONCAT(table_booking.Table_ID)']."</td>";
-                                    echo "<td><a href='EditBooking.php?id=".$rows['Booking_ID']."'><button>Edit</button></a></td>";
-                                    echo "<td><a href='DeleteBooking.php?id=".$rows['Booking_ID']."'><button>Complete</button></a></td>";
+                                    echo "<td><button class='btnd'><a href='EditBooking.php?id=".$rows['Booking_ID']."'>Edit</a></button></td>";
+                                    echo "<td><button class='btnd'><a href='DeleteBooking.php?id=".$rows['Booking_ID']."'>Complete</a></button></td>";
                                     echo "</tr>";
 			}
                         
