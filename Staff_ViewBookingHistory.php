@@ -355,6 +355,7 @@ table {
     align-items: center;
     align-content: center;
 }  
+
 .btn3{
     width:20vw;
     font-family: 'Oleo Script';
@@ -378,6 +379,8 @@ table {
     transform:translateY(0);
     box-shadow: none;
 }
+
+
 .btnd {
             color:white;
             background-color: gray;
@@ -481,8 +484,8 @@ $curdate = date("Y/m/d");
                                     echo "<td>".$rows['Booking_Time']."</td>";
                                     echo "<td>".$rows['Contact_Number']."</td>";
                                     echo "<td>".$rows['GROUP_CONCAT(table_booking.Table_ID)']."</td>";
-                                    echo "<td><button class='btnd'><a href='EditBooking.php?id=".$rows['Booking_ID']."'>Edit</a></button></td>";
-                                    echo "<td><button class='btnd'><a href='DeleteBooking.php?id=".$rows['Booking_ID']."'>Complete</a></button></td>";
+                                    echo "<td><button class='btnd'><a href='Staff_EditBooking.php?id=".$rows['Booking_ID']."'>Edit</a></button></td>";
+                                    echo "<td><button class='btnd'><a href='Staff_DeleteBooking.php?id=".$rows['Booking_ID']."'>Complete</a></button></td>";
                                     echo "</tr>";
 			}
                         
@@ -538,14 +541,14 @@ $year=date("Y",$time);
                 echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
-                                        echo "<th>Booking ID</th>";
-                                        echo "<th>Customer ID</th>";
-                                        echo "<th>Booking Date</th>";
-                                        echo "<th>Booking Time</th>";
-                                        echo "<th>Contact Number</th>";
-                                        echo "<th>Table</th>";
-                                        echo "<th>Edit</th>";
-                                        echo "<th>Delete</th>";
+                                    echo "<th>Booking ID</th>";
+                                    echo "<th>Customer Name</th>";
+                                    echo "<th>Booking Date</th>";
+                                    echo "<th>Booking Time</th>";
+                                    echo "<th>Contact Number</th>";
+                                    echo "<th>Table</th>";
+                                    echo "<th>Edit</th>";
+                                    echo "<th>Delete</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -557,8 +560,8 @@ $year=date("Y",$time);
                                     echo "<td>".$rows['Booking_Time']."</td>";
                                     echo "<td>".$rows['Contact_Number']."</td>";
                                     echo "<td>".$rows['GROUP_CONCAT(table_booking.Table_ID)']."</td>";
-                                    echo "<td><a href='EditBooking.php?id=".$rows['Booking_ID']."'><button>Edit</button></a></td>";
-                                    echo "<td><a href='DeleteBooking.php?id=".$rows['Booking_ID']."'><button>Complete</button></a></td>";
+                                    echo "<td><button class='btnd' formaction='Staff_EditBooking.php?id=".$rows['Booking_ID']."'>Edit</button></td>";
+                                    echo "<td><button class='btnd' formaction='Staff_DeleteBooking.php?id=".$rows['Booking_ID']."'>Complete</button></td>";
                                     echo "</tr>";
 			}
                         
