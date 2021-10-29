@@ -1,4 +1,4 @@
-rtpassword<?php
+<?php
 include "StaffHeader.php";
 include "connectdb.php";
 if(isset($_SESSION['User_ID'])) {
