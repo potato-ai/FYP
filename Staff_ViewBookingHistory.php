@@ -404,7 +404,7 @@ button {
 
 
 <section style="text-align: center;">
-<form action="ViewBookingHistory.php" method="POST">
+<form action="Staff_ViewBookingHistory.php" method="POST">
 
 <div>
 <label for="date">Date Of Booking</label><br>

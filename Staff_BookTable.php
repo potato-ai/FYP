@@ -205,7 +205,7 @@ input[type = "button"]:active, input[type = "submit"]:active{
           <div class="card">
 <center>
     <h1>Table Booking</h1>
-    <form action="InsertBookingRecord.php" method="post">
+    <form action="Staff_InsertBookingRecord.php" method="post">
     <table align="center" class="addfood" cellpadding="5px">
    <tr><th>Customer Name</th><td><input type="text" name="cust_name" require></td>     
    <tr><th>Booking Date</th><td> <input type="date" name="booking_date" require></td></tr>
