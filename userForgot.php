@@ -54,7 +54,7 @@ if(isset($_POST['submit'])){
     }
     
     if(!array_filter($error)){
-        
+
         function validate($data){
             $data = trim($data);
             $data = stripslashes($data);
@@ -206,7 +206,7 @@ if(isset($_POST['submit'])){
                         <div class="form-row">
                             <div class="col-lg-7">
                                 <h4>Re-type Password</h4>
-                                <input type="password" class="form-control my-3 p-3" name = "userrtPassword" placeholder="Password">
+                                <input type="password" class="form-control my-3 p-3" name = "userrtPassword" placeholder="Re-type Password">
                                 <div style="color: red; font-size: 20px;"><?php echo $error['userrtPassword'] ?></div>
                             </div>
                         </div>
