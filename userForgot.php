@@ -1,8 +1,8 @@
 <?php
 include ("connectdb.php");
 session_start();
-$useremail = $SecurityQs1 = $SecurityQs2 = $SecurityQs3 = $userPassword = "";
-$error = array('userEmail'=>"", 'SecurityQs1'=>"", 'SecurityQs2'=>"", 'SecurityQs3'=>"", 'userPassword'=>"");
+$useremail = $SecurityQs1 = $SecurityQs2 = $SecurityQs3 = $userPassword = $userrtPassword = "";
+$error = array('userEmail'=>"", 'SecurityQs1'=>"", 'SecurityQs2'=>"", 'SecurityQs3'=>"", 'userPassword'=>"", 'userrtPassword'=>"");
 
 if(isset($_POST['submit'])){
     if(empty($_POST['userEmail'])){
@@ -26,52 +26,57 @@ if(isset($_POST['submit'])){
         $error['SecurityQs2'] = "Answer is required";
     }
     else{
-        $SecurityQs1 = $_POST['SecurityQs2'];
+        $SecurityQs2 = $_POST['SecurityQs2'];
     }
 
     if(empty($_POST['SecurityQs3'])){
         $error['SecurityQs3'] = "Answer is required";
     }
     else{
-        $SecurityQs1 = $_POST['SecurityQs3'];
+        $SecurityQs3 = $_POST['SecurityQs3'];
     }
     if(empty($_POST['userPassword'])){
         $error['userPassword'] = "New Password is required";
     }
     else{
-        $SecurityQs1 = $_POST['userPassword'];
+        $userPassword = $_POST['userPassword'];
+    }
+
+    if(empty($_POST['userrtPassword'])){
+        $error['userrtPassword'] = "Password is required";
+    }
+    else{
+        $userrtPassword = $_POST['userrtPassword'];
+    }
+
+    if($_POST['userPassword']!==$_POST['userrtPassword']){
+        $error['userrtPassword'] = "Retyped Password isn't identical to Password";
     }
     
     if(!array_filter($error)){
-        $useremail = $SecurityQs1 = $SecurityQs2 = $SecurityQs3 = $userPassword = "";
-    }
-}
-
-if(!empty($_POST['userEmail']) && !empty($_POST['SecurityQs1']) && !empty($_POST['SecurityQs2']) && !empty($_POST['SecurityQs3']) && !empty($_POST['userPassword'])){
-    function validate($data){
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-    $useremail = validate($_POST['userEmail']);
-    $SecurityQs1 = validate($_POST['SecurityQs1']);
-    $a = strtolower($SecurityQs1);
-    $SecurityQs2 = validate($_POST['SecurityQs2']);
-    $b = strtolower($SecurityQs2);
-    $SecurityQs3 = validate($_POST['SecurityQs3']);
-    $c = strtolower($SecurityQs3);
-    $userPassword = validate($_POST['userPassword']);
-    
-
-
-    $sql = "SELECT * FROM user WHERE Email = '$useremail' AND SecurityQs1 = '$a' AND SecurityQs2 = '$b' AND SecurityQs3 = '$c'";
+        
+        function validate($data){
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+        $useremail = validate($_POST['userEmail']);
+        $SecurityQs1 = validate($_POST['SecurityQs1']);
+        $a = strtolower($SecurityQs1);
+        $SecurityQs2 = validate($_POST['SecurityQs2']);
+        $b = strtolower($SecurityQs2);
+        $SecurityQs3 = validate($_POST['SecurityQs3']);
+        $c = strtolower($SecurityQs3);
+        $userPassword = validate($_POST['userPassword']);
+        $userrtPassword = validate($_POST['userrtPassword']);
+        $sql = "SELECT * FROM user WHERE Email = '$useremail' AND SecurityQs1 = '$a' AND SecurityQs2 = '$b' AND SecurityQs3 = '$c'";
     $result = mysqli_query($conn, $sql);
     
     if(mysqli_num_rows($result) === 1){
         $row = mysqli_fetch_assoc($result);
         if($row['Email'] === $useremail && $row['SecurityQs1'] == $a && $row['SecurityQs2'] == $b && $row['SecurityQs3'] == $c){
-                $sql2 = "UPDATE user SET Password ='$userPassword' WHERE Email = '$useremail'";
+                $sql2 = "UPDATE user SET Password ='$userPassword', RetypePassword = '$userrtPassword' WHERE Email = '$useremail'";
                 $results = mysqli_query($conn,$sql2);
                 if ($results){
                    echo "<script>alert('Password Changed')</script>";
@@ -90,8 +95,10 @@ if(!empty($_POST['userEmail']) && !empty($_POST['SecurityQs1']) && !empty($_POST
         echo "<script>alert('Account does not exist or incorrect answers')</script>";
         echo "<script>window.location.href = 'login.php'</script>";
     }
-
+    }
 }
+
+
 
 
 ?>
@@ -198,6 +205,13 @@ if(!empty($_POST['userEmail']) && !empty($_POST['SecurityQs1']) && !empty($_POST
                         </div>
                         <div class="form-row">
                             <div class="col-lg-7">
+                                <h4>Re-type Password</h4>
+                                <input type="password" class="form-control my-3 p-3" name = "userrtPassword" placeholder="Password">
+                                <div style="color: red; font-size: 20px;"><?php echo $error['userrtPassword'] ?></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-lg-7">
                                 <button type="submit" class="btn1 mt-3 mb-3" name="submit">Submit</button>
                             </div>
                         </div>
@@ -211,8 +225,6 @@ if(!empty($_POST['userEmail']) && !empty($_POST['SecurityQs1']) && !empty($_POST
             </div>
         </div>
     </section>
-
-
 
     <!-- Optional JavaScript; choose one of the two! -->
 

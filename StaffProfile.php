@@ -63,7 +63,7 @@ if(isset($_SESSION['User_ID'])) {
         }
 
         if($_POST['password']!==$_POST['rtpassword']){
-            $error['rtpassword'] = "Retyped password isn't identical to Password";
+            $error['rtpassword'] = "Retyped Password isn't identical to Password";
         }
         
         if(empty($_POST['sq1'])){
