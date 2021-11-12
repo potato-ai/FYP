@@ -474,6 +474,7 @@ table {
                                         echo "<th>Availability</th>";
                                         echo "<th>Image</th>";
                                         echo "<th>Edit</th>";
+                                        echo "<th>Delete</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -489,7 +490,8 @@ table {
             <span class='image-preview__default-text'></span>
             </div></td>";
 			echo "<td><a href='EditFood.php?id=".$row['Item_ID']."'<button>Edit</button></a></td>";
-			echo "</tr>";
+            echo "<td><a href='DeleteFood.php?id=".$row['Item_ID']."'<button>Delete</button></a></td>";
+            echo "</tr>";
 			}
 			echo "</table>";
 		?>
