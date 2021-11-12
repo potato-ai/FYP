@@ -26,7 +26,7 @@ mysqli_query($conn, $sql);
 
 		if(mysqli_affected_rows($conn)<=0)
 		{
-            die("<script>alert('Cannot Update Items Record!');</script>");
+        echo("<script>alert('Cannot Update Items Record!');</script>");
         echo "<script>window.location.href='EditFood.php?id=$uid';</script>";
         
 		}
