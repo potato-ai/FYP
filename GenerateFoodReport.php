@@ -455,7 +455,6 @@ $result=mysqli_query($conn, $sql);
     {
         
         echo "<center><h3>Food Report Summary in $year</h3></center>";
-        while($row = mysqli_fetch_array($result)){
         echo "<table class='table table-bordered table-striped'>";
         echo "<thead>";
             echo "<tr>";
@@ -467,8 +466,10 @@ $result=mysqli_query($conn, $sql);
                 echo "<th>Profit Month</th>";
             echo "</tr>";
         echo "</thead>";
-        
         echo "<tbody>";
+        while($row = mysqli_fetch_array($result)){
+        
+        
             echo "<tr>";
                 echo "<td>" . $row['Item_ID'] . "</td>";
                 echo "<td>" . $row['Item_Name'] . "</td>";
@@ -477,8 +478,9 @@ $result=mysqli_query($conn, $sql);
                 echo "<td>" . $row['Total_Amount'] . "</td>";
                 echo "<td>" . $row['Month'] . "</td>";
 echo "</tr>";
+         }
 echo "</table>";
-        }
+        
     }
     else
     {
