@@ -413,7 +413,7 @@ a{
       include "connectdb.php";
 
       $id = $_GET['id'];
-      $sql = "SELECT Item_ID, Item_Name, Availability, Image FROM item WHERE Main_ID = $id;";
+      $sql = "SELECT Item_ID, Item_Name, Availability, Image FROM item WHERE Main_ID = $id AND Display = 'Shown';";
       $result = mysqli_query($conn, $sql);
 
       if (mysqli_num_rows($result) <= 0) {
