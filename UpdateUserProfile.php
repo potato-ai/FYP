@@ -1,6 +1,6 @@
 <?php
 include "connectdb.php";
-$id = $fullname = $email = $phonenumber = $password = $sq1 = $sq2 = $sq3 = "";
+$id = $fullname = $email = $phonenumber = $password = $rtpassword = $sq1 = $sq2 = $sq3 = "";
 $error = array('fullname'=>"", 'email'=>"", 'phonenumber'=>"", 'password'=>"", 'sq1'=>"", 'sq2'=>"", 'sq3'=>"");
 
 if(isset($_POST['update'])){
@@ -41,6 +41,17 @@ if(isset($_POST['update'])){
         $password = $_POST['password'];
     }
 
+    if(empty($_POST['rtpassword'])){
+        $error['rtpassword'] = "Password is required";
+    }
+    else{
+        $rtpassword = $_POST['rtpassword'];
+    }
+
+    if($_POST['password']!==$_POST['rtpassword']){
+        $error['rtpassword'] = "Retyped password isn't identical to Password";
+    }
+
     if(empty($_POST['sq1'])){
         $error['sq1'] = "Security Answer is required";
     }
@@ -65,7 +76,8 @@ if(isset($_POST['update'])){
         $c = strtolower($sq3);
     }
 
-        $sql1 = "UPDATE user SET Name = '$fullname', Email = '$email', PhoneNumber = '$phonenumber',  Password = '$password', SecurityQs1 = '$a', SecurityQs2 = '$b', SecurityQs3 = '$c' WHERE User_ID = '$id'";
+    
+        $sql1 = "UPDATE user SET Name = '$fullname', Email = '$email', PhoneNumber = '$phonenumber',  Password = '$password', RetypePassword = '$rtpassword', SecurityQs1 = '$a', SecurityQs2 = '$b', SecurityQs3 = '$c' WHERE User_ID = '$id'";
         $results = mysqli_query($conn,$sql1);
             if ($results){
                echo "<script>alert('Profile Updated')</script>";

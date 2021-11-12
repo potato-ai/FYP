@@ -2,7 +2,7 @@
 include "ManagerHeader.php";
 include "connectdb.php";
 if(isset($_SESSION['User_ID'])) {
-    $sql = "SELECT Name, Email, PhoneNumber, Position, Password, SecurityQs1, SecurityQs2, SecurityQs3 FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
+    $sql = "SELECT Name, Email, PhoneNumber, Position, Password, RetypePassword, SecurityQs1, SecurityQs2, SecurityQs3 FROM user WHERE User_ID = '{$_SESSION['User_ID']}'";
     $result = mysqli_query($conn,$sql);
     if(mysqli_num_rows($result) > 0){
         $rows = mysqli_fetch_assoc($result);
@@ -19,6 +19,7 @@ if(isset($_SESSION['User_ID'])) {
         $row['PhoneNumber'];
         $row['Position'];
         $row['Password'];
+        $row["RetypePassword"];
         $row['SecurityQs1'];
         $row['SecurityQs2'];
         $row['SecurityQs3'];
@@ -28,8 +29,8 @@ if(isset($_SESSION['User_ID'])) {
 	echo "<script>alert('No data from database!');</script>";
 	die ("<script>window.location.href='ManageUsers.php';</script>");
 	}
-    $fullname = $email = $phonenumber = $password = $sq1 = $sq2 = $sq3 = "";
-    $error = array('fullname'=>"", 'email'=>"", 'phonenumber'=>"", 'password'=>"", 'sq1'=>"", 'sq2'=>"", 'sq3'=>"");
+    $fullname = $email = $phonenumber = $password = $rtpassword = $sq1 = $sq2 = $sq3 = "";
+    $error = array('fullname'=>"", 'email'=>"", 'phonenumber'=>"", 'password'=>"", 'rtpassword'=>"", 'sq1'=>"", 'sq2'=>"", 'sq3'=>"");
 
     if(isset($_POST['update'])){
         if(empty($_POST['fullname'])){
@@ -66,6 +67,17 @@ if(isset($_SESSION['User_ID'])) {
             $password = $_POST['password'];
         }
 
+        if(empty($_POST['rtpassword'])){
+            $error['rtpassword'] = "Password is required";
+        }
+        else{
+            $rtpassword = $_POST['rtpassword'];
+        }
+
+        if($_POST['password']!==$_POST['rtpassword']){
+            $error['rtpassword'] = "Retyped password isn't identical to Password";
+        }
+
         if(empty($_POST['sq1'])){
             $error['sq1'] = "Security Answer is required";
         }
@@ -90,7 +102,8 @@ if(isset($_SESSION['User_ID'])) {
             $c = strtolower($sq3);
         }
 
-            $sql1 = "UPDATE user SET Name = '$fullname', Email = '$email', PhoneNumber = '$phonenumber',  Password = '$password', SecurityQs1 = '$a', SecurityQs2 = '$b', SecurityQs3 = '$c' WHERE User_ID = '$id'";
+        if(!array_filter($error)){
+            $sql1 = "UPDATE user SET Name = '$fullname', Email = '$email', PhoneNumber = '$phonenumber',  Password = '$password', RetypePassword = '$rtpassword', SecurityQs1 = '$a', SecurityQs2 = '$b', SecurityQs3 = '$c' WHERE User_ID = '$id'";
             $results = mysqli_query($conn,$sql1);
                 if ($results){
                    echo "<script>alert('Profile Updated')</script>";
@@ -99,6 +112,7 @@ if(isset($_SESSION['User_ID'])) {
                     //error
                     echo "Query error: ". mysqli_error($conn);// showing the database connection error
                 }
+            }
             
     }//close update if
 
@@ -246,15 +260,27 @@ if(isset($_SESSION['User_ID'])) {
                     <div style="color: red"><?php echo $error['phonenumber']; ?></div>
 				</div>
 			</div>
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+		</div>
+        <br>
+        <div class="row gutters">
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+				<h6 class="mb-2 text-primary">Security Key</h6>
+			</div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="password">Password</label>
-					<input type="password" class="form-control" id="password" name="password" placeholder="Password" style="font-size: 12px;" title="Password is Required" value="<?php echo $row["Password"]?>" required>
+					<input type="password" class="form-control" id="password" name="password" placeholder="Password" style="font-size: 12px;" value="<?php echo $row["Password"]?>" >
                     <div style="color: red"><?php echo $error['password']; ?></div>
 				</div>
 			</div>
-		</div>
-        
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="password">Re-type Password</label>
+					<input type="password" class="form-control" id="rtpassword" name="rtpassword" placeholder="Re-type Password" style="font-size: 12px;" value="<?php echo $row["RetypePassword"]?>" >
+                    <div style="color: red"><?php echo $error['rtpassword']; ?></div>
+				</div>
+			</div>
+        </div>
 		<div class="row gutters">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 				<h6 class="mt-3 mb-2 text-primary">Security Questions</h6>
