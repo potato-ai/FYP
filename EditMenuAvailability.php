@@ -380,7 +380,7 @@ a{
 
       include "connectdb.php";
 
-      $sql = "SELECT Item_ID, Item_Name, Availability, Image FROM item WHERE Main_ID = 1;";
+      $sql = "SELECT Item_ID, Item_Name, Availability, Image FROM item WHERE Main_ID = 1 AND Display = 'Shown';";
       $result = mysqli_query($conn, $sql);
 
       if (mysqli_num_rows($result) <= 0) {
@@ -416,7 +416,7 @@ a{
                                     </section>
 
                                     </div>"; }
-                                    $sql1 = "SELECT Item_ID, Item_Name, Availability, Image FROM item WHERE Main_ID = 2;";
+                                    $sql1 = "SELECT Item_ID, Item_Name, Availability, Image FROM item WHERE Main_ID = 2 AND Display = 'Shown';";
                 $result = mysqli_query($conn, $sql1);
           
                 if (mysqli_num_rows($result) <= 0) {
@@ -453,7 +453,7 @@ a{
                           </section>
                           </div>"; }
 
-                          $sql2 = "SELECT Item_ID, Item_Name, Availability, Image FROM item WHERE Main_ID = 3;";
+                          $sql2 = "SELECT Item_ID, Item_Name, Availability, Image FROM item WHERE Main_ID = 3 AND Display = 'Shown';";
                           $result = mysqli_query($conn, $sql2);
                     
                           if (mysqli_num_rows($result) <= 0) {
