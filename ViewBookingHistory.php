@@ -581,7 +581,6 @@ $year=date("Y",$time);
 
 <center>
 <button class="btn3" style="color:#fdc094" formaction="BookTable.php">Book Table</button>
-<button class="btn3" style="color:#fdc094" formaction="TableAvailability.php">Table Availability</button>
 <button class="btn3" style="color:#fdc094" formaction="TableOrder.php">Back</button>
 </center>
 
