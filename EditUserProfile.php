@@ -20,6 +20,7 @@ if(isset($_SESSION['User_ID'])) {
         $row['Position'];
         $row['Password'];
         $row["RetypePassword"];
+        $row["Salary"];
         $row['SecurityQs1'];
         $row['SecurityQs2'];
         $row['SecurityQs3'];
@@ -29,8 +30,8 @@ if(isset($_SESSION['User_ID'])) {
 	echo "<script>alert('No data from database!');</script>";
 	die ("<script>window.location.href='ManageUsers.php';</script>");
 	}
-    $fullname = $email = $phonenumber = $password = $rtpassword = $sq1 = $sq2 = $sq3 = "";
-    $error = array('fullname'=>"", 'email'=>"", 'phonenumber'=>"", 'password'=>"", 'rtpassword'=>"", 'sq1'=>"", 'sq2'=>"", 'sq3'=>"");
+    $fullname = $email = $phonenumber = $password = $rtpassword = $salary = $sq1 = $sq2 = $sq3 = "";
+    $error = array('fullname'=>"", 'email'=>"", 'phonenumber'=>"", 'password'=>"", 'rtpassword'=>"", 'salary'=>"", 'sq1'=>"", 'sq2'=>"", 'sq3'=>"");
 
     if(isset($_POST['update'])){
         if(empty($_POST['fullname'])){
@@ -103,7 +104,7 @@ if(isset($_SESSION['User_ID'])) {
         }
 
         if(!array_filter($error)){
-            $sql1 = "UPDATE user SET Name = '$fullname', Email = '$email', PhoneNumber = '$phonenumber',  Password = '$password', RetypePassword = '$rtpassword', SecurityQs1 = '$a', SecurityQs2 = '$b', SecurityQs3 = '$c' WHERE User_ID = '$id'";
+            $sql1 = "UPDATE user SET Name = '$fullname', Email = '$email', PhoneNumber = '$phonenumber',  Password = '$password', RetypePassword = '$rtpassword', Salary = '$salary', SecurityQs1 = '$a', SecurityQs2 = '$b', SecurityQs3 = '$c' WHERE User_ID = '$id'";
             $results = mysqli_query($conn,$sql1);
                 if ($results){
                    echo "<script>alert('Profile Updated')</script>";
@@ -117,7 +118,7 @@ if(isset($_SESSION['User_ID'])) {
     }//close update if
 
     if(isset($_POST['cancel'])){
-        echo "<script>window.location.href = 'ManagerHome.php'</script>";
+        echo "<script>window.location.href = 'ManageUsers.php'</script>";
     }
 
     
@@ -258,6 +259,13 @@ if(isset($_SESSION['User_ID'])) {
 					<label for="phone">Phone</label>
 					<input type="text" class="form-control" id="phone" name="phonenumber" placeholder="Enter phone number" style="font-size: 12px;" pattern="(01)[0-9]{8,9}$" title="Example: 0123456789/01234567890" value="<?php echo $row["PhoneNumber"]?>" required>
                     <div style="color: red"><?php echo $error['phonenumber']; ?></div>
+				</div>
+			</div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="salary">Salary</label>
+					<input type="number" class="form-control" id="salary" name="salary" placeholder="Enter salary" style="font-size: 12px;" title="Salary is Required" value="<?php echo $row["Salary"]?>" required>
+                    <div style="color: red"><?php echo $error['salary']; ?></div>
 				</div>
 			</div>
 		</div>
